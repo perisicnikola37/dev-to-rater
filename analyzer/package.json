@@ -3,6 +3,19 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "author": "Nikola Perišić <perisicnikola37@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/perisicnikola37/dev-to-rater",
+  "keywords": [
+  "dev.to",
+  "post",
+  "content",
+  "post_rater"
+  ]
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,8 +26,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "audit": "npm audit --audit-level=moderate",
-    "lint-staged": "lint-staged",
-    "publish": "git tag -a v$npm_package_version -m \"Release\" && git push origin --tags"
+    "lint-staged": "lint-staged"
   },
   "husky": {
     "hooks": {
