@@ -1,20 +1,20 @@
 // components/DevToPostAnalyzer.tsx
-import React from "react";
-import useFetchHTMLContent from "./hooks/useFetchHTMLContent";
-import { isValidDevToLink } from "./utils/globals";
-import logo from "./assets/logo.webp";
+import React from 'react'
+import useFetchHTMLContent from './hooks/useFetchHTMLContent'
+import { isValidDevToLink } from './utils/globals'
+import logo from './assets/logo.webp'
 
 const DevToPostAnalyzer: React.FC = () => {
   const inputURL =
-    "https://dev.to/perisicnikola37/new-css-media-queries-syntax-45og";
+    'https://dev.to/perisicnikola37/new-css-media-queries-syntax-45og'
 
-  const isValidURL = isValidDevToLink(inputURL);
+  const isValidURL = isValidDevToLink(inputURL)
 
   const { content, loading, error } = useFetchHTMLContent(
-    isValidURL ? inputURL : ""
-  );
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+    isValidURL ? inputURL : '',
+  )
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>{error}</p>
 
   return (
     <div>
@@ -65,7 +65,7 @@ const DevToPostAnalyzer: React.FC = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DevToPostAnalyzer;
+export default DevToPostAnalyzer

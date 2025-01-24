@@ -1,5 +1,7 @@
-import { createRoot } from "react-dom/client";
-import "./styles/main.css";
-import DevToPostAnalyzer from "./DevToPostAnalyzer.tsx";
+/* eslint-disable */
 
-createRoot(document.getElementById("root")!).render(<DevToPostAnalyzer />);
+import { createRoot } from 'react-dom/client'
+import './styles/main.css'
+import DevToPostAnalyzer from './DevToPostAnalyzer.tsx'
+
+createRoot(document.getElementById('root')!).render(<DevToPostAnalyzer />)
