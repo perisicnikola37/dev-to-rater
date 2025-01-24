@@ -4,6 +4,7 @@
 <img src="https://img.shields.io/github/license/perisicnikola37/dev-to-post-rater" alt="GitHub License" />
 <img src="https://img.shields.io/github/issues/perisicnikola37/dev-to-post-rater" alt="GitHub Issues" />
 <img src="https://img.shields.io/github/commit-activity/m/perisicnikola37/dev-to-post-rater" alt="Commit Activity" />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
 <img src="https://github.com/user-attachments/assets/82ae90a3-df52-48a9-9e43-1c8c4f5ceeb9" height="auto" width="450px" />
