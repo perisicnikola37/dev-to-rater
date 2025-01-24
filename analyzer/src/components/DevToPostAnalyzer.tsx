@@ -121,7 +121,7 @@ const DevToPostAnalyzer: React.FC = () => {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip cursor={{ fill: 'rgba(72, 124, 255, 0.5)' }} />
                   <Legend />
                   <Bar dataKey="count" fill="#4FD6FF" />
                 </BarChart>

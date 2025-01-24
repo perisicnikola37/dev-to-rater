@@ -1,4 +1,5 @@
 import Content from '../interfaces/Content'
+import { calculateScore } from './calculator'
 
 export const parseHTMLContent = (htmlString: string): Content => {
   const parser = new DOMParser()
@@ -27,14 +28,14 @@ export const parseHTMLContent = (htmlString: string): Content => {
     }))
     .filter((img) => img.src !== '')
 
-  // Extract links (a elements)
   const links = Array.from(articleBody.querySelectorAll('a'))
     .map((a) => ({
       href: a.href,
       text: a.textContent?.trim() || 'No text',
     }))
     .filter((link) => link.text !== 'No text')
-  const score = 7.6
+
+  const score = calculateScore(headings, paragraphs, images, links)
 
   return { headings, paragraphs, images, links, score }
 }

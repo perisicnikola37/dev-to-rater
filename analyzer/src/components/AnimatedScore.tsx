@@ -2,14 +2,9 @@ import React from 'react'
 import { useSpring, animated, SpringValue } from 'react-spring'
 import { AnimatedScoreProps } from '../interfaces/AnimatedScoreProps'
 
-interface Props extends AnimatedScoreProps {
-  textColor?: string
-  containerClassName?: string
-}
-
-const AnimatedScore: React.FC<Props> = ({
+const AnimatedScore: React.FC<AnimatedScoreProps> = ({
   score = 0,
-  textColor = 'text-blue-500',
+  textColor = 'text-blue-400',
   containerClassName = 'flex flex-col items-center mt-10',
 }) => {
   const animatedScore: { number: SpringValue<number> } = useSpring({
