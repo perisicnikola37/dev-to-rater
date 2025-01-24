@@ -1,7 +1,7 @@
 {
-  "name": "dev-to-post-analyzer",
+  "name": "dev-to-rater",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,9 @@
     "spell": "npx cspell '**' --quiet",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "audit": "npm audit --audit-level=moderate"
+    "audit": "npm audit --audit-level=moderate",
+    "lint-staged": "lint-staged",
+    "publish": "git tag -a v$npm_package_version -m \"Release\" && git push origin --tags"
   },
   "husky": {
     "hooks": {
