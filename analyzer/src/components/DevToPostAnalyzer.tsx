@@ -35,7 +35,6 @@ const DevToPostAnalyzer: React.FC = () => {
     ? [
         { name: 'Headings', count: content.headings.length },
         { name: 'Paragraphs', count: content.paragraphs.length },
-        { name: 'Images', count: content.images.length },
         { name: 'Links', count: content.links.length },
       ]
     : []
