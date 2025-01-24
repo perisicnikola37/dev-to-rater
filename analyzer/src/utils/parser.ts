@@ -39,7 +39,7 @@ export const parseHTMLContent = (htmlString: string): Content => {
   const charactersCount =
     totalHeadingChars + totalParagraphChars + totalLinkChars
 
-  const score = calculateScore(headings, paragraphs, links, charactersCount)
+  const score = calculateScore(headings, paragraphs, charactersCount)
 
   return { headings, paragraphs, links, score }
 }
