@@ -6,4 +6,5 @@ export default interface Content {
   paragraphs: string[]
   images: Image[]
   links: Link[]
+  score: GLfloat
 }

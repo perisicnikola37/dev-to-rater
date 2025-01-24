@@ -13,7 +13,7 @@
     "**/*.gif",
     "**/*.svg"
   ],
-  "words": [],
+  "words": ["Nikola", "Perišić"],
   "cache": {
     "useCache": true,
     "cacheLocation": "./.cspell/.cspellcache",

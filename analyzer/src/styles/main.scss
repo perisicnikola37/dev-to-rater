@@ -1,12 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #00072b;
+  color: #fff;
 }
 
 .container {
@@ -17,4 +13,16 @@ body {
 
 a {
   text-decoration: none;
+  color: #fff;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  color: #fff;
 }
