@@ -9,6 +9,7 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "preview": "vite preview",
+    "spell": "npx cspell \"**\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -16,7 +17,8 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": "lint-staged",
-      "commit-msg": "npx --no-install commitlint --edit $1"
+      "commit-msg": "npx --no-install commitlint --edit $1",
+      "spelling-errors": "npx cspell \"**\""
     }
   },
   "lint-staged": {
@@ -40,6 +42,7 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "cspell": "^8.17.2",
     "eslint": "^9.18.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
