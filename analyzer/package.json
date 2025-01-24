@@ -11,14 +11,16 @@
     "preview": "vite preview",
     "spell": "npx cspell \"**\"",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "audit": "npm audit --audit-level=moderate"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": "lint-staged",
       "commit-msg": "npx --no-install commitlint --edit $1",
-      "spelling-errors": "npx cspell \"**\""
+      "spelling-errors": "npx cspell \"**\"",
+      "audit": "npm audit --audit-level=moderate"
     }
   },
   "lint-staged": {
