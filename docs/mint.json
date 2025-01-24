@@ -1,0 +1,60 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Starter Kit",
+  "logo": {
+    "dark": "/logo/logo.ico",
+    "light": "/logo/logo.ico"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#5795ff",
+    "light": "#5795ff",
+    "dark": "#5795ff",
+    "anchors": {
+      "from": "#010F58",
+      "to": "#5795ff"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "perisicnikola37@gmail.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Repository",
+    "url": "https://github.com/perisicnikola37/dev-to-rater"
+  },
+  "tabs": [
+    {
+      "name": "Code reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["introduction", "development", "versions"]
+    },
+    {
+      "group": "Core logic",
+      "pages": [
+        "essentials/paragraphs",
+        "essentials/emoji",
+        "essentials/images"
+      ]
+    },
+    {
+      "group": "Code",
+      "pages": ["api-reference/introduction"]
+    },
+    {
+      "group": "Core logic files",
+      "pages": ["api-reference/endpoint/get"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/perisicnikola37/dev-to-rater",
+    "linkedin": "https://www.linkedin.com/in/perisicnikola37/"
+  }
+}
