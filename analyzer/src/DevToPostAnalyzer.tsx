@@ -2,6 +2,7 @@
 import React from "react";
 import useFetchHTMLContent from "./hooks/useFetchHTMLContent";
 import { isValidDevToLink } from "./utils/globals";
+import logo from "./assets/logo.webp";
 
 const DevToPostAnalyzer: React.FC = () => {
   const inputURL =
@@ -18,9 +19,11 @@ const DevToPostAnalyzer: React.FC = () => {
   return (
     <div>
       <h1>Dev.to Post Analyzer</h1>
+      <img height={30} width={30} src={logo} />
       {content && (
         <>
           <h2>Headings</h2>
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
           <ul>
             {content.headings.map((heading, index) => (
               <li key={index}>{heading}</li>
