@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "preview": "vite preview",
-    "spell": "npx cspell \"**\"",
+    "spell": "npx cspell '**' --quiet",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "audit": "npm audit --audit-level=moderate"
@@ -18,15 +18,15 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": "lint-staged",
-      "commit-msg": "npx --no-install commitlint --edit $1",
-      "spelling-errors": "npx cspell \"**\"",
-      "audit": "npm audit --audit-level=moderate"
+      "commit-msg": "npx --no-install commitlint --edit $1"
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,html,css,scss}": [
+      "npm run lint",
       "npm run format",
-      "npm run lint"
+      "npm run spell",
+      "npm run audit"
     ]
   },
   "dependencies": {

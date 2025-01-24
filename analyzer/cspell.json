@@ -1,24 +1,22 @@
 {
-    "version": "0.2",
-    "language": ["en"],
-    "ignorePaths": [
-      "node_modules",
-      "dist",
-      "build",
-      "**/*.min.js",
-      "**/*.min.css",
-      "**/*.jpg",
-      "**/*.jpeg",
-      "**/*.png",
-      "**/*.gif",
-      "**/*.svg"
-    ],
-    "words": [
-    ],
-    "cache": {
-      "useCache": true,
-      "cacheLocation": "./.cspell/.cspellcache",
-      "cacheStrategy": "content"
-    }
+  "version": "0.2",
+  "language": ["en"],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    "**/*.min.js",
+    "**/*.min.css",
+    "**/*.jpg",
+    "**/*.jpeg",
+    "**/*.png",
+    "**/*.gif",
+    "**/*.svg"
+  ],
+  "words": [],
+  "cache": {
+    "useCache": true,
+    "cacheLocation": "./.cspell/.cspellcache",
+    "cacheStrategy": "content"
   }
-  
+}
