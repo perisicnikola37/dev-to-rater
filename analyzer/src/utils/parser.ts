@@ -1,4 +1,5 @@
 import Content from '../interfaces/Content'
+import { calculateScore } from './calculator'
 
 export const parseHTMLContent = (htmlString: string): Content => {
   const parser = new DOMParser()
@@ -18,23 +19,27 @@ export const parseHTMLContent = (htmlString: string): Content => {
     .map((p) => p.textContent?.trim() || '')
     .filter((text) => text !== '')
 
-  const images = Array.from(articleBody.querySelectorAll('img'))
-    .map((img) => ({
-      src: img.src,
-      alt: img.alt || '',
-      width: img.width || 0,
-      height: img.height || 0,
-    }))
-    .filter((img) => img.src !== '')
-
-  // Extract links (a elements)
   const links = Array.from(articleBody.querySelectorAll('a'))
     .map((a) => ({
       href: a.href,
       text: a.textContent?.trim() || 'No text',
     }))
     .filter((link) => link.text !== 'No text')
-  const score = 7.6
 
-  return { headings, paragraphs, images, links, score }
+  const totalHeadingChars = headings.reduce(
+    (acc, heading) => acc + heading.length,
+    0,
+  )
+  const totalParagraphChars = paragraphs.reduce(
+    (acc, paragraph) => acc + paragraph.length,
+    0,
+  )
+  const totalLinkChars = links.reduce((acc, link) => acc + link.text.length, 0)
+
+  const charactersCount =
+    totalHeadingChars + totalParagraphChars + totalLinkChars
+
+  const score = calculateScore(headings, paragraphs, charactersCount)
+
+  return { headings, paragraphs, links, score }
 }
