@@ -5,6 +5,7 @@
     "dark": "/logo/logo.ico",
     "light": "/logo/logo.ico"
   },
+  "theme": "prism",
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#5795ff",
@@ -15,10 +16,12 @@
       "to": "#5795ff"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "perisicnikola37@gmail.com"
+  "modeToggle": {
+    "default": "light"
+  },
+  "topbarLinks": [{
+    "name": "Support",
+    "url": "perisicnikola37@gmail.com"
     }
   ],
   "topbarCtaButton": {
@@ -27,8 +30,8 @@
   },
   "tabs": [
     {
-      "name": "Code reference",
-      "url": "api-reference"
+    "name": "Code reference",
+    "url": "api-reference"
     }
   ],
   "navigation": [
