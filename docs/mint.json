@@ -22,20 +22,16 @@
   "topbarLinks": [{
     "name": "Support",
     "url": "perisicnikola37@gmail.com"
-    }
-  ],
+  }],
   "topbarCtaButton": {
     "name": "Repository",
     "url": "https://github.com/perisicnikola37/dev-to-rater"
   },
-  "tabs": [
-    {
+  "tabs": [{
     "name": "Code reference",
     "url": "api-reference"
-    }
-  ],
-  "navigation": [
-    {
+  }],
+  "navigation": [{
       "group": "Get Started",
       "pages": ["introduction", "development", "versions"]
     },
