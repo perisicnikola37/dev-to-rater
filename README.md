@@ -34,7 +34,7 @@ For detailed documentation, please visit the [Dev.to Rater Documentation](http:/
 5. **Image Alt Text**  
    The tool checks if all images have descriptive alt text. If an image has missing alt text, it will decrease the score.
 
-Detailed calculations core logic can be found here.
+Detailed calculations core logic can be found [here](http://147.79.101.61:3000/api-reference/introduction).
 
 ## Overall Engagement Score Calculation
 
@@ -42,7 +42,18 @@ Once all individual features are evaluated, **Dev.to Rater** calculates the over
 
 **Score Range:**
 
-- **9-10:** Excellent post, highly engaging and optimized for readability and interaction.
+- **9-10:** Outstanding post, highly engaging and optimized for readability and interaction.
 - **7-9:** Good post with minor areas of improvement.
-- **5-7:** Average post, requires some adjustments for readability, engagement, or structure.
+- **5-7:** Average post, requires some adjustments.
 - **<5:** Needs significant improvements in structure, engagement, or clarity to effectively reach the audience.
+
+<div style="margin-top: 40px; text-align: center;">
+    <h2>Top Authors Using Our Tool</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+        <a href="https://dev.to/perisicnikola37" target="_blank" style="display: inline-block;">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFWAUzeVptBNw/profile-displayphoto-shrink_800_800/B4DZSNHQMkHYAc-/0/1737534276890?e=1743638400&v=beta&t=cXqowTbSWLNxCZ9Z67hZRueNC9fowRveMxRsgt4aNX0" 
+                 alt="Nikola Perišić" 
+                 style="border-radius: 50%; width: 40px; height: 40px;" />
+        </a>
+    </div>
+</div>
