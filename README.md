@@ -53,7 +53,7 @@ Once all individual features are evaluated, **Dev.to Rater** calculates the over
     <h2>Top Authors Using Our Tool</h2>
     <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
         <a href="https://dev.to/perisicnikola37" target="_blank" style="display: inline-block;">
-        <img src="https://i.postimg.cc/k4WD66C8/127-modified-1.png" width="80px" height="80px" />
+        <img src="https://i.postimg.cc/k4WD66C8/127-modified-1.png" width="40px" height="40px" />
         </a>
     </div>
 </div>
