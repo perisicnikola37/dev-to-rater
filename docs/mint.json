@@ -46,7 +46,12 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["global/introduction", "global/development", "global/versions"]
+      "pages": [
+        "global/introduction",
+        "global/installation",
+        "global/versions",
+        "global/faq"
+      ]
     },
     {
       "group": "Core logic",
