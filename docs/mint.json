@@ -69,7 +69,11 @@
     },
     {
       "group": "Core logic files",
-      "pages": ["versions/v2/api-reference/endpoint/get"]
+      "pages": [
+        "versions/v2/api-reference/endpoint/paragraph",
+        "versions/v2/api-reference/endpoint/emoji",
+        "versions/v2/api-reference/endpoint/image"
+      ]
     }
   ],
   "footerSocials": {
