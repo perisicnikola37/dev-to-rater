@@ -8,7 +8,7 @@
   "favicon": "/logo.webp",
   "theme": "prism",
   "modeToggle": {
-    "default": "light"
+    "default": "dark"
   },
   "versions": ["v2", "v1"],
   "search": {
