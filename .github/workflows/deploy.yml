@@ -15,25 +15,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Cache dependencies
-      - name: Cache dependencies
+      # Step 2: Cache dependencies (only npm)
+      - name: Cache npm dependencies
         uses: actions/cache@v2
         with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-mintlify-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-
+            ${{ runner.os }}-mintlify-
 
-      # Step 3: Install and build locally
-      - name: Install and build locally
-        run: |
-          cd analyzer
-          npm install
-          npm run build
-
-      # Step 4: SSH into server and deploy
+      # Step 3: SSH into server and deploy
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -43,6 +34,11 @@ jobs:
           script: |
             echo "Navigating to project directory"
             cd ${{ secrets.PROJECT_PATH }}
+
+            # Ensure proper permissions for project files
+            echo "Ensuring correct file permissions..."
+            sudo chown -R $USER:$USER ${{ secrets.PROJECT_PATH }}
+            sudo chmod -R 755 ${{ secrets.PROJECT_PATH }}
 
             # Use nvm to install and use Node.js LTS on the server
             export NVM_DIR="$HOME/.nvm"
@@ -58,21 +54,23 @@ jobs:
             git reset --hard HEAD
 
             echo "Pulling the latest code"
-            git pull origin
+            git pull origin action_workflows
 
             # Kill the process using port 3000 safely
             echo "Ensuring port 3000 is free..."
             npx kill-port 3000 || true
 
-            # Install dependencies
-            echo "Installing dependencies..."
-            npm install
+            # Install Mintlify if not already installed
+            if ! npm list mintlify; then
+              echo "Mintlify not found, installing..."
+              npm install mintlify
+            fi
 
-            # Build the project
-            echo "Building the project..."
-            npm run build
+            # Navigate to the docs folder
+            echo "Navigating to docs folder"
+            cd docs
 
-            # Start the application again in the background
-            echo "Starting the application..."
-            nohup npm run dev > app_output.log 2>&1 &
+            # Run Mintlify dev to start the documentation server
+            echo "Starting Mintlify dev..."
+            nohup mintlify dev > app_output.log 2>&1 &
             echo "Deployment complete."
