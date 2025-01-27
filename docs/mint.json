@@ -39,6 +39,11 @@
   "tabs": [
     {
       "name": "Code reference",
+      "url": "versions/v1/api-reference",
+      "version": "v1"
+    },
+    {
+      "name": "Code reference",
       "url": "versions/v2/api-reference",
       "version": "v2"
     }
@@ -47,17 +52,26 @@
     {
       "group": "Get Started",
       "pages": [
-        "global/introduction",
-        "global/installation",
-        "global/versions",
-        "global/faq",
-        "global/contact",
-        "global/our-team"
+        "versions/v1/global/introduction",
+        "versions/v1/global/installation",
+        "versions/v1/global/versions",
+        "versions/v1/global/faq",
+        "versions/v1/global/contact",
+        "versions/v1/global/our-team",
+        "versions/v2/global/introduction",
+        "versions/v2/global/installation",
+        "versions/v2/global/versions",
+        "versions/v2/global/faq",
+        "versions/v2/global/contact",
+        "versions/v2/global/our-team"
       ]
     },
     {
       "group": "Core logic",
       "pages": [
+        "versions/v1/essentials/paragraphs",
+        "versions/v1/essentials/emoji",
+        "versions/v1/essentials/images",
         "versions/v2/essentials/paragraphs",
         "versions/v2/essentials/emoji",
         "versions/v2/essentials/images"
@@ -65,11 +79,17 @@
     },
     {
       "group": "Code",
-      "pages": ["versions/v2/api-reference/introduction"]
+      "pages": [
+        "versions/v1/api-reference/introduction",
+        "versions/v2/api-reference/introduction"
+      ]
     },
     {
       "group": "Core logic files",
       "pages": [
+        "versions/v1/api-reference/endpoint/paragraph",
+        "versions/v1/api-reference/endpoint/emoji",
+        "versions/v1/api-reference/endpoint/image",
         "versions/v2/api-reference/endpoint/paragraph",
         "versions/v2/api-reference/endpoint/emoji",
         "versions/v2/api-reference/endpoint/image"
