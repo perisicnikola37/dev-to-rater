@@ -24,6 +24,11 @@ export const calculateScore = (
   // Calculate links score
   const linksPenalty = calculateLinksScore(links)
 
+  console.log('Headings Penalty:', headingsPenalty)
+  console.log('Sentences Penalty:', sentencesPenalty.penalty)
+  console.log('Characters Penalty:', charactersPenalty)
+  console.log('Links Penalty:', linksPenalty)
+
   max_score -=
     headingsPenalty +
     sentencesPenalty.penalty +
