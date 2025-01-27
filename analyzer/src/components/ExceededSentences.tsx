@@ -17,7 +17,7 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   return (
     <div>
       <Toaster />
-      {content && (
+      {content && content?.exceeded.exceededSentences.length > 0 && (
         <>
           <h2 className="text-2xl text-center mt-10 mb-10 font-semibold text-gray-800">
             Exceeded Sentences
