@@ -19,7 +19,10 @@
     "openxmlformats",
     "officedocument",
     "spreadsheetml",
-    "sonner"
+    "sonner",
+    "maxy",
+    "canv",
+    "maxx"
   ],
   "cache": {
     "useCache": true,

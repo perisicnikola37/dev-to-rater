@@ -16,6 +16,7 @@ import { DEV_TO_SOURCE } from '../utils/constants/sources'
 import ExceededSentences from './ExceededSentences'
 import { ErrorMessages } from '../utils/messages'
 import { FinalResponse } from '../core/types/FinalResponse'
+import FireworksCanvas from './FireworksCanvas'
 
 const DevToPostAnalyzer: React.FC = () => {
   const [inputURL, setInputURL] = useState('')
@@ -81,6 +82,7 @@ const DevToPostAnalyzer: React.FC = () => {
 
   return (
     <div>
+      {content?.totalScore == 10 && <FireworksCanvas />}
       <div className="min-h-screen flex items-start justify-center mt-16 h-[115vh]">
         <div className="w-full max-w-3xl rounded-3xl h-full flex flex-col items-center">
           <div className="absolute top-5 right-20 flex items-center space-x-4">
