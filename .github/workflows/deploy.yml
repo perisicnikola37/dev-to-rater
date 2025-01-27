@@ -1,0 +1,78 @@
+name: Deploy documentation to a production server
+
+on:
+  push:
+    branches:
+      - v2.x
+
+jobs:
+  test_build_deploy:
+    name: Test, Build, and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Cache dependencies
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
+
+      # Step 3: Install and build locally
+      - name: Install and build locally
+        run: |
+          cd analyzer
+          npm install
+          npm run build
+
+      # Step 4: SSH into server and deploy
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Navigating to project directory"
+            cd ${{ secrets.PROJECT_PATH }}
+
+            # Use nvm to install and use Node.js LTS on the server
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load nvm
+            nvm install --lts
+            nvm use --lts
+
+            # Verify Node.js version
+            echo "Node.js version on server:"
+            node -v
+
+            echo "Resetting any local changes"
+            git reset --hard HEAD
+
+            echo "Pulling the latest code"
+            git pull origin
+
+            # Kill the process using port 3000 safely
+            echo "Ensuring port 3000 is free..."
+            npx kill-port 3000 || true
+
+            # Install dependencies
+            echo "Installing dependencies..."
+            npm install
+
+            # Build the project
+            echo "Building the project..."
+            npm run build
+
+            # Start the application again in the background
+            echo "Starting the application..."
+            nohup npm run dev > app_output.log 2>&1 &
+            echo "Deployment complete."
