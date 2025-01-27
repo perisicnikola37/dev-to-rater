@@ -85,6 +85,13 @@ const DevToPostAnalyzer: React.FC = () => {
         <div className="w-full max-w-3xl rounded-3xl h-full flex flex-col items-center">
           <div className="absolute top-5 right-20 flex items-center space-x-4">
             <a
+              className="border-b border-transparent hover:border-b-1 hover:border-b-blue-500 duration-200"
+              href="http://147.79.101.61:3000"
+              target="_blank"
+            >
+              docs
+            </a>
+            <a
               href="https://github.com/perisicnikola37/dev-to-rater"
               target="_blank"
               rel="noopener noreferrer"
@@ -137,7 +144,7 @@ const DevToPostAnalyzer: React.FC = () => {
 
           {loading && (
             <div className="mt-8 w-full text-center text-blue-500">
-              <p>Loading...</p>
+              <p>Calculating...</p>
             </div>
           )}
 

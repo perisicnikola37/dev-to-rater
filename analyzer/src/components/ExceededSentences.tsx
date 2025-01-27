@@ -17,10 +17,13 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   return (
     <div>
       <Toaster />
-      {content && content?.exceeded.exceededSentences.length > 0 && (
+      {content && (
         <>
-          <h2 className="text-2xl text-center mt-10 mb-10 font-semibold text-gray-800">
+          <h2 className="text-3xl text-center mt-12 mb-8 font-bold text-gray-900">
             Exceeded Sentences
+            {content?.exceeded.exceededSentences.length === 0 && (
+              <p className="mt-4 text-lg text-green-600">You passed 🚀</p>
+            )}
           </h2>
 
           {content?.exceeded.exceededSentences
