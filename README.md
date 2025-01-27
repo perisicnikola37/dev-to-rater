@@ -11,7 +11,7 @@
 
 ## Documentation
 
-For detailed documentation, please visit the [Dev.to Rater Documentation](http://147.79.101.61:3000/).
+For detailed documentation, please visit the [Dev.to Rater Documentation](https://docs.dev-to-rater.xyz).
 
 ## About
 
