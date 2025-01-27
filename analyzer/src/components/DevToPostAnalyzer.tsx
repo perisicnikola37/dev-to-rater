@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import logo from '../assets/logo.webp'
-import { isValidDevToLink } from '../utils/globals'
 import useFetchHTMLContent from '../hooks/useFetchHTMLContent'
 
 import {
@@ -14,6 +13,8 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import AnimatedScore from './AnimatedScore'
+import { isValidProvidedSourceURL } from '../utils/globals'
+import { DEV_TO_SOURCE } from '../utils/constants/sources'
 
 const DevToPostAnalyzer: React.FC = () => {
   const [inputURL, setInputURL] = useState('')
@@ -21,7 +22,7 @@ const DevToPostAnalyzer: React.FC = () => {
 
   const { content, loading, error, fetchHTMLContent } = useFetchHTMLContent()
 
-  const isValidURL = isValidDevToLink(inputURL)
+  const isValidURL = isValidProvidedSourceURL(inputURL, DEV_TO_SOURCE)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,7 +35,7 @@ const DevToPostAnalyzer: React.FC = () => {
   const chartData = content
     ? [
         { name: 'Headings', count: content.headings.length },
-        { name: 'Paragraphs', count: content.paragraphs.length },
+        { name: 'Paragraphs', count: content.sentences.length },
         { name: 'Links', count: content.links.length },
       ]
     : []

@@ -1,23 +1,33 @@
-import { calculateHeadingStructureScore } from '../core/calculateHeadingStructureScore'
-import { calculateParagraphScore } from '../core/calculateParagraphLengthScore'
+import { calculateHeadingsScore } from '../core/implementation/calculateHeadingsScore'
+import { calculateSentencesScore } from '../core/implementation/calculateSentencesScore'
+import { calculateTotalCharactersCountScore } from '../core/implementation/calculateTotalCharactersScore'
+import { POST_MAX_SCORE } from './constants'
 
 export const calculateScore = (
   headings: string[],
-  paragraphs: string[],
-  charactersCount: number,
+  sentences: string[],
+  totalPostCharactersCount: number,
 ): number => {
-  let score = 10
+  let max_score = POST_MAX_SCORE
 
-  const paragraphPenalty = calculateParagraphScore(paragraphs)
-  score -= paragraphPenalty
-
-  const headingPenalty = calculateHeadingStructureScore(
-    headings,
-    charactersCount,
+  // Calculate heading structure score
+  const headingsPenalty = calculateHeadingsScore(headings)
+  // Calculate sentences score
+  const sentencesPenalty = calculateSentencesScore(sentences)
+  // Calculate characters count score
+  const charactersPenalty = calculateTotalCharactersCountScore(
+    totalPostCharactersCount,
   )
-  score -= headingPenalty
 
-  score = Math.max(0, Math.min(score, 10))
+  console.log('Penalties:', {
+    headingsPenalty,
+    sentencesPenalty,
+    charactersPenalty,
+  })
 
-  return score
+  max_score -= headingsPenalty + sentencesPenalty + charactersPenalty
+
+  max_score = Math.max(0, Math.min(max_score, 10))
+
+  return max_score
 }

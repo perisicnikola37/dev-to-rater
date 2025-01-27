@@ -1,22 +1,28 @@
 import Content from '../interfaces/Content'
 import { calculateScore } from './calculator'
+import { ErrorMessages } from './messages'
 
-export const parseHTMLContent = (htmlString: string): Content => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export const parseHTMLContent = (htmlString: any): Content => {
   const parser = new DOMParser()
-  const doc = parser.parseFromString(htmlString, 'text/html')
+  const doc = parser.parseFromString(htmlString.data, 'text/html')
 
   const articleBody = doc.querySelector('.crayons-article__body')
 
   if (!articleBody) {
-    throw new Error('Article body not found in the HTML.')
+    throw new Error(ErrorMessages.PARSE_ERROR)
   }
-
   const headings = Array.from(articleBody.querySelectorAll('h2'))
     .map((h2) => h2.textContent?.trim() || '')
     .filter((text) => text !== '')
 
-  const paragraphs = Array.from(articleBody.querySelectorAll('p'))
-    .map((p) => p.textContent?.trim() || '')
+  const sentences = Array.from(articleBody.querySelectorAll('p'))
+    .flatMap((p) =>
+      (p.textContent?.trim() || '').split(
+        /(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s/,
+      ),
+    )
+    .map((sentence) => sentence.trim())
     .filter((text) => text !== '')
 
   const links = Array.from(articleBody.querySelectorAll('a'))
@@ -30,16 +36,16 @@ export const parseHTMLContent = (htmlString: string): Content => {
     (acc, heading) => acc + heading.length,
     0,
   )
-  const totalParagraphChars = paragraphs.reduce(
+  const totalParagraphChars = sentences.reduce(
     (acc, paragraph) => acc + paragraph.length,
     0,
   )
   const totalLinkChars = links.reduce((acc, link) => acc + link.text.length, 0)
 
-  const charactersCount =
+  const totalPostCharactersCount =
     totalHeadingChars + totalParagraphChars + totalLinkChars
 
-  const score = calculateScore(headings, paragraphs, charactersCount)
+  const score = calculateScore(headings, sentences, totalPostCharactersCount)
 
-  return { headings, paragraphs, links, score }
+  return { headings, sentences, links, score }
 }
