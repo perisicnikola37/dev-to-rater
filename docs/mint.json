@@ -10,7 +10,15 @@
   "modeToggle": {
     "default": "dark"
   },
-  "versions": ["v2", "v1"],
+  "versions": [
+    {
+      "name": "v2",
+      "default": true
+    },
+    {
+      "name": "v1"
+    }
+  ],
   "search": {
     "prompt": "Search"
   },
