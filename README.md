@@ -34,7 +34,7 @@ For detailed documentation, please visit the [Dev.to Rater Documentation](https:
 5. **Image Alt Text**  
    The tool checks if all images have descriptive alt text. If an image has missing alt text, it will decrease the score.
 
-Detailed calculations core logic can be found [here](http://147.79.101.61:3000/api-reference/introduction).
+Detailed calculations core logic can be found [here](https://docs.dev-to-rater.xyz/versions/v1/api-reference/introduction).
 
 ## Overall Engagement Score Calculation
 
@@ -57,6 +57,3 @@ Once all individual features are evaluated, **Dev.to Rater** calculates the over
         </a>
     </div>
 </div>
-
-
-

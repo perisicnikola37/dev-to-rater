@@ -2,9 +2,9 @@ const Footer = () => {
   return (
     <footer>
       <p className="text-center mb-10 mt-10">
-        If you wonder how we measure metrics, visit our documentation{' '}
+        If you wonder how we measure metrics, visit our documentation&nbsp;
         <a
-          href="http://147.79.101.61:3000/versions/v2/essentials/paragraphs"
+          href="https://docs.dev-to-rater.xyz/versions/v2/essentials/paragraphs"
           target="_blank"
           className="text-blue-400"
         >
