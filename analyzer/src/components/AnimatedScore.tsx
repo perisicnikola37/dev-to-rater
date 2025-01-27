@@ -12,7 +12,7 @@ const AnimatedScore: React.FC<AnimatedScoreProps> = ({
     from: { number: 0 },
     reset: true,
     reverse: score < 0,
-    config: { tension: 200, friction: 20 },
+    config: { tension: 100, friction: 20 },
   })
 
   return (
