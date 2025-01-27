@@ -5,7 +5,7 @@ export type PenaltyCalculationFunction2 = (sentences: string[]) => {
   exceededSentences: string[]
 }
 
-export const WORDS_LIMIT_PER_SENTENCE = 20
+export const WORDS_LIMIT_PER_SENTENCE = 25
 
 export const calculateSentencesScore: PenaltyCalculationFunction2 = (
   sentences: string[],

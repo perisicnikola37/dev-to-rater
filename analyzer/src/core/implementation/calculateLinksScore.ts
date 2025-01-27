@@ -14,9 +14,9 @@ export const calculateLinksScore: PenaltyCalculationFunction<
       },
     },
     {
-      condition: links.length > 15,
+      condition: links.length > 20,
       apply: () => {
-        penalty += 1
+        penalty += 0.15
       },
     },
   ]

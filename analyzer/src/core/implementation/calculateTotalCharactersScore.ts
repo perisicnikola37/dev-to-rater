@@ -14,6 +14,7 @@ export const calculateTotalCharactersCountScore: PenaltyCalculationFunction<
       },
     },
     {
+      // Applies a penalty if the reading time exceeds 10 minutes calculated by average (300 WPM) speed
       condition: totalPostCharactersCount > 10000,
       apply: () => {
         penalty += Math.round((totalPostCharactersCount - 10000) * 0.003)

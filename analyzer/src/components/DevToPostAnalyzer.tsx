@@ -83,7 +83,7 @@ const DevToPostAnalyzer: React.FC = () => {
   return (
     <div>
       {content?.totalScore == 10 && <FireworksCanvas />}
-      <div className="min-h-screen flex items-start justify-center mt-16 h-[115vh]">
+      <div className="min-h-screen flex items-start justify-center mt-16 mb-16">
         <div className="w-full max-w-3xl rounded-3xl h-full flex flex-col items-center">
           <div className="absolute top-5 right-20 flex items-center space-x-4">
             <a
@@ -190,6 +190,20 @@ const DevToPostAnalyzer: React.FC = () => {
           )}
         </div>
       </div>
+
+      <footer>
+        <p className="text-center mb-10 mt-10">
+          If you wonder how we measure metrics, visit our documentation{' '}
+          <a
+            href="http://147.79.101.61:3000/versions/v2/essentials/paragraphs"
+            target="_blank"
+            className="text-blue-400"
+          >
+            here
+          </a>
+          .
+        </p>
+      </footer>
     </div>
   )
 }
