@@ -3,7 +3,7 @@ name: Deploy documentation to a production server
 on:
   push:
     branches:
-      - action_workflows
+      - v2.x
 
 jobs:
   test_build_deploy:
@@ -54,7 +54,7 @@ jobs:
             git reset --hard HEAD
 
             echo "Pulling the latest code"
-            git pull origin action_workflows
+            git pull origin
 
             # Kill the process using port 3000 safely
             echo "Ensuring port 3000 is free..."
