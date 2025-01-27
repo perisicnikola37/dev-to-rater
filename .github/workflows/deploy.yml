@@ -3,7 +3,7 @@ name: Deploy documentation to a production server
 on:
   push:
     branches:
-      - v2.x
+      - action_workflows
 
 jobs:
   test_build_deploy:
