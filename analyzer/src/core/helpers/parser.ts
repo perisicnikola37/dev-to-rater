@@ -1,13 +1,15 @@
-import Content from '../interfaces/Content'
+import { DEV_TO_ARTICLE_BODY_CLASS } from '../../utils/constants'
+import { ErrorMessages } from '../../utils/messages'
+import { FinalResponse } from '../types/FinalResponse'
 import { calculateScore } from './calculator'
-import { ErrorMessages } from './messages'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const parseHTMLContent = (htmlString: any): Content => {
+export const parseHTMLContent = (htmlString: any): FinalResponse => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlString.data, 'text/html')
 
-  const articleBody = doc.querySelector('.crayons-article__body')
+  // TODO: Currently, only DEV.to articles are supported
+  const articleBody = doc.querySelector(DEV_TO_ARTICLE_BODY_CLASS)
 
   if (!articleBody) {
     throw new Error(ErrorMessages.PARSE_ERROR)
@@ -45,7 +47,12 @@ export const parseHTMLContent = (htmlString: any): Content => {
   const totalPostCharactersCount =
     totalHeadingChars + totalParagraphChars + totalLinkChars
 
-  const score = calculateScore(headings, sentences, totalPostCharactersCount)
+  const finalResponse: FinalResponse = calculateScore(
+    headings,
+    sentences,
+    totalPostCharactersCount,
+    links,
+  )
 
-  return { headings, sentences, links, score }
+  return finalResponse
 }

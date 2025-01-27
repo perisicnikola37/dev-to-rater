@@ -18,7 +18,8 @@
     "Perišić",
     "openxmlformats",
     "officedocument",
-    "spreadsheetml"
+    "spreadsheetml",
+    "sonner"
   ],
   "cache": {
     "useCache": true,

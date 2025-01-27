@@ -1,22 +1,22 @@
 import { clampPenalty } from '../../utils/globals'
 import { PenaltyCalculationFunction } from '../interface/PenaltyCalculationFunction'
 
-export const calculateTotalCharactersCountScore: PenaltyCalculationFunction<
-  number
-> = (totalPostCharactersCount) => {
+export const calculateLinksScore: PenaltyCalculationFunction<
+  { href: string; text: string }[]
+> = (links: { href: string; text: string }[]) => {
   let penalty = 0
 
   const rules = [
     {
-      condition: totalPostCharactersCount < 750,
+      condition: links.length === 0,
       apply: () => {
-        penalty += 1
+        penalty += 0.2
       },
     },
     {
-      condition: totalPostCharactersCount > 10000,
+      condition: links.length > 15,
       apply: () => {
-        penalty += Math.round((totalPostCharactersCount - 10000) * 0.003)
+        penalty += 1
       },
     },
   ]

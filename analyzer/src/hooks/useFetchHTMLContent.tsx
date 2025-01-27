@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { parseHTMLContent } from '../utils/parser'
 import { HttpMethods } from '../utils/constants/globalWebConstants'
 import createFetchInstance from '../utils/instance/instance'
-import Content from '../interfaces/Content'
 import { ErrorMessages } from '../utils/messages'
+import { parseHTMLContent } from '../core/helpers/parser'
+import { FinalResponse } from '../core/types/FinalResponse'
 
 const useFetchHTMLContent = () => {
-  const [content, setContent] = useState<Content | null>(null)
+  const [content, setContent] = useState<FinalResponse | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
