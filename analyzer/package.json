@@ -16,6 +16,7 @@
       "post_rater"
     ]
   },
+  "homepage": "https://dev-to-rater.xyz",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
