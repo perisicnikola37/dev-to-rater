@@ -43,6 +43,6 @@ export const calculateSentencesScore: PenaltyCalculationFunctionWithES = (
   return {
     // Clamp the penalty in range between 0 and ${POST_MAX_SCORE}
     penalty: clampPenalty(penalty),
-    exceededSentences,
+    exceededSentences: exceededSentences,
   }
 }

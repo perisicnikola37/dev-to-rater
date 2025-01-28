@@ -3,6 +3,7 @@ import useFetchHTMLContent from '../hooks/useFetchHTMLContent'
 import { DEV_TO_SOURCE } from '../utils/constants/sources'
 import { RadarData } from '../interfaces/props/RadarComponentProps'
 import { calculateFullMark, isValidProvidedSourceURL } from '../utils/utilities'
+import RepeatedWords from '../components/RepeatedWords'
 
 const [
   AnimatedScore,
@@ -64,7 +65,7 @@ const DevToPostAnalyzer: React.FC = () => {
   }, [content, fullMark])
 
   const animatedScore = useMemo(() => {
-    return content?.totalScore && <AnimatedScore score={content.totalScore} />
+    return content ? <AnimatedScore score={content.totalScore} /> : null
   }, [content?.totalScore])
 
   return (
@@ -92,6 +93,7 @@ const DevToPostAnalyzer: React.FC = () => {
                 {animatedScore}
                 <RadarChartSection data={data} />
                 <ExceededSentences content={content} />
+                <RepeatedWords content={content} />
               </>
             )}
           </div>

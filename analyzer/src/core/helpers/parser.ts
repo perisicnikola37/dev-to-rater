@@ -27,6 +27,10 @@ export const parseHTMLContent = (htmlString: any): FinalResponse => {
     .map((sentence) => sentence.trim())
     .filter((text) => text !== '')
 
+  const words = sentences
+    .flatMap((sentence) => sentence.split(/\s+/))
+    .filter((word) => word !== '')
+
   const links = Array.from(articleBody.querySelectorAll('a'))
     .map((a) => ({
       href: a.href,
@@ -50,6 +54,7 @@ export const parseHTMLContent = (htmlString: any): FinalResponse => {
   const finalResponse: FinalResponse = calculateScore(
     headings,
     sentences,
+    words,
     totalPostCharactersCount,
     links,
   )

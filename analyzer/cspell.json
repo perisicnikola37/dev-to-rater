@@ -27,7 +27,9 @@
     "lastmod",
     "gifsicle",
     "optipng",
-    "pngquant"
+    "pngquant",
+    "senpai",
+    "sensei"
   ],
   "cache": {
     "useCache": true,

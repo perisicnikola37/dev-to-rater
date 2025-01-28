@@ -3,6 +3,8 @@ import { MdContentCopy } from 'react-icons/md'
 import Collapsible from 'react-collapsible'
 import { Toaster, toast } from 'sonner'
 import { SuccessMessages } from '../utils/constants/messages'
+import { getRandomMessage } from '../utils/utilities'
+import { EXCEEDED_SENTENCES } from '../core/types/MessageCategories'
 
 const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   const WORDS_LIMIT_PER_SENTENCE = 20
@@ -53,13 +55,17 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
       <h2 className="text-3xl text-center mt-12 mb-8 font-bold text-gray-900">
         Exceeded Sentences
         {content.exceeded.exceededSentences.length === 0 && (
-          <p className="mt-4 text-lg text-green-600">You passed 🚀</p>
+          <p className="mt-4 text-lg font-light text-green-600">
+            {getRandomMessage(EXCEEDED_SENTENCES)}
+          </p>
         )}
       </h2>
 
       {content.exceeded.exceededSentences
         .slice(0, MAX_VISIBLE_SENTENCES)
-        .map(renderSentence)}
+        .map((sentence, index) => (
+          <div key={index}>{renderSentence(sentence)}</div>
+        ))}
 
       {content.exceeded.exceededSentences.length > MAX_VISIBLE_SENTENCES && (
         <Collapsible
@@ -71,7 +77,9 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
         >
           {content.exceeded.exceededSentences
             .slice(MAX_VISIBLE_SENTENCES)
-            .map(renderSentence)}
+            .map((sentence, index) => (
+              <div key={index}>{renderSentence(sentence)}</div>
+            ))}
         </Collapsible>
       )}
     </div>
