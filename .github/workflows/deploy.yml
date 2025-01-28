@@ -1,14 +1,20 @@
-name: Deploy documentation to a production server
+name: Deploy documentation
 
 on:
   push:
     branches:
       - v2.x
+  pull_request:
+    branches:
+      - v2.x
+    types:
+      - closed
 
 jobs:
   test_build_deploy:
     name: Test, Build, and Deploy
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/v2.x'
 
     steps:
       # Step 1: Checkout code
@@ -39,16 +45,6 @@ jobs:
             echo "Ensuring correct file permissions..."
             sudo chown -R $USER:$USER ${{ secrets.PROJECT_PATH }}
             sudo chmod -R 755 ${{ secrets.PROJECT_PATH }}
-
-            # Use nvm to install and use Node.js LTS on the server
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load nvm
-            nvm install --lts
-            nvm use --lts
-
-            # Verify Node.js version
-            echo "Node.js version on server:"
-            node -v
 
             echo "Resetting any local changes"
             git reset --hard HEAD
