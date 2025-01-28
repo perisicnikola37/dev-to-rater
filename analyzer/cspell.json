@@ -24,7 +24,10 @@
     "canv",
     "maxx",
     "urlset",
-    "lastmod"
+    "lastmod",
+    "gifsicle",
+    "optipng",
+    "pngquant"
   ],
   "cache": {
     "useCache": true,
