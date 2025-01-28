@@ -49,3 +49,11 @@ Once all individual features are evaluated, **Dev.to Rater** calculates the over
 - **7-9:** Good post with minor areas of improvement.
 - **5-7:** Average post, requires some adjustments.
 - **<5:** Needs significant improvements in structure, engagement, or clarity to effectively reach the audience.
+
+<hr/>
+
+### Contributors
+
+<a href="https://github.com/perisicnikola37/dev-to-rater/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=perisicnikola37/dev-to-rater" />
+</a>
