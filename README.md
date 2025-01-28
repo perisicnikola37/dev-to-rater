@@ -8,6 +8,8 @@
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
+<img height="430px" src="https://i.postimg.cc/V6fXnGLR/screencapture-localhost-5173-2025-01-28-08-21-29-1.png" />
+
 ## Documentation
 
 For detailed documentation, please visit the [Dev.to Rater Documentation](https://docs.dev-to-rater.xyz).
