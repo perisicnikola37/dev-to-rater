@@ -1,0 +1,17 @@
+export const IGNORED_FREQUENT_WORDS = [
+  'the',
+  'and',
+  'a',
+  'of',
+  'to',
+  'in',
+  'on',
+  'for',
+  'with',
+  'as',
+  'an',
+  'at',
+  'by',
+  'this',
+  'that',
+]

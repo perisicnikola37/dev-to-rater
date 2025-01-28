@@ -2,6 +2,8 @@ import { FinalResponse } from '../core/types/FinalResponse'
 import { SourceType } from '../core/types/SourceType'
 import { POST_MAX_SCORE } from './constants/configuration'
 import { ErrorMessages } from './constants/messages'
+import messages from '../core/data/messages.json'
+import { MessageCategories } from '../core/types/MessageCategories'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,
@@ -33,4 +35,15 @@ export const calculateFullMark = (content: FinalResponse) => {
 
   const average = adjustedTotalItems / 3
   return Math.min(average, 10)
+}
+
+export const getRandomMessage = (category: MessageCategories): string => {
+  const categoryMessages = messages[category]
+
+  if (categoryMessages && categoryMessages.length > 0) {
+    const randomIndex = Math.floor(Math.random() * categoryMessages.length)
+    return categoryMessages[randomIndex]
+  }
+
+  return ''
 }
