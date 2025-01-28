@@ -107,5 +107,10 @@
   "footerSocials": {
     "github": "https://github.com/perisicnikola37/dev-to-rater",
     "linkedin": "https://www.linkedin.com/in/perisicnikola37/"
+  },
+  "analytics": {
+    "ga4": {
+      "measurementId": "G-P6JEX3V8ST"
+    }
   }
 }
