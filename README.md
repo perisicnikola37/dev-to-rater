@@ -1,4 +1,5 @@
-<h1>Dev.to Rater</h1>
+# <img src="https://github.com/user-attachments/assets/1713e555-fcf3-43fe-acd7-36b52dd6d546" alt="Dev.to Rater" height="30"/> Dev.to Rater 
+
 <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
 <img src="https://img.shields.io/github/stars/perisicnikola37/dev-to-post-rater" alt="GitHub Repo stars" />
 <img src="https://img.shields.io/github/license/perisicnikola37/dev-to-post-rater" alt="GitHub License" />
@@ -6,8 +7,6 @@
 <img src="https://img.shields.io/github/commit-activity/m/perisicnikola37/dev-to-post-rater" alt="Commit Activity" />
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
-
-<img src="https://github.com/user-attachments/assets/82ae90a3-df52-48a9-9e43-1c8c4f5ceeb9" height="auto" width="450px" />
 
 ## Documentation
 
@@ -34,7 +33,7 @@ For detailed documentation, please visit the [Dev.to Rater Documentation](https:
 5. **Image Alt Text**  
    The tool checks if all images have descriptive alt text. If an image has missing alt text, it will decrease the score.
 
-Detailed calculations core logic can be found [here](https://docs.dev-to-rater.xyz/versions/v1/api-reference/introduction).
+Detailed calculations logic can be found [here](https://docs.dev-to-rater.xyz/versions/v2/api-reference/introduction).
 
 ## Overall Engagement Score Calculation
 
@@ -46,14 +45,3 @@ Once all individual features are evaluated, **Dev.to Rater** calculates the over
 - **7-9:** Good post with minor areas of improvement.
 - **5-7:** Average post, requires some adjustments.
 - **<5:** Needs significant improvements in structure, engagement, or clarity to effectively reach the audience.
-
-<hr />
-
-<div align="center">
-    <h2>Top Authors Using Our Tool</h2>
-    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-        <a href="https://dev.to/perisicnikola37" target="_blank" style="display: inline-block;">
-        <img src="https://i.postimg.cc/k4WD66C8/127-modified-1.png" width="40px" height="40px" />
-        </a>
-    </div>
-</div>
