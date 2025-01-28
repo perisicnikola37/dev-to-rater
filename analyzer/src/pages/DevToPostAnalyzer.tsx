@@ -24,7 +24,7 @@ const [
   'ExceededSentences',
   'Footer',
   'SubHeader',
-].map((component) => React.lazy(() => import(`../components/${component}`)))
+].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
 
 const SuspenseWrapper = ({
   children,

@@ -12,6 +12,7 @@ const SubHeader = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View the documentation"
+        title="View the documentation"
       >
         docs
       </a>
@@ -19,10 +20,11 @@ const SubHeader = () => {
         href={REPOSITORY_URL}
         target="_blank"
         rel="noopener noreferrer"
+        title="Visit the GitHub repository"
         aria-label="Visit GitHub repository"
       >
         <img
-          alt="GitHub Repo stars"
+          alt="GitHub repository stars badge"
           src="https://img.shields.io/github/stars/perisicnikola37/dev-to-rater"
         />
       </a>

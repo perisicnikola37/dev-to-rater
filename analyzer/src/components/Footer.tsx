@@ -10,6 +10,8 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400"
+          title="View the core logic documentation"
+          aria-label="View the core logic documentation"
         >
           here.
         </a>
