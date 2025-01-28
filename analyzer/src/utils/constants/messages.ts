@@ -8,6 +8,11 @@ export enum ErrorMessages {
   NoDataToExportTitle = 'NoDataToExportTitle',
   FetchFailed = 'FetchFailed',
   ServiceDown = 'Service is down at the moment. Please try again later.',
+  ParseError = 'Error parsing the HTML content.',
+  FetchError = 'Error fetching post.',
+  PostNotFound = 'Post not found. Please check the URL and try again.',
+  InvalidURL = 'Invalid URL. That source is not supported yet.',
+  RequestFailed = 'Request failed with status: ',
 }
 
 export enum SuccessMessages {
@@ -17,6 +22,8 @@ export enum SuccessMessages {
   OtpUpdateSuccess = 'OTP updated successfully.',
   CopiedToClipboard = 'Copied to clipboard.',
   FiltersCleaned = 'Filters have been cleared successfully.',
+  FetchSuccess = 'Post fetched successfully.',
+  TextCopied = 'TextCopied',
 }
 
 export enum FormValidationErrorMessages {

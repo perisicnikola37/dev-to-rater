@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSpring, animated, SpringValue } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import { AnimatedScoreProps } from '../interfaces/props/AnimatedScoreProps'
 
 const AnimatedScore: React.FC<AnimatedScoreProps> = ({
@@ -7,7 +7,7 @@ const AnimatedScore: React.FC<AnimatedScoreProps> = ({
   textColor = 'text-blue-400',
   containerClassName = 'flex flex-col items-center mt-10',
 }) => {
-  const animatedScore: { number: SpringValue<number> } = useSpring({
+  const animatedScore = useSpring({
     number: score,
     from: { number: 0 },
     reset: true,
@@ -15,11 +15,13 @@ const AnimatedScore: React.FC<AnimatedScoreProps> = ({
     config: { tension: 100, friction: 20 },
   })
 
+  const formattedScore = animatedScore.number.to((n) => n.toFixed(2))
+
   return (
     <div className={containerClassName}>
       <div className="text-xl font-semibold mb-2">SCORE</div>
       <animated.div className={`text-3xl font-bold ${textColor}`}>
-        {animatedScore.number.to((n) => n.toFixed(2))}
+        {formattedScore}
       </animated.div>
     </div>
   )

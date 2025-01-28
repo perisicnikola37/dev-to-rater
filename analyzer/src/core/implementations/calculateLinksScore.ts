@@ -1,4 +1,4 @@
-import { clampPenalty } from '../../utils/globals'
+import { clampPenalty } from '../../utils/utilities'
 import { PenaltyCalculationFunction } from '../interfaces/PenaltyCalculationFunction'
 
 export const calculateLinksScore: PenaltyCalculationFunction<

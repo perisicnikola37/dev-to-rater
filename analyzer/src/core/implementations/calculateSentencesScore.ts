@@ -1,13 +1,9 @@
-import { clampPenalty } from '../../utils/globals'
-
-export type PenaltyCalculationFunction2 = (sentences: string[]) => {
-  penalty: number
-  exceededSentences: string[]
-}
+import { clampPenalty } from '../../utils/utilities'
+import { PenaltyCalculationFunctionWithES } from '../types/PenaltyCalculationFunctionWithES'
 
 export const WORDS_LIMIT_PER_SENTENCE = 25
 
-export const calculateSentencesScore: PenaltyCalculationFunction2 = (
+export const calculateSentencesScore: PenaltyCalculationFunctionWithES = (
   sentences: string[],
 ) => {
   let penalty = 0

@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { HttpMethods, HttpStatuses } from '../constants/globalWebConstants'
-import { ErrorMessages } from '../messages'
+import { ErrorMessages } from '../constants/messages'
+import { HttpMethods, HttpStatuses } from '../constants/globalWeb'
 
 const createFetchInstance = () => {
   const instance = async <T>(
@@ -21,7 +21,7 @@ const createFetchInstance = () => {
       if (axios.isAxiosError(error) && error.response) {
         return handleResponseErrors(error.response)
       } else {
-        throw new Error(ErrorMessages.REQUEST_FAILED)
+        throw new Error(ErrorMessages.RequestFailed)
       }
     }
   }
@@ -33,15 +33,15 @@ const handleResponseErrors = (response: AxiosResponse) => {
   if (response.status !== HttpStatuses.OK) {
     // Error if the server is not available or other issues
     if (response.status === HttpStatuses.INTERNAL_SERVER_ERROR) {
-      throw new Error(ErrorMessages.FETCH_ERROR)
+      throw new Error(ErrorMessages.FetchError)
     }
 
     // Example for 404 error
     if (response.status === HttpStatuses.NOT_FOUND) {
-      throw new Error(ErrorMessages.POST_NOT_FOUND)
+      throw new Error(ErrorMessages.PostNotFound)
     }
 
-    throw new Error(ErrorMessages.REQUEST_FAILED + `${response.status}`)
+    throw new Error(ErrorMessages.RequestFailed + `${response.status}`)
   }
 
   return response
