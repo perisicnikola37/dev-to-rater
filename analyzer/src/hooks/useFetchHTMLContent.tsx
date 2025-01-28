@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { HttpMethods } from '../utils/constants/globalWebConstants'
 import createFetchInstance from '../utils/instance/instance'
-import { ErrorMessages } from '../utils/messages'
 import { parseHTMLContent } from '../core/helpers/parser'
 import { FinalResponse } from '../core/types/FinalResponse'
+import { HttpMethods } from '../utils/constants/globalWeb'
+import { ErrorMessages } from '../utils/constants/messages'
 
 const useFetchHTMLContent = () => {
   const [content, setContent] = useState<FinalResponse | null>(null)
@@ -21,7 +21,7 @@ const useFetchHTMLContent = () => {
       const parsedContent = parseHTMLContent(response as string)
       setContent(parsedContent)
     } catch (err) {
-      setError((err as Error).message || ErrorMessages.PARSE_ERROR)
+      setError((err as Error).message || ErrorMessages.ParseError)
     } finally {
       setLoading(false)
     }

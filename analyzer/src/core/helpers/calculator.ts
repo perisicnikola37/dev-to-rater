@@ -1,4 +1,4 @@
-import { POST_MAX_SCORE } from '../../utils/constants'
+import { POST_MAX_SCORE } from '../../utils/constants/configuration'
 import { calculateHeadingsScore } from '../implementations/calculateHeadingsScore'
 import { calculateLinksScore } from '../implementations/calculateLinksScore'
 import { calculateSentencesScore } from '../implementations/calculateSentencesScore'

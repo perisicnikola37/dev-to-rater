@@ -1,14 +1,17 @@
+import { CORE_LOGIC_DOCUMENTATION_URL } from '../utils/constants/configuration'
+
 const Footer = () => {
   return (
     <footer>
-      <p className="text-center mb-10 mt-10">
-        If you wonder how we measure metrics, visit our documentation&nbsp;
+      <p className="text-center mt-10 mb-10">
+        Wondering how we measure metrics? Check our documentation&nbsp;
         <a
-          href="https://docs.dev-to-rater.xyz/versions/v2/essentials/paragraphs"
+          href={CORE_LOGIC_DOCUMENTATION_URL}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-blue-400"
         >
-          here
+          here.
         </a>
       </p>
     </footer>

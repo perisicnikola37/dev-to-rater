@@ -1,7 +1,7 @@
 import { FinalResponse } from '../core/types/FinalResponse'
-import { POST_MAX_SCORE } from './constants'
-import { SourceType } from './constants/sources'
-import { ErrorMessages } from './messages'
+import { SourceType } from '../core/types/SourceType'
+import { POST_MAX_SCORE } from './constants/configuration'
+import { ErrorMessages } from './constants/messages'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,
@@ -12,7 +12,7 @@ export const isValidProvidedSourceURL = <T extends SourceType>(
 
     return isValid
   } catch (error) {
-    console.error(ErrorMessages.INVALID_URL, error)
+    console.error(ErrorMessages.InvalidURL, error)
     return false
   }
 }
