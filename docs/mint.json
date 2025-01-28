@@ -60,18 +60,18 @@
     {
       "group": "Get Started",
       "pages": [
-        "versions/v1/global/introduction",
-        "versions/v1/global/installation",
-        "versions/v1/global/versions",
-        "versions/v1/global/faq",
-        "versions/v1/global/contact",
-        "versions/v1/global/our-team",
         "versions/v2/global/introduction",
         "versions/v2/global/installation",
         "versions/v2/global/versions",
         "versions/v2/global/faq",
         "versions/v2/global/contact",
-        "versions/v2/global/our-team"
+        "versions/v2/global/our-team",
+        "versions/v1/global/introduction",
+        "versions/v1/global/installation",
+        "versions/v1/global/versions",
+        "versions/v1/global/faq",
+        "versions/v1/global/contact",
+        "versions/v1/global/our-team"
       ]
     },
     {
