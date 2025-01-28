@@ -8,7 +8,9 @@
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
+<a href="https://dev-to-rater.xyz" target="_blank">
 <img height="430px" src="https://i.postimg.cc/V6fXnGLR/screencapture-localhost-5173-2025-01-28-08-21-29-1.png" />
+</a>
 
 ## Documentation
 
