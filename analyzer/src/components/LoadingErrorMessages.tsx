@@ -1,12 +1,6 @@
 import React from 'react'
 import { ErrorMessages } from '../utils/messages'
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-interface LoadingErrorMessagesProps {
-  loading: boolean
-  error: boolean
-  content: any
-}
+import { LoadingErrorMessagesProps } from '../interfaces/props/LoadingErrorMessagesProps'
 
 const LoadingErrorMessages: React.FC<LoadingErrorMessagesProps> = ({
   loading,

@@ -6,16 +6,7 @@ import {
   ResponsiveContainer,
   RadarChart,
 } from 'recharts'
-
-export interface RadarData {
-  subject: string
-  A: number
-  fullMark: number
-}
-
-interface RadarComponentProps {
-  data: RadarData[]
-}
+import { RadarComponentProps } from '../interfaces/props/RadarComponentProps'
 
 const RadarComponent: React.FC<RadarComponentProps> = ({ data }) => {
   return (

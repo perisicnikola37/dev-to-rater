@@ -1,5 +1,5 @@
 import { clampPenalty } from '../../utils/globals'
-import { PenaltyCalculationFunction } from '../interface/PenaltyCalculationFunction'
+import { PenaltyCalculationFunction } from '../interfaces/PenaltyCalculationFunction'
 
 export const calculateTotalCharactersCountScore: PenaltyCalculationFunction<
   number

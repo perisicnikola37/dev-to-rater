@@ -1,10 +1,5 @@
 import React from 'react'
-
-interface URLFormProps {
-  inputURL: string
-  setInputURL: React.Dispatch<React.SetStateAction<string>>
-  handleSubmit: (e: React.FormEvent) => void
-}
+import { URLFormProps } from '../interfaces/props/URLFormProps'
 
 const URLForm: React.FC<URLFormProps> = ({
   inputURL,

@@ -1,8 +1,8 @@
 import { POST_MAX_SCORE } from '../../utils/constants'
-import { calculateHeadingsScore } from '../implementation/calculateHeadingsScore'
-import { calculateLinksScore } from '../implementation/calculateLinksScore'
-import { calculateSentencesScore } from '../implementation/calculateSentencesScore'
-import { calculateTotalCharactersCountScore } from '../implementation/calculateTotalCharactersScore'
+import { calculateHeadingsScore } from '../implementations/calculateHeadingsScore'
+import { calculateLinksScore } from '../implementations/calculateLinksScore'
+import { calculateSentencesScore } from '../implementations/calculateSentencesScore'
+import { calculateTotalCharactersCountScore } from '../implementations/calculateTotalCharactersScore'
 import { FinalResponse } from '../types/FinalResponse'
 
 export const calculateScore = (

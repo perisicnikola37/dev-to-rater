@@ -1,9 +1,6 @@
 import React from 'react'
-import RadarComponent, { RadarData } from './RadarChart'
-
-interface RadarChartSectionProps {
-  data: RadarData[]
-}
+import RadarComponent from './RadarChart'
+import { RadarChartSectionProps } from '../interfaces/props/RadarChartSectionProps'
 
 const RadarChartSection: React.FC<RadarChartSectionProps> = ({ data }) => (
   <div className="mt-8 w-full flex justify-center">

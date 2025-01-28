@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSpring, animated, SpringValue } from 'react-spring'
-import { AnimatedScoreProps } from '../interfaces/AnimatedScoreProps'
+import { AnimatedScoreProps } from '../interfaces/props/AnimatedScoreProps'
 
 const AnimatedScore: React.FC<AnimatedScoreProps> = ({
   score = 0,
