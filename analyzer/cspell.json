@@ -22,7 +22,9 @@
     "sonner",
     "maxy",
     "canv",
-    "maxx"
+    "maxx",
+    "urlset",
+    "lastmod"
   ],
   "cache": {
     "useCache": true,
