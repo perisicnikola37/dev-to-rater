@@ -1,15 +1,13 @@
-import { POST_MAX_SCORE } from '@/utils/constants/configuration'
-import { calculateHeadingsScore } from '../implementations/calculateHeadingsScore'
-import { calculateTotalCharactersCountScore } from '../implementations/calculateTotalCharactersScore'
-import { calculateLinksScore } from '../implementations/calculateLinksScore'
-import { calculateRepeatingWordsScore } from '../implementations/calculateRepeatingWordsScore'
-import { calculateSentencesScore } from '@/core/implementations/calculateSentencesScore'
-import { calculateReadingTimeScore } from '../implementations/calculateReadingTimeScore'
+import { POST_MAX_SCORE } from '../../utils/constants/configuration'
+import { HeadingsPenaltyCalculator } from '../implementations/calculateHeadingsScore'
+import { LinksPenaltyCalculator } from '../implementations/calculateLinksScore'
+import { RepeatingWordsPenaltyCalculator } from '../implementations/calculateRepeatingWordsScore'
+import { SentencesPenaltyCalculator } from '../implementations/calculateSentencesScore'
+import { CharactersPenaltyCalculator } from '../implementations/calculateTotalCharactersScore'
 import { FinalResponse } from '../types/FinalResponse'
 import { ReactionMap } from '../types/ReactionMap'
 
 export const calculateScore = (
-  id: number,
   headings: string[],
   sentences: string[],
   words: string[],
@@ -20,55 +18,37 @@ export const calculateScore = (
 ): FinalResponse => {
   let max_score = POST_MAX_SCORE
 
-  // Calculate heading structure score
-  const headingsPenalty = calculateHeadingsScore(headings)
-  // Calculate sentences score
-  const sentencesPenalty = calculateSentencesScore(sentences)
-  // Calculate characters count score
-  const charactersPenalty = calculateTotalCharactersCountScore(
+  const headingsPenalty = new HeadingsPenaltyCalculator().calculate(headings)
+  const sentencesResult = new SentencesPenaltyCalculator().calculate(sentences)
+  const charactersPenalty = new CharactersPenaltyCalculator().calculate(
     totalPostCharactersCount,
   )
-  // Calculate links score
-  const linksPenalty = calculateLinksScore(links)
-  // Calculate words score
-  const wordsPenalty = calculateRepeatingWordsScore(words)
-  // Calculate reading time score
-  const timePenalty = calculateReadingTimeScore(readingTime)
-
-  console.log('Headings Penalty:', headingsPenalty)
-  console.log('Sentences Penalty:', sentencesPenalty.penalty)
-  console.log('Characters Penalty:', charactersPenalty)
-  console.log('Links Penalty:', linksPenalty)
-  console.log('Words Penalty:', wordsPenalty.penalty)
-  console.log('Reading Time Penalty:', timePenalty)
-  console.log('Repeated Words:', wordsPenalty.repeatedWords)
-  console.log('Reactions:', reactions.article_reaction_counts)
+  const linksPenalty = new LinksPenaltyCalculator().calculate(links)
+  const wordsResult = new RepeatingWordsPenaltyCalculator().calculate(words)
 
   max_score -=
     headingsPenalty +
-    sentencesPenalty.penalty +
-    wordsPenalty.penalty +
+    sentencesResult.penalty +
     charactersPenalty +
     linksPenalty +
-    timePenalty
+    wordsResult.penalty
   max_score = Math.max(0, Math.min(max_score, 10))
 
   return {
-    id: id,
     totalScore: max_score,
     headingsPenalty,
-    sentencesPenalty: sentencesPenalty.penalty,
-    wordsPenalty: wordsPenalty.penalty,
+    sentencesPenalty: sentencesResult.penalty,
     charactersPenalty,
+    wordsPenalty: wordsResult.penalty,
     headings,
     sentences,
     words,
-    links: links,
-    reactions,
+    links,
     exceeded: {
-      exceededSentences: sentencesPenalty.exceededSentences || [],
-      repeatedWords: wordsPenalty.repeatedWords || [],
+      exceededSentences: sentencesResult.exceededSentences,
+      repeatedWords: wordsResult.repeatedWords,
     },
+    reactions,
     readingTime,
   }
 }

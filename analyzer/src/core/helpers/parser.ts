@@ -102,7 +102,6 @@ export const parseHTMLContent = async (
   const readingTime = Math.round(wordsCount / AVERAGE_READING_SPEED)
 
   const finalResponse: FinalResponse = calculateScore(
-    articleId,
     headings,
     sentences,
     words,
