@@ -77,12 +77,22 @@
     {
       "group": "Core logic",
       "pages": [
-        "versions/v1/essentials/paragraphs",
-        "versions/v1/essentials/emoji",
+        "versions/v1/essentials/headings",
+        "versions/v1/essentials/sentences",
+        "versions/v1/essentials/total_characters",
+        "versions/v1/essentials/reading_time",
         "versions/v1/essentials/images",
-        "versions/v2/essentials/paragraphs",
-        "versions/v2/essentials/emoji",
-        "versions/v2/essentials/images"
+        "versions/v1/essentials/links",
+        "versions/v1/essentials/emojis",
+        "versions/v1/essentials/repeating_words",
+        "versions/v2/essentials/headings",
+        "versions/v2/essentials/sentences",
+        "versions/v2/essentials/total_characters",
+        "versions/v2/essentials/reading_time",
+        "versions/v2/essentials/images",
+        "versions/v2/essentials/links",
+        "versions/v2/essentials/emojis",
+        "versions/v2/essentials/repeating_words"
       ]
     },
     {
@@ -95,12 +105,22 @@
     {
       "group": "Core logic files",
       "pages": [
-        "versions/v1/api-reference/endpoint/paragraph",
-        "versions/v1/api-reference/endpoint/emoji",
-        "versions/v1/api-reference/endpoint/image",
-        "versions/v2/api-reference/endpoint/paragraph",
-        "versions/v2/api-reference/endpoint/emoji",
-        "versions/v2/api-reference/endpoint/image"
+        "versions/v1/api-reference/endpoint/headings",
+        "versions/v1/api-reference/endpoint/sentences",
+        "versions/v1/api-reference/endpoint/total_characters",
+        "versions/v1/api-reference/endpoint/reading_time",
+        "versions/v1/api-reference/endpoint/images",
+        "versions/v1/api-reference/endpoint/links",
+        "versions/v1/api-reference/endpoint/emojis",
+        "versions/v1/api-reference/endpoint/repeating_words",
+        "versions/v2/api-reference/endpoint/headings",
+        "versions/v2/api-reference/endpoint/sentences",
+        "versions/v2/api-reference/endpoint/total_characters",
+        "versions/v2/api-reference/endpoint/reading_time",
+        "versions/v2/api-reference/endpoint/images",
+        "versions/v2/api-reference/endpoint/links",
+        "versions/v2/api-reference/endpoint/emojis",
+        "versions/v2/api-reference/endpoint/repeating_words"
       ]
     }
   ],

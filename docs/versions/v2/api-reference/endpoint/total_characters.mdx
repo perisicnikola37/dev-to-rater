@@ -1,0 +1,32 @@
+---
+title: "Total Characters"
+icon: "text-size"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateTotalCharactersScore.ts' target='_blank'>Code in repository</a>"
+version: "v2"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+const rules = [
+  {
+    condition: totalPostCharactersCount < 750,
+    apply: () => {
+      penalty += 1;
+    },
+  },
+  {
+    // Applies a penalty if the reading time exceeds 15 minutes calculated by ${AVERAGE_READING_SPEED}
+    condition: totalPostCharactersCount > 15_000,
+    apply: () => {
+      penalty += Math.round((totalPostCharactersCount - 10_000) * 0.003);
+    },
+  },
+];
+```
+
+<Tip>
+  Write a text with a length between 750 and 15,000 characters. A text of 15,000
+  characters is equivalent to 10 minutes of reading, assuming an average reading
+  speed of 250 words per minute.
+</Tip>

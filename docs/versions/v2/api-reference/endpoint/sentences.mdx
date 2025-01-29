@@ -1,0 +1,39 @@
+---
+title: "Sentence Length"
+icon: "text"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateSentencesScore.ts' target='_blank'>Code in repository</a>"
+version: "v2"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+const rules = [
+  {
+    condition: sentences.length === 0,
+    apply: () => {
+      penalty += 1;
+    },
+  },
+  {
+    condition: true,
+    apply: () => {
+      sentences.forEach((sentence) => {
+        const wordCount = sentence.split(/\s+/).filter(Boolean).length;
+
+        if (wordCount > WORDS_LIMIT_PER_SENTENCE) {
+          const excessWords = wordCount - WORDS_LIMIT_PER_SENTENCE;
+          penalty += Math.round(excessWords * 0.025 * 100) / 100;
+
+          exceededSentences.push(sentence);
+        }
+      });
+    },
+  },
+];
+```
+
+<Tip>
+  To strike the right balance, aim for sentences containing between 10 and 25
+  words.
+</Tip>

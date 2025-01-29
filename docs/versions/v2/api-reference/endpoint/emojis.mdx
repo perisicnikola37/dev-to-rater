@@ -1,10 +1,9 @@
 ---
-title: "Image alt text"
-icon: "image"
+title: "Emoji Frequency"
+icon: "face-smile"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateSentencesScore.ts' target='_blank'>Code in repository</a>"
 version: "v2"
 ---
-
-To understand how this logic is handled, you can refer to the code demonstrating the logic here: [Code in repository](https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/calculateParagraphLengthScore.ts)
 
 ### Code we use - Preview
 
@@ -31,6 +30,7 @@ export const calculateParagraphScore = (paragraphs: string[]): number => {
 ```
 
 <Tip>
-  Always provide descriptive alt text for images to enhance accessibility and
-  improve search engine optimization.
+  To improve emoji usability, aim to use no more than one emoji per paragraph.
+  Great guideline is to have for example 10 paragraphs with a total of 3 emojis
+  for optimal engagement.
 </Tip>
