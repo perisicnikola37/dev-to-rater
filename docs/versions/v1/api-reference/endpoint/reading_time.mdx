@@ -1,0 +1,39 @@
+---
+title: "Reading Time"
+icon: "clock"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateReadingTimeScore.ts' target='_blank'>Code in repository</a>"
+version: "v1"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+const rules = [
+  {
+    condition: readingTime >= 0 && readingTime <= 2,
+    apply: () => {
+      penalty += 0.2;
+    },
+  },
+  {
+    condition: readingTime >= 3 && readingTime <= 4,
+    apply: () => {
+      penalty = 0.1;
+    },
+  },
+  {
+    condition: readingTime > 4 && readingTime <= 12,
+    apply: () => {
+      penalty = 0;
+    },
+  },
+  {
+    condition: readingTime > 12,
+    apply: () => {
+      penalty = 1.2;
+    },
+  },
+];
+```
+
+<Tip>Aim to keep your reading time between 3 and 12 minutes.</Tip>

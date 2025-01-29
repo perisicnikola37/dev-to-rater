@@ -1,0 +1,30 @@
+---
+title: "Links Frequency"
+icon: "link"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateLinksScore.ts' target='_blank'>Code in repository</a>"
+version: "v2"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+const rules = [
+  {
+    condition: links.length === 0,
+    apply: () => {
+      penalty += 0.2;
+    },
+  },
+  {
+    condition: links.length > 20,
+    apply: () => {
+      penalty += 0.15;
+    },
+  },
+];
+```
+
+<Tip>
+  Aim to have a moderate number of links in your article. Having too many or too
+  few links can negatively affect your score.
+</Tip>

@@ -1,0 +1,64 @@
+---
+title: "Repeating Words"
+icon: "repeat"
+version: "v2"
+---
+
+### Handling repeated words
+
+Using the same word too many times within an article can negatively affect its readability and flow. Repetition beyond a certain threshold may make content feel redundant, impacting the overall user experience. The calculateRepeatingWordsScore function checks for repeated words and assigns a penalty based on the frequency of their use.
+
+- **Guideline:** If a word appears more than 5 times (as defined by **WORDS_REPEAT_LIMIT**), a small penalty is applied for each additional repetition beyond the limit.
+- **Why:** Excessive repetition of words can make content feel monotonous and reduce its clarity. It’s important to vary vocabulary to maintain engagement and enhance the overall quality of the writing.
+
+#### Defined areas
+
+- **Short Reading Time** (0 - 2 minutes): If the estimated reading time is between 0 and 2 minutes, a small penalty of 0.2 is applied.
+
+- **Moderate Reading Time** (3 - 4 minutes): If the reading time is between 3 and 4 minutes, a lower penalty of 0.1 is assigned. This range suggests a reasonable article length, but not too long to risk losing attention.
+
+- **Ideal Reading Time** (5 - 12 minutes): For reading times greater than 4 minutes and up to 12 minutes, there is no penalty applied. This is considered the optimal range for most articles. Long enough to provide value, but not so long that it overwhelms the reader.
+
+- **Long Reading Time** (over 12 minutes): If the reading time exceeds 12 minutes, a penalty of 1.2 is applied.
+
+### Examples of calculating penalty points
+
+- Word appears 6 times: - **0.01** points
+- Word appears 7 times: - **0.02** points
+- Word appears 10 or more times: - **0.05** points
+
+<Tip>
+  To improve the readability of your content, consider using synonyms or
+  rephrasing sentences when a word appears too frequently. Keeping repetition in
+  check not only enhances the quality of your writing but also keeps readers
+  engaged.
+</Tip>
+
+### Excluding common words from detection
+
+In order to focus on more meaningful repetitions and avoid penalizing content for using common or frequently occurring words, we exclude certain high-frequency words from detection.
+
+By excluding them from the detection process, we ensure that the system only penalizes unnecessary repetition of important words.
+
+#### Common words excluded:
+
+- "the"
+- "and"
+- "of"
+- "a"
+- "to"
+- "in"
+- "on"
+
+#### Why exclude these words?
+
+These words appear frequently in the English language and are used for grammatical purposes. Including them in the repeated words detection could lead to unnecessary penalties.
+
+The full list of excluded words can be found in the following file:
+
+<a
+  href="https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/data/ignored_frequent_words.json"
+  target="_blank"
+>
+  *ignored_frequent_words.json*
+</a>

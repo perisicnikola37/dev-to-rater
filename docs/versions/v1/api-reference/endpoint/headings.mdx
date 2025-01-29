@@ -1,0 +1,40 @@
+---
+title: "Heading Length"
+icon: "heading"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateHeadingsScore.ts' target='_blank'>Code in repository</a>"
+version: "v1"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+const rules = [
+  {
+    condition: sentences.length === 0,
+    apply: () => {
+      penalty += 1;
+    },
+  },
+  {
+    condition: true,
+    apply: () => {
+      sentences.forEach((sentence) => {
+        const wordCount = sentence.split(/\s+/).filter(Boolean).length;
+
+        if (wordCount > WORDS_LIMIT_PER_SENTENCE) {
+          const excessWords = wordCount - WORDS_LIMIT_PER_SENTENCE;
+          penalty += Math.round(excessWords * 0.025 * 100) / 100;
+
+          exceededSentences.push(sentence);
+        }
+      });
+    },
+  },
+];
+```
+
+<Tip>
+  Structure your content with proper header tags (H1 for the main title, H2 for
+  subheadings, H3 for smaller sections). This helps both readers and search
+  engines to understand the hierarchy of information.
+</Tip>

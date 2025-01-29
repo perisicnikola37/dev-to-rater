@@ -1,0 +1,34 @@
+---
+title: "Repeating Words"
+icon: "repeat"
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateRepeatingWordsScore.ts' target='_blank'>Code in repository</a>"
+version: "v2"
+---
+
+### Code we use - Preview
+
+```typescript typescript
+words.forEach((word) => {
+  if (ignoredWords.includes(word.toLowerCase())) {
+    return;
+  }
+  wordCount[word] = (wordCount[word] || 0) + 1;
+  if (wordCount[word] > WORDS_REPEAT_LIMIT) {
+    penalty += 0.01; // Subtract 0.01 points for each repetition beyond the allowed limit
+    if (!repeatedWords.find((rw) => rw.word === word)) {
+      repeatedWords.push({ word, count: wordCount[word] });
+    } else {
+      repeatedWords.forEach((rw) => {
+        if (rw.word === word) {
+          rw.count = wordCount[word];
+        }
+      });
+    }
+  }
+});
+```
+
+<Tip>
+  Try to avoid repeating the same words too many times in your article. This can
+  be seen as spammy and can negatively affect your score.
+</Tip>
