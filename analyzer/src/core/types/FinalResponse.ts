@@ -1,4 +1,7 @@
+import { ReactionMap } from './ReactionMap'
+
 export type FinalResponse = {
+  id?: number
   totalScore: number
   headingsPenalty: number
   sentencesPenalty: number
@@ -12,4 +15,6 @@ export type FinalResponse = {
     exceededSentences: string[]
     repeatedWords: { word: string; count: number }[]
   }
+  reactions: ReactionMap
+  readingTime: number
 }

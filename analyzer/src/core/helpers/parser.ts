@@ -1,10 +1,19 @@
-import { DEV_TO_ARTICLE_BODY_CLASS } from '../../utils/constants/configuration'
+import {
+  AVERAGE_READING_SPEED,
+  DEV_TO_ARTICLE_BODY_CLASS,
+} from '../../utils/constants/configuration'
 import { ErrorMessages } from '../../utils/constants/messages'
 import { FinalResponse } from '../types/FinalResponse'
+import { ReactionMap } from '../types/ReactionMap'
+import { AxiosResponse } from 'axios'
+import { DEV_TO_URL } from '../../utils/constants/configuration'
+import { HttpMethods } from '../../utils/constants/globalWeb'
 import { calculateScore } from './calculator'
+import createFetchInstance from '../../utils/instance/instance'
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export const parseHTMLContent = (htmlString: any): FinalResponse => {
+export const parseHTMLContent = async (
+  htmlString: AxiosResponse,
+): Promise<FinalResponse> => {
   const parser = new DOMParser()
   const doc = parser.parseFromString(htmlString.data, 'text/html')
 
@@ -14,6 +23,44 @@ export const parseHTMLContent = (htmlString: any): FinalResponse => {
   if (!articleBody) {
     throw new Error(ErrorMessages.ParseError)
   }
+
+  const articleId = parseInt(
+    doc.querySelector('article')?.getAttribute('data-article-id') || '0',
+    10,
+  )
+
+  // Fetch reactions data
+  const { instance } = createFetchInstance()
+
+  let reactionData: ReactionMap = { article_reaction_counts: [] }
+  try {
+    const reactionResponse: AxiosResponse<ReactionMap> = await instance(
+      `${DEV_TO_URL}/reactions?article_id=${articleId}`,
+      HttpMethods.GET,
+    )
+    reactionData = reactionResponse.data
+  } catch (reactionError) {
+    console.error(
+      `Failed to fetch reactions: ${(reactionError as Error).message}`,
+    )
+  }
+
+  const totalReactions = reactionData.article_reaction_counts.reduce(
+    (acc, reaction) => acc + reaction.count,
+    0,
+  )
+
+  // Appending custom calculated percentage
+  reactionData.article_reaction_counts =
+    reactionData.article_reaction_counts.map((reaction) => ({
+      ...reaction,
+      percentage:
+        totalReactions > 0
+          ? Math.round((reaction.count / totalReactions) * 100)
+          : 0,
+    }))
+
+  // Process content
   const headings = Array.from(articleBody.querySelectorAll('h2'))
     .map((h2) => h2.textContent?.trim() || '')
     .filter((text) => text !== '')
@@ -51,12 +98,18 @@ export const parseHTMLContent = (htmlString: any): FinalResponse => {
   const totalPostCharactersCount =
     totalHeadingChars + totalParagraphChars + totalLinkChars
 
+  const wordsCount = words.length
+  const readingTime = Math.round(wordsCount / AVERAGE_READING_SPEED)
+
   const finalResponse: FinalResponse = calculateScore(
+    articleId,
     headings,
     sentences,
     words,
     totalPostCharactersCount,
     links,
+    reactionData,
+    readingTime,
   )
 
   return finalResponse

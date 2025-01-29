@@ -29,7 +29,8 @@
     "optipng",
     "pngquant",
     "senpai",
-    "sensei"
+    "sensei",
+    "readinglist"
   ],
   "cache": {
     "useCache": true,
