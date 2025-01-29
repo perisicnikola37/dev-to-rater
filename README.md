@@ -39,17 +39,6 @@ For detailed documentation, please visit the [Dev.to Rater Documentation](https:
 
 Detailed calculations logic can be found [here](https://docs.dev-to-rater.xyz/versions/v2/api-reference/introduction).
 
-## Overall Engagement Score Calculation
-
-Once all individual features are evaluated, **Dev.to Rater** calculates the overall engagement score. The maximum possible score is **10 points**, and the tool provides feedback on areas to improve.
-
-**Score Range:**
-
-- **9-10:** Outstanding post, highly engaging and optimized for readability and interaction.
-- **7-9:** Good post with minor areas of improvement.
-- **5-7:** Average post, requires some adjustments.
-- **<5:** Needs significant improvements in structure, engagement, or clarity to effectively reach the audience.
-
 <hr/>
 
 ### Contributors
