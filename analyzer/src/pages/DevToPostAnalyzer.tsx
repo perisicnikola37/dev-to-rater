@@ -4,6 +4,7 @@ import { DEV_TO_SOURCE } from '../utils/constants/sources'
 import { RadarData } from '../interfaces/props/RadarComponentProps'
 import { calculateFullMark, isValidProvidedSourceURL } from '../utils/utilities'
 import RepeatedWords from '../components/RepeatedWords'
+import ReadingTime from '../components/ReadingTime'
 
 const [
   AnimatedScore,
@@ -72,7 +73,6 @@ const DevToPostAnalyzer: React.FC = () => {
     <SuspenseWrapper fallback={<></>}>
       <div>
         {content?.totalScore === 10 && <FireworksCanvas />}
-
         <div className="min-h-screen flex items-start justify-center mt-16 mb-16">
           <div className="w-full max-w-3xl rounded-3xl h-full flex flex-col items-center">
             <Header />
@@ -82,23 +82,23 @@ const DevToPostAnalyzer: React.FC = () => {
               setInputURL={setInputURL}
               handleSubmit={handleSubmit}
             />
+
             <LoadingErrorMessages
               loading={loading}
               error={!!error}
               content={content}
             />
-
             {!error && content && (
               <>
                 {animatedScore}
                 <RadarChartSection data={data} />
                 <ExceededSentences content={content} />
                 <RepeatedWords content={content} />
+                <ReadingTime readingTime={content?.readingTime} />
               </>
             )}
           </div>
         </div>
-
         <Footer />
       </div>
     </SuspenseWrapper>
