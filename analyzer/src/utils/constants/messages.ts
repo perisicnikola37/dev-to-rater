@@ -5,8 +5,8 @@ export enum ErrorMessages {
   UserNotFound = 'User not found.',
   NetworkResponseError = 'Network response was not ok.',
   SignOutCallbackError = 'Error during sign-out callback.',
-  NoDataToExportTitle = 'NoDataToExportTitle',
-  FetchFailed = 'FetchFailed',
+  NoDataToExportTitle = 'No data to export.',
+  FetchFailed = 'Fetch operation failed.',
   ServiceDown = 'Service is down at the moment. Please try again later.',
   ParseError = 'Error parsing the HTML content.',
   FetchError = 'Error fetching post.',
@@ -23,7 +23,7 @@ export enum SuccessMessages {
   CopiedToClipboard = 'Copied to clipboard.',
   FiltersCleaned = 'Filters have been cleared successfully.',
   FetchSuccess = 'Post fetched successfully.',
-  TextCopied = 'TextCopied',
+  TextCopied = 'Text copied',
 }
 
 export enum FormValidationErrorMessages {

@@ -12,13 +12,14 @@ import {
 import { FinalResponse } from '../core/types/FinalResponse'
 import { getRandomMessage } from '../utils/utilities'
 import { REPEATED_WORDS } from '../core/types/MessageCategories'
+import { MAX_VISIBLE_REPEATED_WORDS } from '../utils/constants/configuration'
 
 const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
   if (!content) {
     return <div>No data available</div>
   }
 
-  const repeatedWords = content.exceeded.repeatedWords
+  const { repeatedWords } = content.exceeded
 
   const data = repeatedWords.map((word) => ({
     name: `${word.word} (x${word.count})`,
@@ -29,7 +30,9 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
   const sortedData = data.sort((a, b) => a.count - b.count)
 
   const limitedData =
-    sortedData.length > 15 ? sortedData.slice(-15) : sortedData
+    sortedData.length > MAX_VISIBLE_REPEATED_WORDS
+      ? sortedData.slice(-MAX_VISIBLE_REPEATED_WORDS)
+      : sortedData
 
   // Calculate the middle point to divide the data into 3 groups
   const totalCount = limitedData.length
@@ -69,7 +72,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
               className={
                 averageRepeats <= 5
                   ? 'text-green-600' // Green if average is good
-                  : averageRepeats <= 15
+                  : averageRepeats <= MAX_VISIBLE_REPEATED_WORDS
                     ? 'text-yellow-600' // Yellow if average is risky
                     : 'text-red-600' // Red if average is bad
               }
@@ -77,7 +80,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
               {Math.round(averageRepeats)}&nbsp;
               {averageRepeats <= 5
                 ? '(good)' // Good repetition rate
-                : averageRepeats <= 15
+                : averageRepeats <= MAX_VISIBLE_REPEATED_WORDS
                   ? '(risky)' // Risky repetition rate
                   : '(bad)'}{' '}
             </span>
@@ -92,7 +95,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
                 axisLine={false}
                 display="none"
               />
-              <Tooltip />
+              <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="count" barSize={35}>
                 {colorGroups.map((item, index) => (
                   <Cell key={index} fill={item.color} />
@@ -110,6 +113,17 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
         </>
       )}
     </>
+  )
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const CustomTooltip = ({ active, payload }: any) => {
+  if (!active || !payload || !payload.length) return null
+
+  return (
+    <div className="bg-white shadow-md px-3 py-2 rounded-md border border-gray-300 text-gray-900 text-sm">
+      {payload[0].payload.name}
+    </div>
   )
 }
 

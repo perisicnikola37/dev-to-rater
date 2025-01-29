@@ -5,10 +5,10 @@ import { Toaster, toast } from 'sonner'
 import { SuccessMessages } from '../utils/constants/messages'
 import { getRandomMessage } from '../utils/utilities'
 import { EXCEEDED_SENTENCES } from '../core/types/MessageCategories'
+import { MAX_VISIBLE_EXCEEDED_SENTENCES } from '../utils/constants/configuration'
 
 const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   const WORDS_LIMIT_PER_SENTENCE = 20
-  const MAX_VISIBLE_SENTENCES = 3
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).catch((error) => {
@@ -62,12 +62,13 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
       </h2>
 
       {content.exceeded.exceededSentences
-        .slice(0, MAX_VISIBLE_SENTENCES)
+        .slice(0, MAX_VISIBLE_EXCEEDED_SENTENCES)
         .map((sentence, index) => (
           <div key={index}>{renderSentence(sentence)}</div>
         ))}
 
-      {content.exceeded.exceededSentences.length > MAX_VISIBLE_SENTENCES && (
+      {content.exceeded.exceededSentences.length >
+        MAX_VISIBLE_EXCEEDED_SENTENCES && (
         <Collapsible
           trigger={
             <div className="flex items-center mt-4 text-blue-600 font-semibold cursor-pointer">
@@ -76,7 +77,7 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
           }
         >
           {content.exceeded.exceededSentences
-            .slice(MAX_VISIBLE_SENTENCES)
+            .slice(MAX_VISIBLE_EXCEEDED_SENTENCES)
             .map((sentence, index) => (
               <div key={index}>{renderSentence(sentence)}</div>
             ))}

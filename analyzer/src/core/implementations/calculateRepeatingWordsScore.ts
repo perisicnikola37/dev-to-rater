@@ -1,5 +1,5 @@
 import { clampPenalty } from '../../utils/utilities'
-import { IGNORED_FREQUENT_WORDS } from '../data/ignored_frequent_words'
+import ignoredWords from '../data/ignored_frequent_words.json'
 import { PenaltyCalculationFunctionWithES } from '../types/PenaltyCalculationFunctionWithES'
 
 const WORDS_REPEAT_LIMIT = 5
@@ -12,7 +12,7 @@ export const calculateRepeatingWordsScore: PenaltyCalculationFunctionWithES = (
   const repeatedWords: { word: string; count: number }[] = []
 
   words.forEach((word) => {
-    if (IGNORED_FREQUENT_WORDS.includes(word.toLowerCase())) {
+    if (ignoredWords.includes(word.toLowerCase())) {
       return
     }
     wordCount[word] = (wordCount[word] || 0) + 1
