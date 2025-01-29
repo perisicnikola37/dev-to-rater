@@ -8,11 +8,16 @@ import {
   Tooltip,
   LabelList,
   Cell,
+  TooltipProps,
 } from 'recharts'
 import { FinalResponse } from '../core/types/FinalResponse'
 import { getRandomMessage } from '../utils/utilities'
 import { REPEATED_WORDS } from '../core/types/MessageCategories'
 import { MAX_VISIBLE_REPEATED_WORDS } from '../utils/constants/configuration'
+import {
+  NameType,
+  ValueType,
+} from 'recharts/types/component/DefaultTooltipContent'
 
 const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
   if (!content) {
@@ -116,8 +121,10 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
   )
 }
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({
+  active,
+  payload,
+}: TooltipProps<ValueType, NameType>) => {
   if (!active || !payload || !payload.length) return null
 
   return (
