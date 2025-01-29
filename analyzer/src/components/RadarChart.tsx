@@ -1,3 +1,4 @@
+import { RadarComponentProps } from '@/interfaces/props/RadarComponentProps'
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -7,7 +8,6 @@ import {
   RadarChart,
   Tooltip,
 } from 'recharts'
-import { RadarComponentProps } from '../interfaces/props/RadarComponentProps'
 
 const RadarComponent: React.FC<RadarComponentProps> = ({ data }) => {
   return (

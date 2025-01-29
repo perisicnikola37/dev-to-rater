@@ -1,7 +1,7 @@
 import {
   DOCUMENTATION_URL,
   REPOSITORY_URL,
-} from '../utils/constants/configuration'
+} from '@/utils/constants/configuration'
 
 const SubHeader = () => {
   return (

@@ -1,4 +1,4 @@
-import { ReadingTimeProps } from '../interfaces/props/ReadingTimeProps'
+import { ReadingTimeProps } from '@/interfaces/props/ReadingTimeProps'
 
 const ReadingTime: React.FC<ReadingTimeProps> = ({ readingTime }) => {
   let numberBgColor

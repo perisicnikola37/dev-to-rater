@@ -1,4 +1,4 @@
-import { CORE_LOGIC_DOCUMENTATION_URL } from '../utils/constants/configuration'
+import { CORE_LOGIC_DOCUMENTATION_URL } from '@/utils/constants/configuration'
 
 const Footer = () => {
   return (

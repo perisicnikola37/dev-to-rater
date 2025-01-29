@@ -1,4 +1,4 @@
-import { clampPenalty } from '../../utils/utilities'
+import { clampPenalty } from '@/utils/utilities'
 import ignoredWords from '../data/ignored_frequent_words.json'
 import { PenaltyCalculationFunctionWithES } from '../types/PenaltyCalculationFunctionWithES'
 

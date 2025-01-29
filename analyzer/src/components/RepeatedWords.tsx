@@ -1,3 +1,7 @@
+import { FinalResponse } from '@/core/types/FinalResponse'
+import { REPEATED_WORDS } from '@/core/types/MessageCategories'
+import { MAX_VISIBLE_REPEATED_WORDS } from '@/utils/constants/configuration'
+import { getRandomMessage } from '@/utils/utilities'
 import {
   Bar,
   BarChart,
@@ -10,10 +14,6 @@ import {
   Cell,
   TooltipProps,
 } from 'recharts'
-import { FinalResponse } from '../core/types/FinalResponse'
-import { getRandomMessage } from '../utils/utilities'
-import { REPEATED_WORDS } from '../core/types/MessageCategories'
-import { MAX_VISIBLE_REPEATED_WORDS } from '../utils/constants/configuration'
 import {
   NameType,
   ValueType,

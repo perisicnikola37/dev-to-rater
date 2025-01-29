@@ -1,4 +1,4 @@
-import { SourceType } from '../../core/types/SourceType'
+import { SourceType } from '@/core/types/SourceType'
 
 export const DEV_TO_SOURCE: SourceType = {
   name: 'DEV.TO',

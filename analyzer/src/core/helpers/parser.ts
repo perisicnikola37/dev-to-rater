@@ -1,15 +1,15 @@
+import { AxiosResponse } from 'axios'
 import {
   AVERAGE_READING_SPEED,
   DEV_TO_ARTICLE_BODY_CLASS,
-} from '../../utils/constants/configuration'
-import { ErrorMessages } from '../../utils/constants/messages'
+  DEV_TO_URL,
+} from '@/utils/constants/configuration'
+import { ErrorMessages } from '@/utils/constants/messages'
+import { HttpMethods } from '@/utils/constants/globalWeb'
+import createFetchInstance from '@/utils/instance/instance'
+import { calculateScore } from './calculator'
 import { FinalResponse } from '../types/FinalResponse'
 import { ReactionMap } from '../types/ReactionMap'
-import { AxiosResponse } from 'axios'
-import { DEV_TO_URL } from '../../utils/constants/configuration'
-import { HttpMethods } from '../../utils/constants/globalWeb'
-import { calculateScore } from './calculator'
-import createFetchInstance from '../../utils/instance/instance'
 
 export const parseHTMLContent = async (
   htmlString: AxiosResponse,
