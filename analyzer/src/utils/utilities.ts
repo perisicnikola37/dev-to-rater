@@ -1,9 +1,9 @@
-import { FinalResponse } from '../core/types/FinalResponse'
-import { SourceType } from '../core/types/SourceType'
-import { POST_MAX_SCORE } from './constants/configuration'
-import { ErrorMessages } from './constants/messages'
 import messages from '../core/data/messages.json'
-import { MessageCategories } from '../core/types/MessageCategories'
+import { FinalResponse } from '@/core/types/FinalResponse'
+import { MessageCategories } from '@/core/types/MessageCategories'
+import { ErrorMessages } from './constants/messages'
+import { POST_MAX_SCORE } from './constants/configuration'
+import { SourceType } from '@/core/types/SourceType'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,

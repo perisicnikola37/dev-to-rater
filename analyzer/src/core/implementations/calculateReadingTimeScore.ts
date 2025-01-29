@@ -1,4 +1,4 @@
-import { clampPenalty } from '../../utils/utilities'
+import { clampPenalty } from '@/utils/utilities'
 import { PenaltyCalculationFunction } from '../interfaces/PenaltyCalculationFunction'
 
 export const calculateReadingTimeScore: PenaltyCalculationFunction<number> = (

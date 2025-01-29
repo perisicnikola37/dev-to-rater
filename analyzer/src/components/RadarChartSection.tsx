@@ -1,6 +1,6 @@
 import React from 'react'
 import RadarComponent from './RadarChart'
-import { RadarChartSectionProps } from '../interfaces/props/RadarChartSectionProps'
+import { RadarChartSectionProps } from '@/interfaces/props/RadarChartSectionProps'
 
 const RadarChartSection: React.FC<RadarChartSectionProps> = ({ data }) => {
   return (

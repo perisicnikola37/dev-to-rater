@@ -1,6 +1,6 @@
+import { LoadingErrorMessagesProps } from '@/interfaces/props/LoadingErrorMessagesProps'
+import { ErrorMessages } from '@/utils/constants/messages'
 import React from 'react'
-import { LoadingErrorMessagesProps } from '../interfaces/props/LoadingErrorMessagesProps'
-import { ErrorMessages } from '../utils/constants/messages'
 
 const LoadingErrorMessages: React.FC<LoadingErrorMessagesProps> = ({
   loading,

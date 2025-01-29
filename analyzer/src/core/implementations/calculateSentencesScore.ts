@@ -1,4 +1,4 @@
-import { clampPenalty } from '../../utils/utilities'
+import { clampPenalty } from '@/utils/utilities'
 import { PenaltyCalculationFunctionWithES } from '../types/PenaltyCalculationFunctionWithES'
 
 export const WORDS_LIMIT_PER_SENTENCE = 25

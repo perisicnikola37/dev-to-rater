@@ -1,11 +1,11 @@
-import { FinalResponse } from '../core/types/FinalResponse'
 import { MdContentCopy } from 'react-icons/md'
 import Collapsible from 'react-collapsible'
 import { Toaster, toast } from 'sonner'
-import { SuccessMessages } from '../utils/constants/messages'
-import { getRandomMessage } from '../utils/utilities'
-import { EXCEEDED_SENTENCES } from '../core/types/MessageCategories'
-import { MAX_VISIBLE_EXCEEDED_SENTENCES } from '../utils/constants/configuration'
+import { FinalResponse } from '@/core/types/FinalResponse'
+import { SuccessMessages } from '@/utils/constants/messages'
+import { EXCEEDED_SENTENCES } from '@/core/types/MessageCategories'
+import { getRandomMessage } from '@/utils/utilities'
+import { MAX_VISIBLE_EXCEEDED_SENTENCES } from '@/utils/constants/configuration'
 
 const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   const WORDS_LIMIT_PER_SENTENCE = 20

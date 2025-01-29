@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { ErrorMessages } from '../constants/messages'
 import { HttpMethods, HttpStatuses } from '../constants/globalWeb'
+import { ErrorMessages } from '../constants/messages'
 
 const createFetchInstance = () => {
   const instance = async <T>(

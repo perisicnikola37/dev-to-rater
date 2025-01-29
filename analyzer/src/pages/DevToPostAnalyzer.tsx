@@ -1,10 +1,10 @@
 import React, { useState, useMemo, Suspense } from 'react'
-import useFetchHTMLContent from '../hooks/useFetchHTMLContent'
-import { DEV_TO_SOURCE } from '../utils/constants/sources'
-import { RadarData } from '../interfaces/props/RadarComponentProps'
-import { calculateFullMark, isValidProvidedSourceURL } from '../utils/utilities'
-import RepeatedWords from '../components/RepeatedWords'
-import ReadingTime from '../components/ReadingTime'
+import ReadingTime from '@/components/ReadingTime'
+import RepeatedWords from '@/components/RepeatedWords'
+import { RadarData } from '@/interfaces/props/RadarComponentProps'
+import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
+import { calculateFullMark, isValidProvidedSourceURL } from '@/utils/utilities'
+import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 
 const [
   AnimatedScore,
