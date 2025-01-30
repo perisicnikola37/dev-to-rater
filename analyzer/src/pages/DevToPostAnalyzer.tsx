@@ -35,9 +35,7 @@ const [
   'Footer',
   'SubHeader',
 ].map((component) => {
-  return React.lazy(
-    () => import(/* @vite-ignore */ `../components/${component}.tsx`),
-  )
+  return React.lazy(() => import(`../components/${component}.tsx`))
 })
 
 const SuspenseWrapper = ({
