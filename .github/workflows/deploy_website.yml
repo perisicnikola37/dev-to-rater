@@ -3,7 +3,7 @@ name: Deploy website
 on:
   push:
     branches:
-      - v2.x
+      - core_logic
   pull_request:
     branches:
       - v2.x
@@ -40,4 +40,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.TOKEN }}
-          publish_dir: ./analyzer/build
+          publish_dir: ./analyzer/dist
