@@ -1,9 +1,6 @@
 name: Deploy website
 
 on:
-  push:
-    branches:
-      - core_logic
   pull_request:
     branches:
       - v2.x
