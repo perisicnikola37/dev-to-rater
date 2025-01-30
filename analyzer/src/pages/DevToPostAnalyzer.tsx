@@ -5,6 +5,7 @@ import { RadarData } from '@/interfaces/props/RadarComponentProps'
 import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
 import { calculateFullMark, isValidProvidedSourceURL } from '@/utils/utilities'
 import { DEV_TO_SOURCE } from '@/utils/constants/sources'
+import ReactGA from 'react-ga4'
 
 const [
   AnimatedScore,
@@ -46,6 +47,12 @@ const DevToPostAnalyzer: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (isValidURL) {
+      ReactGA.event({
+        category: 'User',
+        action: 'Clicked submit',
+        label: inputURL,
+      })
+
       setSubmittedURL(inputURL)
       fetchHTMLContent(inputURL)
     }
