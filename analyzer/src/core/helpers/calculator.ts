@@ -1,6 +1,7 @@
 import { POST_MAX_SCORE } from '../../utils/constants/configuration'
 import { HeadingsPenaltyCalculator } from '../implementations/calculateHeadingsScore'
 import { LinksPenaltyCalculator } from '../implementations/calculateLinksScore'
+import { ReadingTimePenaltyCalculator } from '../implementations/calculateReadingTimeScore'
 import { RepeatingWordsPenaltyCalculator } from '../implementations/calculateRepeatingWordsScore'
 import { SentencesPenaltyCalculator } from '../implementations/calculateSentencesScore'
 import { CharactersPenaltyCalculator } from '../implementations/calculateTotalCharactersScore'
@@ -25,6 +26,18 @@ export const calculateScore = (
   )
   const linksPenalty = new LinksPenaltyCalculator().calculate(links)
   const wordsResult = new RepeatingWordsPenaltyCalculator().calculate(words)
+  const readingPenalty = new ReadingTimePenaltyCalculator().calculate(
+    readingTime,
+  )
+
+  console.log({
+    headingsPenalty,
+    sentencesResult,
+    charactersPenalty,
+    linksPenalty,
+    wordsResult,
+    readingPenalty,
+  })
 
   console.log({
     headingsPenalty,
@@ -39,7 +52,8 @@ export const calculateScore = (
     sentencesResult.penalty +
     charactersPenalty +
     linksPenalty +
-    wordsResult.penalty
+    wordsResult.penalty +
+    readingPenalty
   max_score = Math.max(0, Math.min(max_score, 10))
 
   return {
