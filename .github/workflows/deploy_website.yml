@@ -1,0 +1,40 @@
+name: Deploy website
+
+on:
+  pull_request:
+    branches:
+      - v2.x
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: |
+          cd analyzer  
+          npm install
+
+      - name: Build the app
+        run: |
+          cd analyzer 
+          npm run build
+        env:
+          VITE_APP_ENVIRONMENT: ${{ secrets.VITE_APP_ENVIRONMENT}}
+          VITE_APP_GA_ID: ${{ secrets.VITE_APP_GA_ID }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          publish_dir: ./analyzer/build

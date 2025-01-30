@@ -4,6 +4,11 @@ import '@/styles/main.css'
 import DevToPostAnalyzer from '@/pages/DevToPostAnalyzer'
 import ReactGA from 'react-ga4'
 
-ReactGA.initialize('G-P6JEX3V8ST')
+const environment = import.meta.env.VITE_APP_ENVIRONMENT
+const ga4Id = import.meta.env.VITE_APP_GA_ID
+
+if (environment == 'production' && ga4Id) {
+  ReactGA.initialize(ga4Id)
+}
 
 createRoot(document.getElementById('root')!).render(<DevToPostAnalyzer />)

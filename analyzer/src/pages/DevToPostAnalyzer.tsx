@@ -1,11 +1,18 @@
-import React, { useState, useMemo, Suspense } from 'react'
+import React, { useState, useMemo, Suspense, useEffect } from 'react'
 import ReadingTime from '@/components/ReadingTime'
 import RepeatedWords from '@/components/RepeatedWords'
 import { RadarData } from '@/interfaces/props/RadarComponentProps'
 import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
-import { calculateFullMark, isValidProvidedSourceURL } from '@/utils/utilities'
+import {
+  calculateFullMark,
+  getPostHistory,
+  isValidProvidedSourceURL,
+  savePostToHistory,
+} from '@/utils/utilities'
 import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import ReactGA from 'react-ga4'
+import { FinalResponse } from '@/core/types/FinalResponse'
+import ScannedPostsHistory from '@/components/ScannedPostsHistory'
 
 const [
   AnimatedScore,
@@ -27,7 +34,11 @@ const [
   'ExceededSentences',
   'Footer',
   'SubHeader',
-].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
+].map((component) => {
+  return React.lazy(
+    () => import(/* @vite-ignore */ `../components/${component}.tsx`),
+  )
+})
 
 const SuspenseWrapper = ({
   children,
@@ -41,6 +52,7 @@ const DevToPostAnalyzer: React.FC = () => {
   const [inputURL, setInputURL] = useState('')
   const [, setSubmittedURL] = useState('')
   const { content, loading, error, fetchHTMLContent } = useFetchHTMLContent()
+  const [history, setHistory] = useState<FinalResponse[]>(getPostHistory())
 
   const isValidURL = isValidProvidedSourceURL(inputURL, DEV_TO_SOURCE)
 
@@ -76,6 +88,23 @@ const DevToPostAnalyzer: React.FC = () => {
     return content ? <AnimatedScore score={content.totalScore} /> : null
   }, [content?.totalScore])
 
+  useEffect(() => {
+    if (content) {
+      const newPost: FinalResponse = {
+        ...content,
+        title: content.title,
+        imageUrl: content.imageUrl,
+      }
+      savePostToHistory(newPost)
+      setHistory(getPostHistory())
+    }
+  }, [content])
+
+  const clearHistory = () => {
+    localStorage.removeItem('postHistory')
+    setHistory([])
+  }
+
   return (
     <SuspenseWrapper fallback={<></>}>
       <div>
@@ -106,6 +135,11 @@ const DevToPostAnalyzer: React.FC = () => {
             )}
           </div>
         </div>
+        <ScannedPostsHistory
+          history={history}
+          clearHistory={clearHistory}
+          url={inputURL}
+        />
         <Footer />
       </div>
     </SuspenseWrapper>
