@@ -8,10 +8,7 @@
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
-
 [demo.webm](https://github.com/user-attachments/assets/11ab14fd-59b4-4705-a98c-97f14611ff1c)
-
-
 
 ## Documentation
 
@@ -19,7 +16,8 @@ For detailed documentation, please visit the [Dev.to Rater Documentation](https:
 
 ## About
 
-**Dev.to Rater** is a powerful tool that analyzes your post content, such as headings, paragraphs, images, and links, to help enhance the readability and engagement of your content. This tool ultimately drives greater audience growth and interaction, making your posts more <ins>impactful</ins> and <ins>engaging</ins>.
+**Dev.to Rater** is a tool that analyzes your post content, such as headings, paragraphs, images, and links, to help enhance the readability and engagement of your content. 
+This tool helps you to write posts more <ins>impactful</ins> and <ins>engaging</ins>.
 
 ## Available calculations
 
