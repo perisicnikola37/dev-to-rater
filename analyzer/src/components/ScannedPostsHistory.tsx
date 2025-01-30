@@ -1,8 +1,6 @@
-import { ScannedPostsHistoryProps } from '@/interfaces/props/ScannedPostsHistoryProps'
-import {
-  MAX_SCANNED_VISIBLE_POSTS,
-  reactionEmojis,
-} from '@/utils/constants/configuration'
+import { ScannedPostsHistoryProps } from '@/interfaces/props/ScannedPostsHistory'
+import { MAX_SCANNED_VISIBLE_POSTS } from '@/utils/constants/configuration'
+import { reactionEmojis } from '@/utils/constants/images'
 
 const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   history,

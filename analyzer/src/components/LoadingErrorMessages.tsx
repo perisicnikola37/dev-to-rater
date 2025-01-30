@@ -1,4 +1,4 @@
-import { LoadingErrorMessagesProps } from '@/interfaces/props/LoadingErrorMessagesProps'
+import { LoadingErrorMessagesProps } from '@/interfaces/props/LoadingErrorMessages'
 import { ErrorMessages } from '@/utils/constants/messages'
 import React from 'react'
 

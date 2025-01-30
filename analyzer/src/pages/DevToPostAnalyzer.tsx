@@ -1,7 +1,6 @@
 import React, { useState, useMemo, Suspense, useEffect } from 'react'
 import ReadingTime from '@/components/ReadingTime'
 import RepeatedWords from '@/components/RepeatedWords'
-import { RadarData } from '@/interfaces/props/RadarComponentProps'
 import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
 import {
   calculateFullMark,
@@ -13,7 +12,8 @@ import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import ReactGA from 'react-ga4'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
-import { localStorageKey } from '@/utils/constants/configuration'
+import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
+import { RadarData } from '@/interfaces/props/RadarComponent'
 
 const [
   AnimatedScore,
@@ -100,7 +100,7 @@ const DevToPostAnalyzer: React.FC = () => {
   }, [content])
 
   const clearHistory = () => {
-    localStorage.removeItem(localStorageKey)
+    localStorage.removeItem(LOCAL_STORAGE_KEY)
     setHistory([])
   }
 

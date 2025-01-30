@@ -9,8 +9,8 @@ export enum HttpMethods {
 }
 
 export const Protocols = {
-  HTTP: 'http://',
-  HTTPS: 'https://',
+  HTTP: 'http',
+  HTTPS: 'https',
 }
 
 export enum HttpStatuses {
@@ -75,4 +75,9 @@ export enum ResponseStatuses {
   WARNING = 'warning',
   ERROR = 'error',
   SUCCESS = 'success',
+}
+
+export enum Environments {
+  DEVELOPMENT = 'development',
+  PRODUCTION = 'production',
 }

@@ -1,4 +1,4 @@
-import { RadarComponentProps } from '@/interfaces/props/RadarComponentProps'
+import { RadarComponentProps } from '@/interfaces/props/RadarComponent'
 import {
   PolarAngleAxis,
   PolarGrid,

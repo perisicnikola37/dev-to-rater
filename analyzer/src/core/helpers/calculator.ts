@@ -17,8 +17,6 @@ export const calculateScore = (
   reactions: ReactionMap,
   readingTime: number,
 ): FinalResponse => {
-  let max_score = POST_MAX_SCORE
-
   const headingsPenalty = new HeadingsPenaltyCalculator().calculate(headings)
   const sentencesResult = new SentencesPenaltyCalculator().calculate(sentences)
   const charactersPenalty = new CharactersPenaltyCalculator().calculate(
@@ -39,14 +37,7 @@ export const calculateScore = (
     readingPenalty,
   })
 
-  console.log({
-    headingsPenalty,
-    sentencesResult,
-    charactersPenalty,
-    linksPenalty,
-    wordsResult,
-  })
-
+  let max_score = POST_MAX_SCORE
   max_score -=
     headingsPenalty +
     sentencesResult.penalty +
@@ -54,6 +45,7 @@ export const calculateScore = (
     linksPenalty +
     wordsResult.penalty +
     readingPenalty
+
   max_score = Math.max(0, Math.min(max_score, 10))
 
   return {

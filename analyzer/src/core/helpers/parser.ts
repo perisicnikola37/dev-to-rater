@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios'
 import {
   AVERAGE_READING_SPEED,
+  BASE_URLS,
   DEV_TO_ARTICLE_BODY_CLASS,
-  DEV_TO_URL,
 } from '@/utils/constants/configuration'
 import { ErrorMessages } from '@/utils/constants/messages'
 import { HttpMethods } from '@/utils/constants/globalWeb'
@@ -19,7 +19,6 @@ export const parseHTMLContent = async (
 
   // TODO: Currently, only DEV.to articles are supported. Change this as needed.
   const articleBody = doc.querySelector(DEV_TO_ARTICLE_BODY_CLASS)
-
   if (!articleBody) {
     throw new Error(ErrorMessages.ParseError)
   }
@@ -39,11 +38,10 @@ export const parseHTMLContent = async (
 
   // Fetch reactions data
   const { instance } = createFetchInstance()
-
   let reactionData: ReactionMap = { article_reaction_counts: [] }
   try {
     const reactionResponse: AxiosResponse<ReactionMap> = await instance(
-      `${DEV_TO_URL}/reactions?article_id=${articleId}`,
+      `${BASE_URLS.DEV_TO}/reactions?article_id=${articleId}`,
       HttpMethods.GET,
     )
     reactionData = reactionResponse.data
@@ -68,7 +66,7 @@ export const parseHTMLContent = async (
           : 0,
     }))
 
-  // Process content
+  // Extract content (headings, sentences, words, links)
   const headings = Array.from(articleBody.querySelectorAll('h2'))
     .map((h2) => h2.textContent?.trim() || '')
     .filter((text) => text !== '')
@@ -93,6 +91,7 @@ export const parseHTMLContent = async (
     }))
     .filter((link) => link.text !== 'No text')
 
+  // Calculate character counts
   const totalHeadingChars = headings.reduce(
     (acc, heading) => acc + heading.length,
     0,
@@ -105,7 +104,6 @@ export const parseHTMLContent = async (
 
   const totalPostCharactersCount =
     totalHeadingChars + totalParagraphChars + totalLinkChars
-
   const wordsCount = words.length
   const readingTime = Math.round(wordsCount / AVERAGE_READING_SPEED)
 

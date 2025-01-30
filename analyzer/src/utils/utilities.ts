@@ -2,8 +2,14 @@ import messages from '../core/data/messages.json'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import { MessageCategories } from '@/core/types/MessageCategories'
 import { ErrorMessages } from './constants/messages'
-import { localStorageKey, POST_MAX_SCORE } from './constants/configuration'
+import {
+  BASE_URLS,
+  LOCAL_STORAGE_KEY,
+  POST_MAX_SCORE,
+} from './constants/configuration'
 import { SourceType } from '@/core/types/SourceType'
+import { ENVIRONMENT } from './constants/envExpose'
+import { Environments } from './constants/globalWeb'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,
@@ -49,11 +55,11 @@ export const getRandomMessage = (category: MessageCategories): string => {
 }
 
 export const getPostHistory = (): FinalResponse[] => {
-  return JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
 }
 
 export const savePostToHistory = (post: FinalResponse) => {
-  const history = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+  const history = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]')
 
   const isDuplicate = history.some(
     (existingPost: FinalResponse) => existingPost.imageUrl === post.imageUrl,
@@ -65,6 +71,17 @@ export const savePostToHistory = (post: FinalResponse) => {
       // TODO: Check this "10" number
       history.pop()
     }
-    localStorage.setItem(localStorageKey, JSON.stringify(history))
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(history))
   }
+}
+
+/**
+ * Returns the appropriate documentation URL based on the current environment.
+ *
+ * @returns {string} The URL of the documentation.
+ */
+export const getDocumentationURL = (): string => {
+  return ENVIRONMENT === Environments.PRODUCTION
+    ? BASE_URLS.DOCUMENTATION
+    : BASE_URLS.DOCUMENTATION_LOCAL
 }

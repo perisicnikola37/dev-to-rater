@@ -1,4 +1,4 @@
-import { AnimatedScoreProps } from '@/interfaces/props/AnimatedScoreProps'
+import { AnimatedScoreProps } from '@/interfaces/props/AnimatedScore'
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
 

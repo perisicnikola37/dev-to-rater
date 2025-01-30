@@ -1,4 +1,4 @@
-import { URLFormProps } from '@/interfaces/props/URLFormProps'
+import { URLFormProps } from '@/interfaces/props/URLForm'
 import React from 'react'
 
 const URLForm: React.FC<URLFormProps> = ({
