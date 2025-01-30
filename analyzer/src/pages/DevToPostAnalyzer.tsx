@@ -117,6 +117,14 @@ const DevToPostAnalyzer: React.FC = () => {
               setInputURL={setInputURL}
               handleSubmit={handleSubmit}
             />
+            <div
+              onClick={() => {
+                navigator.clipboard.writeText(content?.markdown || '')
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              Copy content
+            </div>
 
             <LoadingErrorMessages
               loading={loading}

@@ -19,4 +19,5 @@ export type FinalResponse = {
   }
   reactions: ReactionMap
   readingTime: number
+  markdown?: string
 }
