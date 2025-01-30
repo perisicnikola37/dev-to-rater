@@ -13,6 +13,7 @@ import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import ReactGA from 'react-ga4'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
+import { localStorageKey } from '@/utils/constants/configuration'
 
 const [
   AnimatedScore,
@@ -99,7 +100,7 @@ const DevToPostAnalyzer: React.FC = () => {
   }, [content])
 
   const clearHistory = () => {
-    localStorage.removeItem('postHistory')
+    localStorage.removeItem(localStorageKey)
     setHistory([])
   }
 
