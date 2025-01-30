@@ -2,6 +2,8 @@ import { ReactionMap } from './ReactionMap'
 
 export type FinalResponse = {
   id?: number
+  title?: string
+  imageUrl?: string
   totalScore: number
   headingsPenalty: number
   sentencesPenalty: number

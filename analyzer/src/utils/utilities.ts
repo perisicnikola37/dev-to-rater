@@ -2,7 +2,7 @@ import messages from '../core/data/messages.json'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import { MessageCategories } from '@/core/types/MessageCategories'
 import { ErrorMessages } from './constants/messages'
-import { POST_MAX_SCORE } from './constants/configuration'
+import { localStorageKey, POST_MAX_SCORE } from './constants/configuration'
 import { SourceType } from '@/core/types/SourceType'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
@@ -46,4 +46,25 @@ export const getRandomMessage = (category: MessageCategories): string => {
   }
 
   return ''
+}
+
+export const getPostHistory = (): FinalResponse[] => {
+  return JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+}
+
+export const savePostToHistory = (post: FinalResponse) => {
+  const history = JSON.parse(localStorage.getItem(localStorageKey) || '[]')
+
+  const isDuplicate = history.some(
+    (existingPost: FinalResponse) => existingPost.imageUrl === post.imageUrl,
+  )
+
+  if (!isDuplicate) {
+    history.unshift(post)
+    if (history.length > 10) {
+      // TODO: Check this "10" number
+      history.pop()
+    }
+    localStorage.setItem(localStorageKey, JSON.stringify(history))
+  }
 }

@@ -29,6 +29,14 @@ export const parseHTMLContent = async (
     10,
   )
 
+  // Extract title from the <meta> tag
+  const titleElement = doc.querySelector('meta[property="og:title"]')
+  const title = titleElement ? titleElement.getAttribute('content') || '' : ''
+
+  // Extract image URL from the <img> tag with the class 'w-full h-48 object-cover'
+  const imageElement = doc.querySelector('.crayons-article__cover__image')
+  const imageUrl = imageElement ? imageElement.getAttribute('src') || '' : ''
+
   // Fetch reactions data
   const { instance } = createFetchInstance()
 
@@ -110,6 +118,10 @@ export const parseHTMLContent = async (
     reactionData,
     readingTime,
   )
+
+  // Include image and title in the final response
+  finalResponse.title = title
+  finalResponse.imageUrl = imageUrl
 
   return finalResponse
 }

@@ -26,6 +26,14 @@ export const calculateScore = (
   const linksPenalty = new LinksPenaltyCalculator().calculate(links)
   const wordsResult = new RepeatingWordsPenaltyCalculator().calculate(words)
 
+  console.log({
+    headingsPenalty,
+    sentencesResult,
+    charactersPenalty,
+    linksPenalty,
+    wordsResult,
+  })
+
   max_score -=
     headingsPenalty +
     sentencesResult.penalty +
