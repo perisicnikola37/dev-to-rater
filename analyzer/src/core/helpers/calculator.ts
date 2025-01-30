@@ -39,6 +39,14 @@ export const calculateScore = (
     readingPenalty,
   })
 
+  console.log({
+    headingsPenalty,
+    sentencesResult,
+    charactersPenalty,
+    linksPenalty,
+    wordsResult,
+  })
+
   max_score -=
     headingsPenalty +
     sentencesResult.penalty +
