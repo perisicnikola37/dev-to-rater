@@ -1,7 +1,7 @@
 export type AllowedReactions =
-  | 'likes'
-  | 'unicorns'
-  | 'explodingHeads'
-  | 'raisedHands'
+  | 'like'
+  | 'unicorn'
+  | 'exploding_head'
+  | 'raised_hands'
   | 'fire'
   | 'readinglist'

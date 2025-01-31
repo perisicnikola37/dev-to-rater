@@ -14,6 +14,7 @@ import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
 import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
 import { RadarData } from '@/interfaces/props/RadarComponent'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 const [
   AnimatedScore,
@@ -108,8 +109,8 @@ const DevToPostAnalyzer: React.FC = () => {
     <SuspenseWrapper fallback={<></>}>
       <div>
         {content?.totalScore === 10 && <FireworksCanvas />}
-        <div className="min-h-screen flex items-start justify-center mt-16 mb-16">
-          <div className="w-full max-w-3xl rounded-3xl h-full flex flex-col items-center">
+        <div className="flex items-start justify-center mt-16 mb-16">
+          <div className="w-full max-w-3xl rounded-3xl flex flex-col items-center">
             <Header />
             <SubHeader />
             <URLForm
@@ -141,6 +142,7 @@ const DevToPostAnalyzer: React.FC = () => {
         />
         <Footer />
       </div>
+      <ScrollToTopButton />
     </SuspenseWrapper>
   )
 }
