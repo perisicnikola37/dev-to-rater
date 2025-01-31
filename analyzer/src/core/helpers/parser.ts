@@ -32,11 +32,16 @@ const convertToMarkdown = (articleBody: Element) => {
       })
   }
 
+  const processCode = (node: Node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      return `\`${node.textContent?.trim() || ''}\``
+    }
+    return `\`${(node as Element).textContent?.trim() || ''}\``
+  }
+
   articleBody.childNodes.forEach((node: Node) => {
     if (node.nodeType === Node.TEXT_NODE) {
-      if (node.textContent) {
-        markdown += node.textContent.trim() + ' '
-      }
+      markdown += node.textContent?.trim() + ' '
     } else if (node.nodeType === Node.ELEMENT_NODE) {
       switch ((node as Element).tagName.toLowerCase()) {
         case 'h1':
@@ -71,9 +76,7 @@ const convertToMarkdown = (articleBody: Element) => {
         }
 
         case 'code': {
-          if (node.parentElement && node.parentElement.tagName !== 'PRE') {
-            markdown += `\`${node.textContent?.trim() || ''}\``
-          }
+          markdown += processCode(node)
           break
         }
 
@@ -83,11 +86,14 @@ const convertToMarkdown = (articleBody: Element) => {
             const languageClass = (node as Element).className.match(
               /language-(\w+)/,
             )
-            const language = languageClass ? languageClass[1] : ''
+            const language = languageClass ? languageClass[1] : 'plaintext'
             const codeText = codeBlock.textContent
               ? codeBlock.textContent.trim()
               : ''
             markdown += `\n\`\`\`${language}\n${codeText}\n\`\`\`\n\n`
+          } else {
+            // If there's no <code> inside <pre>, use the raw text in <pre> as is
+            markdown += `\n\`\`\`\n${(node as Element).textContent?.trim()}\n\`\`\`\n\n`
           }
           break
         }
@@ -138,6 +144,15 @@ const convertToMarkdown = (articleBody: Element) => {
         }
       }
     }
+  })
+
+  // After processing all child nodes, handle <code> elements inside any element
+  const codeElements = articleBody.querySelectorAll('code')
+  codeElements.forEach((codeElement) => {
+    markdown = markdown.replace(
+      codeElement.textContent?.trim() || '',
+      `\`${codeElement.textContent?.trim() || ''}\``,
+    )
   })
 
   return markdown.trim()
