@@ -8,7 +8,7 @@
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
-[demo.webm](https://github.com/user-attachments/assets/11ab14fd-59b4-4705-a98c-97f14611ff1c)
+![raterLOGO](https://github.com/user-attachments/assets/798552e2-d1d5-425d-b5df-60e0e099cf30)
 
 ## Documentation
 
