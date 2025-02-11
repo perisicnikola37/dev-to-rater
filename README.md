@@ -8,7 +8,7 @@
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
 
-![raterLOGO](https://github.com/user-attachments/assets/798552e2-d1d5-425d-b5df-60e0e099cf30)
+<img width="650" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/798552e2-d1d5-425d-b5df-60e0e099cf30" />
 
 ## Documentation
 
@@ -39,6 +39,13 @@ This tool helps you to write posts more <ins>impactful</ins> and <ins>engaging</
 Detailed calculations logic can be found [here](https://docs.dev-to-rater.xyz/versions/v2/api-reference/introduction).
 
 <hr/>
+
+### Examples
+
+<img width="550" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/a2e687ec-126b-4e22-94e6-a9d280c0343f" />
+
+<img width="550" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/08a439b4-bd16-4c84-b3e7-59c702aa510b" />
+
 
 ### Contributors
 
