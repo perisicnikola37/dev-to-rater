@@ -5,11 +5,10 @@ import { reactionEmojis } from '@/utils/constants/images'
 const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   history,
   clearHistory,
-  url,
 }) => {
   if (history.length === 0) {
     return (
-      <div className="history-section mt-8 max-w-3xl mx-auto px-4">
+      <div className="history-section mt-2 max-w-3xl mx-auto px-4">
         <div className="text-center text-gray-500">
           No scanned posts available. Start scanning to see your history here.
         </div>
@@ -35,10 +34,10 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
         {history.slice(0, MAX_SCANNED_VISIBLE_POSTS).map((post, index) => (
           <a
             key={index}
-            href={url}
+            href={post.postUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="post-history-item flex items-center space-x-4 bg-white p-5 rounded-xl shadow-md hover:shadow-lg cursor-pointer transition duration-300"
+            className="post-history-item flex items-center space-x-4 bg-white hover:scale-101 p-5 rounded-xl shadow-md hover:shadow-lg cursor-pointer transition duration-300"
           >
             <img
               src={

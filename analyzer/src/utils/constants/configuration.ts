@@ -13,6 +13,8 @@ export const BASE_URLS = {
 export const APPLICATION_VERSION = 'v2'
 
 export const DEV_TO_ARTICLE_BODY_CLASS = '.crayons-article__body'
+export const DEV_TO_ARTICLE_COVER_IMAGE_CLASS = '.crayons-article__cover__image'
+export const DEV_TO_ARTICLE_ID_ATTRIBUTE = 'data-article-id'
 
 export const POST_MAX_SCORE = 10
 export const MAX_VISIBLE_EXCEEDED_SENTENCES = 3

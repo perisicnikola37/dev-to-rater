@@ -4,6 +4,7 @@ export type FinalResponse = {
   id?: number
   title?: string
   imageUrl?: string
+  postUrl?: string
   totalScore: number
   headingsPenalty: number
   sentencesPenalty: number

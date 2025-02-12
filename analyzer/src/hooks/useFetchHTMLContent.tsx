@@ -14,19 +14,19 @@ const useFetchHTMLContent = () => {
 
   const { instance } = createFetchInstance()
 
-  const fetchHTMLContent = async (url: string) => {
+  const fetchHTMLContent = async (postUrl: string) => {
     try {
       setLoading(true)
       setError(null)
 
       const blogPostBodyResponse: AxiosResponse = await instance(
-        url,
+        postUrl,
         HttpMethods.GET,
       )
 
       let parsedContent: FinalResponse | null = null
       try {
-        parsedContent = await parseHTMLContent(blogPostBodyResponse)
+        parsedContent = await parseHTMLContent(postUrl, blogPostBodyResponse)
       } catch (parseError) {
         throw new Error(
           `Failed to parse HTML content: ${(parseError as Error).message}`,

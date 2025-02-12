@@ -3,19 +3,22 @@ import {
   AVERAGE_READING_SPEED,
   BASE_URLS,
   DEV_TO_ARTICLE_BODY_CLASS,
+  DEV_TO_ARTICLE_COVER_IMAGE_CLASS,
+  DEV_TO_ARTICLE_ID_ATTRIBUTE,
 } from '@/utils/constants/configuration'
 import { ErrorMessages } from '@/utils/constants/messages'
-import { HttpMethods } from '@/utils/constants/globalWeb'
+import { HttpMethods, MimeTypes } from '@/utils/constants/globalWeb'
 import createFetchInstance from '@/utils/instance/instance'
 import { calculateScore } from './calculator'
 import { FinalResponse } from '../types/FinalResponse'
 import { ReactionMap } from '../types/ReactionMap'
 
 export const parseHTMLContent = async (
+  postUrl: string,
   htmlString: AxiosResponse,
 ): Promise<FinalResponse> => {
   const parser = new DOMParser()
-  const doc = parser.parseFromString(htmlString.data, 'text/html')
+  const doc = parser.parseFromString(htmlString.data, MimeTypes.HTML)
 
   // TODO: Currently, only DEV.to articles are supported. Change this as needed.
   const articleBody = doc.querySelector(DEV_TO_ARTICLE_BODY_CLASS)
@@ -23,8 +26,10 @@ export const parseHTMLContent = async (
     throw new Error(ErrorMessages.ParseError)
   }
 
+  // Extract article ID from the <article> tag
   const articleId = parseInt(
-    doc.querySelector('article')?.getAttribute('data-article-id') || '0',
+    doc.querySelector('article')?.getAttribute(DEV_TO_ARTICLE_ID_ATTRIBUTE) ||
+      '0',
     10,
   )
 
@@ -33,10 +38,10 @@ export const parseHTMLContent = async (
   const title = titleElement ? titleElement.getAttribute('content') || '' : ''
 
   // Extract image URL from the <img> tag with the class 'w-full h-48 object-cover'
-  const imageElement = doc.querySelector('.crayons-article__cover__image')
+  const imageElement = doc.querySelector(DEV_TO_ARTICLE_COVER_IMAGE_CLASS)
   const imageUrl = imageElement ? imageElement.getAttribute('src') || '' : ''
 
-  // Fetch reactions data
+  // Fetch blog post reactions
   const { instance } = createFetchInstance()
   let reactionData: ReactionMap = { article_reaction_counts: [] }
   try {
@@ -100,10 +105,14 @@ export const parseHTMLContent = async (
     (acc, paragraph) => acc + paragraph.length,
     0,
   )
-  const totalLinkChars = links.reduce((acc, link) => acc + link.text.length, 0)
+
+  const totalLinkCharactersCount = links.reduce(
+    (acc, link) => acc + link.text.length,
+    0,
+  )
 
   const totalPostCharactersCount =
-    totalHeadingChars + totalParagraphChars + totalLinkChars
+    totalHeadingChars + totalParagraphChars + totalLinkCharactersCount
   const wordsCount = words.length
   const readingTime = Math.round(wordsCount / AVERAGE_READING_SPEED)
 
@@ -116,10 +125,9 @@ export const parseHTMLContent = async (
     reactionData,
     readingTime,
   )
-
-  // Include image and title in the final response
   finalResponse.title = title
   finalResponse.imageUrl = imageUrl
+  finalResponse.postUrl = postUrl
 
   return finalResponse
 }

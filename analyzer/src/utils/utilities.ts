@@ -40,6 +40,7 @@ export const calculateFullMark = (content: FinalResponse) => {
       : totalItems
 
   const average = adjustedTotalItems / 3
+
   return Math.min(average, 10)
 }
 

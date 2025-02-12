@@ -5,8 +5,8 @@ const documentationURL = getDocumentationURL()
 
 const Footer = () => {
   return (
-    <footer>
-      <p className="text-center mt-10 mb-10">
+    <footer className="w-full text-center p-4 mb-4 mt-auto">
+      <p>
         Wondering how we measure metrics? Check our documentation&nbsp;
         <a
           href={

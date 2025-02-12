@@ -9,12 +9,13 @@ import {
   savePostToHistory,
 } from '@/utils/utilities'
 import { DEV_TO_SOURCE } from '@/utils/constants/sources'
-import ReactGA from 'react-ga4'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
 import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
 import { RadarData } from '@/interfaces/props/RadarComponent'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
+import Spinner from '@/components/Spinner'
+import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
 
 const [
   AnimatedScore,
@@ -59,12 +60,7 @@ const DevToPostAnalyzer: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (isValidURL) {
-      ReactGA.event({
-        category: 'User',
-        action: 'Clicked submit',
-        label: inputURL,
-      })
-
+      trackSubmitEvent(inputURL)
       setSubmittedURL(inputURL)
       fetchHTMLContent(inputURL)
     }
@@ -103,11 +99,12 @@ const DevToPostAnalyzer: React.FC = () => {
   const clearHistory = () => {
     localStorage.removeItem(LOCAL_STORAGE_KEY)
     setHistory([])
+    trackClearHistory()
   }
 
   return (
-    <SuspenseWrapper fallback={<></>}>
-      <div>
+    <SuspenseWrapper fallback={<Spinner></Spinner>}>
+      <div className="min-h-screen flex flex-col">
         {content?.totalScore === 10 && <FireworksCanvas />}
         <div className="flex items-start justify-center mt-16 mb-16">
           <div className="w-full max-w-3xl rounded-3xl flex flex-col items-center">
