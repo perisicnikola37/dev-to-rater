@@ -25,7 +25,7 @@ const LoadingErrorMessages: React.FC<LoadingErrorMessagesProps> = ({
 
   if (!content) {
     return (
-      <div className="mt-8 w-full text-center text-gray-500">
+      <div className="mt-3 w-full text-left text-gray-500">
         <p>Enter a URL to analyze a post.</p>
       </div>
     )
