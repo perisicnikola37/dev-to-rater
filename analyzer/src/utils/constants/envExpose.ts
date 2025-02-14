@@ -13,5 +13,13 @@
  */
 //
 
+/**
+ * The URL of the API server.
+ * This value is typically set in the environment configuration file.
+ *
+ * @constant {string} API_URL - The URL of the API server.
+ */
+
 export const ENVIRONMENT = import.meta.env.VITE_APP_ENVIRONMENT
 export const GA_4_ID = import.meta.env.VITE_APP_GA_ID
+export const API_URL = import.meta.env.VITE_API_URL
