@@ -12,9 +12,13 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   useEffect(() => {
     const fetchCounter = async () => {
       try {
-        const response = await fetch('/counter')
+        const response = await fetch('http://localhost:2560/api/count')
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
         const data = await response.json()
-        setCounter(data.counter)
+
+        setCounter(data.count)
       } catch (error) {
         console.error('Error fetching counter:', error)
       }

@@ -5,6 +5,7 @@ export const BASE_URLS = {
   APPLICATION_LOCAL: `${Protocols.HTTP}://localhost:5173`,
   DOCUMENTATION: `${Protocols.HTTPS}://docs.dev-to-rater.xyz`,
   DOCUMENTATION_LOCAL: `${Protocols.HTTP}://localhost:3000`,
+  API_LOCAL: `${Protocols.HTTP}://localhost:2560`,
   REPOSITORY: `${Protocols.HTTPS}://github.com/perisicnikola37/dev-to-rater`,
   DEV_TO: `${Protocols.HTTPS}://dev.to/`,
   MEDIUM: `${Protocols.HTTPS}://medium.com`,

@@ -11,11 +11,13 @@ import {
 import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
-import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
+import { BASE_URLS, LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
 import { RadarData } from '@/interfaces/props/RadarComponent'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
 import Spinner from '@/components/Spinner'
 import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
+import { ENVIRONMENT } from '@/utils/constants/envExpose'
+import { Environments } from '@/utils/constants/globalWeb'
 
 const [
   AnimatedScore,
@@ -57,12 +59,36 @@ const DevToPostAnalyzer: React.FC = () => {
 
   const isValidURL = isValidProvidedSourceURL(inputURL, DEV_TO_SOURCE)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (isValidURL) {
       trackSubmitEvent(inputURL)
       setSubmittedURL(inputURL)
       fetchHTMLContent(inputURL)
+    }
+    incrementCount(inputURL)
+  }
+
+  const incrementCount = async (inputURL: string) => {
+    try {
+      const response = await fetch(
+        ENVIRONMENT == Environments.PRODUCTION
+          ? 'http://localhost:2560'
+          : BASE_URLS.API_LOCAL,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url: inputURL }),
+        },
+      )
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }
+    } catch (error) {
+      console.error('Error:', error)
     }
   }
 
