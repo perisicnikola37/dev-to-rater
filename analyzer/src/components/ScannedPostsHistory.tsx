@@ -1,5 +1,10 @@
 import { ScannedPostsHistoryProps } from '@/interfaces/props/ScannedPostsHistory'
-import { MAX_SCANNED_VISIBLE_POSTS } from '@/utils/constants/configuration'
+import {
+  BASE_URLS,
+  MAX_SCANNED_VISIBLE_POSTS,
+} from '@/utils/constants/configuration'
+import { ENVIRONMENT } from '@/utils/constants/envExpose'
+import { Environments } from '@/utils/constants/globalWeb'
 import { reactionEmojis } from '@/utils/constants/images'
 import { useEffect, useState } from 'react'
 
@@ -12,7 +17,12 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   useEffect(() => {
     const fetchCounter = async () => {
       try {
-        const response = await fetch('http://localhost:2560/api/count')
+        const response = await fetch(
+          ENVIRONMENT == Environments.PRODUCTION
+            ? 'http://147.79.101.61:2560/api/count'
+            : BASE_URLS.API_LOCAL,
+        )
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }

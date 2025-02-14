@@ -73,7 +73,7 @@ const DevToPostAnalyzer: React.FC = () => {
     try {
       const response = await fetch(
         ENVIRONMENT == Environments.PRODUCTION
-          ? 'http://localhost:2560'
+          ? 'http://147.79.101.61:2560/api/increment'
           : BASE_URLS.API_LOCAL,
         {
           method: 'PUT',
