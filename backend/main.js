@@ -7,9 +7,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors(CORS_OPTIONS));
+app.use(express.json());
 
 const countRoutes = require("./routes/countRoutes");
-app.use("/api", countRoutes);
+const postRoutes = require("./routes/postRoutes");
+app.use("/api", countRoutes, postRoutes);
 
 app.get("/", (req, res) => {
   res.send("Dev.to Rater");
