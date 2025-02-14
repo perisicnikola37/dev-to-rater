@@ -32,6 +32,7 @@ jobs:
         env:
           VITE_APP_ENVIRONMENT: ${{ secrets.VITE_APP_ENVIRONMENT}}
           VITE_APP_GA_ID: ${{ secrets.VITE_APP_GA_ID }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
