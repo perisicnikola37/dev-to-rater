@@ -19,8 +19,8 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
       try {
         const response = await fetch(
           ENVIRONMENT == Environments.PRODUCTION
-            ? 'http://147.79.101.61:2560/api/count'
-            : BASE_URLS.API_LOCAL,
+            ? BASE_URLS.API_URL + '/count'
+            : BASE_URLS.API_URL_LOCAL + '/count',
         )
 
         if (!response.ok) {
