@@ -1,5 +1,7 @@
 # <img src="https://github.com/user-attachments/assets/1713e555-fcf3-43fe-acd7-36b52dd6d546" alt="Dev.to Rater" height="30"/> Dev.to Rater 
 <a href="https://www.producthunt.com/posts/dev-to-rater-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dev&#0045;to&#0045;rater&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=873037&theme=light&t=1739440944617" alt="Dev&#0046;to&#0032;Rater - Analyze&#0032;blog&#0032;posts&#0032;to&#0032;uncover&#0032;trends&#0032;and&#0032;metrics | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+<img src="https://i.postimg.cc/bJvBsD5Y/croppedz.png" />
 <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
 <img src="https://img.shields.io/github/stars/perisicnikola37/dev-to-post-rater" alt="GitHub Repo stars" />
 <img src="https://img.shields.io/github/license/perisicnikola37/dev-to-post-rater" alt="GitHub License" />
@@ -7,8 +9,6 @@
 <img src="https://img.shields.io/github/commit-activity/m/perisicnikola37/dev-to-post-rater" alt="Commit Activity" />
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/perisicnikola37/dev-to-rater">
 </div>
-
-<img width="650" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/798552e2-d1d5-425d-b5df-60e0e099cf30" />
 
 ## Documentation
 
