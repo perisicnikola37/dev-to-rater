@@ -1,16 +1,50 @@
 import { ScannedPostsHistoryProps } from '@/interfaces/props/ScannedPostsHistory'
-import { MAX_SCANNED_VISIBLE_POSTS } from '@/utils/constants/configuration'
+import {
+  BASE_URLS,
+  MAX_SCANNED_VISIBLE_POSTS,
+} from '@/utils/constants/configuration'
+import { ENVIRONMENT } from '@/utils/constants/envExpose'
+import { Environments } from '@/utils/constants/globalWeb'
 import { reactionEmojis } from '@/utils/constants/images'
+import { useEffect, useState } from 'react'
 
 const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   history,
   clearHistory,
 }) => {
+  const [counter, setCounter] = useState(0)
+
+  useEffect(() => {
+    const fetchCounter = async () => {
+      try {
+        const response = await fetch(
+          ENVIRONMENT == Environments.PRODUCTION
+            ? 'http://147.79.101.61:2560/api/count'
+            : BASE_URLS.API_LOCAL,
+        )
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+
+        setCounter(data.count)
+      } catch (error) {
+        console.error('Error fetching counter:', error)
+      }
+    }
+
+    fetchCounter()
+  }, [])
+
   if (history.length === 0) {
     return (
       <div className="history-section mt-2 max-w-3xl mx-auto px-4">
         <div className="text-center text-gray-500">
-          No scanned posts available. Start scanning to see your history here.
+          <p>
+            We've scanned: <span className="text-blue-600">{counter}</span>{' '}
+            posts
+          </p>
         </div>
       </div>
     )
