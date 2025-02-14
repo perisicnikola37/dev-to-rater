@@ -29,7 +29,7 @@ db.connect((err) => {
       )`,
       (err) => {
         if (err) {
-          console.error("Error creating table:", err);
+          console.error("Error creating posts table:", err);
           return;
         }
         console.log("Table 'posts' created or already exists.");
@@ -43,15 +43,31 @@ db.connect((err) => {
           if (results.length === 0) {
             db.query("INSERT INTO posts (count) VALUES (0)", (err) => {
               if (err) {
-                console.error("Error inserting initial row:", err);
+                console.error("Error inserting initial row into posts:", err);
                 return;
               }
-              console.log("Initial row inserted.");
+              console.log("Initial row inserted into posts.");
             });
           } else {
-            console.log("Initial row already exists.");
+            console.log("Initial row already exists in posts.");
           }
         });
+      }
+    );
+
+    db.query(
+      `CREATE TABLE IF NOT EXISTS featured_posts (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        post_title VARCHAR(255) NOT NULL,
+        post_thumbnail VARCHAR(255),
+        post_url VARCHAR(255) NOT NULL
+      )`,
+      (err) => {
+        if (err) {
+          console.error("Error creating featured_posts table:", err);
+          return;
+        }
+        console.log("Table 'featured_posts' created or already exists.");
       }
     );
   });

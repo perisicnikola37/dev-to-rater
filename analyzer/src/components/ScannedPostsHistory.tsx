@@ -53,9 +53,7 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
   return (
     <div className="history-section mt-8 max-w-3xl mx-auto px-4">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-semibold text-gray-800">
-          Last Scanned Posts
-        </h3>
+        <h3 className="text-2xl font-semibold text-gray-800">History</h3>
         <button
           className="border-2 border-red-300 text-black cursor-pointer py-2 px-4 rounded-md hover:bg-[#F56565] transition duration-300 hover:text-white outline-none hover:border-2 hover:border-transparent"
           onClick={clearHistory}

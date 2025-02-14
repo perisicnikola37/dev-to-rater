@@ -18,6 +18,7 @@ import Spinner from '@/components/Spinner'
 import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
 import { ENVIRONMENT } from '@/utils/constants/envExpose'
 import { Environments } from '@/utils/constants/globalWeb'
+import PromotedPosts from '@/components/PromotedPosts'
 
 const [
   AnimatedScore,
@@ -56,6 +57,7 @@ const DevToPostAnalyzer: React.FC = () => {
   const [, setSubmittedURL] = useState('')
   const { content, loading, error, fetchHTMLContent } = useFetchHTMLContent()
   const [history, setHistory] = useState<FinalResponse[]>(getPostHistory())
+  const [triggerRefetch, setTriggerRefetch] = useState(false)
 
   const isValidURL = isValidProvidedSourceURL(inputURL, DEV_TO_SOURCE)
 
@@ -68,6 +70,12 @@ const DevToPostAnalyzer: React.FC = () => {
     }
     incrementCount(inputURL)
   }
+
+  useEffect(() => {
+    if (content) {
+      addFeaturedPost()
+    }
+  }, [content])
 
   const incrementCount = async (inputURL: string) => {
     try {
@@ -87,6 +95,34 @@ const DevToPostAnalyzer: React.FC = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
       }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
+  const addFeaturedPost = async () => {
+    try {
+      const response = await fetch(
+        ENVIRONMENT == Environments.PRODUCTION
+          ? BASE_URLS.API_URL + '/posts'
+          : BASE_URLS.API_URL_LOCAL + '/posts',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            post_title: content?.title,
+            post_thumbnail: content?.imageUrl,
+            post_url: content?.postUrl,
+          }),
+        },
+      )
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }
+      setTriggerRefetch((prev) => !prev)
     } catch (error) {
       console.error('Error:', error)
     }
@@ -164,6 +200,7 @@ const DevToPostAnalyzer: React.FC = () => {
           url={inputURL}
         />
         <Footer />
+        <PromotedPosts triggerRefetch={triggerRefetch} />
       </div>
       <ScrollToTopButton />
     </SuspenseWrapper>
