@@ -13,6 +13,7 @@ const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
     }[]
   >([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     fetchFeaturedPosts()
@@ -37,12 +38,25 @@ const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
       setLoading(false)
     } catch (error) {
       console.error('Error:', error)
+      setError('Failed to fetch featured posts.')
       setLoading(false)
     }
   }
 
   if (loading) {
     return <div>Loading...</div>
+  }
+
+  if (error) {
+    return
+  }
+
+  if (featuredPosts.length === 0) {
+    return (
+      <div className="text-center">
+        No featured posts available at the moment.
+      </div>
+    )
   }
 
   return (
