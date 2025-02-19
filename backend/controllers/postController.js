@@ -27,7 +27,7 @@ exports.addFeaturedPost = (req, res) => {
     }
 
     if (results.length > 0) {
-      return res.status(409).json({ error: "Post already exists" });
+      return res.status(302).json({ error: "Post already exists" });
     }
 
     const insertQuery =

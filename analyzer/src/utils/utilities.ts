@@ -10,6 +10,7 @@ import {
 import { SourceType } from '@/core/types/SourceType'
 import { ENVIRONMENT } from './constants/envExpose'
 import { Environments } from './constants/globalWeb'
+import { RadarData } from '@/interfaces/props/RadarComponent'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,
@@ -42,6 +43,16 @@ export const calculateFullMark = (content: FinalResponse) => {
   const average = adjustedTotalItems / 3
 
   return Math.min(average, 10)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getRadarData = (content: any, fullMark: number): RadarData[] => {
+  return [
+    { subject: 'Headings', A: content?.headings?.length ?? 0, fullMark },
+    { subject: 'Images', A: 10, fullMark },
+    { subject: 'Links', A: content?.links?.length ?? 0, fullMark },
+    { subject: 'Paragraphs', A: content?.sentences?.length ?? 0, fullMark },
+  ]
 }
 
 export const getRandomMessage = (category: MessageCategories): string => {
@@ -86,3 +97,8 @@ export const getDocumentationURL = (): string => {
     ? BASE_URLS.DOCUMENTATION
     : BASE_URLS.DOCUMENTATION_LOCAL
 }
+
+export const API_URL =
+  ENVIRONMENT === Environments.PRODUCTION
+    ? BASE_URLS.API_URL
+    : BASE_URLS.API_URL_LOCAL

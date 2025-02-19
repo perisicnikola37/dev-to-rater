@@ -61,7 +61,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
 
   return (
     <>
-      <h2 className="text-3xl text-center mt-12 mb-8 font-bold text-gray-900">
+      <h2 className="text-3xl text-center mt-12 mb-8 font-bold">
         Repeated Words
         {content.exceeded.repeatedWords.length === 0 && (
           <p className="mt-4 text-lg font-light text-green-600">
@@ -78,7 +78,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
                 averageRepeats <= 5
                   ? 'text-green-600' // Green if average is good
                   : averageRepeats <= MAX_VISIBLE_REPEATED_WORDS
-                    ? 'text-yellow-600' // Yellow if average is risky
+                    ? 'text-yellow-400' // Yellow if average is risky
                     : 'text-red-600' // Red if average is bad
               }
             >
@@ -108,9 +108,9 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
                 <LabelList
                   dataKey="count"
                   position="right"
-                  fill="#000000"
                   textAnchor="middle"
                   dx={1}
+                  fill={'#fff'}
                 />
               </Bar>
             </BarChart>

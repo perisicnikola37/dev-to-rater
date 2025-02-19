@@ -11,3 +11,56 @@
   border-radius: 10px;
   border: 3px solid #00072b;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #0000ff, #00bfff, #0000ff);
+  background-size: 300% 300%;
+  color: transparent;
+  animation: blueGradient 3s ease infinite;
+}
+
+.gradient-button {
+  background: linear-gradient(90deg, #0000ff, #00a2ff, #0000ff);
+  background-size: 300% 300%;
+  animation: blueGradient 3s ease infinite;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+.gradient-button:hover {
+  background-position: 100% 100%;
+}
+
+@keyframes blueGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s ease infinite;
+}

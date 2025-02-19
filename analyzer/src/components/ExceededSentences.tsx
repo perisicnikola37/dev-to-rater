@@ -22,7 +22,7 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
     const normalWords = words.slice(0, WORDS_LIMIT_PER_SENTENCE)
 
     return (
-      <div className="mt-4 p-4 w-full text-left border border-blue-400 text-black rounded-lg shadow-lg hover:bg-gray-100 transition-colors duration-200 relative">
+      <div className="mt-4 p-4 w-full text-left border border-blue-400 rounded-lg shadow-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200 relative">
         <button
           onClick={() => {
             handleCopy(sentence)
@@ -52,7 +52,7 @@ const ExceededSentences = ({ content }: { content: FinalResponse | null }) => {
   return (
     <div>
       <Toaster />
-      <h2 className="text-3xl text-center mt-12 mb-8 font-bold text-gray-900">
+      <h2 className="text-3xl text-center mt-12 mb-8 font-bold">
         Exceeded Sentences
         {content.exceeded.exceededSentences.length === 0 && (
           <p className="mt-4 text-lg font-light text-green-600">
