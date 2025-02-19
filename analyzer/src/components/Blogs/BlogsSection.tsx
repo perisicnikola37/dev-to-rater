@@ -3,7 +3,7 @@ import background from '@/assets/background.png'
 import Header from '../HomePage/Header'
 import { Link } from 'react-router-dom'
 import TypewriterEffect from '../TypewriterEffect'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const BlogsSection = () => {
   const [selectedTag, setSelectedTag] = useState('')
@@ -32,14 +32,16 @@ const BlogsSection = () => {
     },
   ]
 
-  // Filter blog posts by selected tag
   const filteredPosts = selectedTag
     ? blogPosts.filter((post) => post.tags.includes(selectedTag))
     : blogPosts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   return (
     <div
-      className="relative text-white bg-cover h-screen bg-opacity-70 flex flex-col justify-start items-center bg-black"
+      className="relative text-white bg-cover min-h-screen bg-opacity-70 flex flex-col justify-start items-center bg-black"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
@@ -47,18 +49,18 @@ const BlogsSection = () => {
       }}
     >
       <Header />
-      <div className="absolute top-32 text-center text-4xl font-semibold text-white">
+      <div className="absolute top-32 text-center text-3xl sm:text-4xl font-semibold text-white">
         <h3 className="flex justify-center">
           Recent &nbsp;
           <TypewriterEffect strings={['blog posts']} />
         </h3>
         <div className="mt-8 text-center">
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-4 flex-wrap">
             <button
               onClick={() => setSelectedTag('')}
               className={`px-4 cursor-pointer py-2 text-sm font-medium rounded-sm border-2 border-white hover:bg-white hover:text-black transition duration-200 ${
                 !selectedTag ? 'bg-white text-black' : 'bg-transparent'
-              }`}
+              } mt-2 mb-2`}
             >
               All
             </button>
@@ -73,7 +75,7 @@ const BlogsSection = () => {
                 onClick={() => setSelectedTag(tag)}
                 className={`cursor-pointer px-4 py-2 text-sm font-medium rounded-sm border-2 border-white hover:bg-white hover:text-black transition duration-200 ${
                   selectedTag === tag ? 'bg-white text-black' : 'bg-transparent'
-                }`}
+                } mt-2 mb-2`}
               >
                 {tag}
               </button>
@@ -83,13 +85,13 @@ const BlogsSection = () => {
       </div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto mt-60 px-4"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto mt-60 mb-20 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         {filteredPosts.length === 0 ? (
-          <div className="col-span-full text-center text-xl text-gray-400">
+          <div className="col-span-full text-center text-xl mt-5 lg:mt-0 text-gray-400">
             No posts available for this tag.
           </div>
         ) : (
@@ -101,7 +103,7 @@ const BlogsSection = () => {
               key={index}
             >
               <motion.div
-                className="bg-white text-black rounded-lg shadow-lg overflow-hidden"
+                className="bg-white text-black rounded-lg shadow-lg"
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
@@ -109,15 +111,17 @@ const BlogsSection = () => {
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 sm:h-56 object-cover"
                 />
                 <div className="block p-4 hover:bg-gray-100 transition duration-300">
-                  <h3 className="text-xl font-semibold">{post.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold">
+                    {post.title}
+                  </h3>
                   <div className="mt-2 flex space-x-2 text-sm text-gray-600">
                     {post.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-gray-200 rounded-md"
+                        className="px-2 py-1 bg-gray-200 rounded-xs"
                       >
                         {tag}
                       </span>
@@ -129,6 +133,8 @@ const BlogsSection = () => {
           ))
         )}
       </motion.div>
+
+      <div className="mb-8"></div>
     </div>
   )
 }

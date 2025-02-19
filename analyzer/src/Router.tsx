@@ -3,15 +3,19 @@ import RootLayout from './pages/layouts/RootLayout'
 import DevToPostAnalyzer from './pages/DevToPostAnalyzer'
 import HomePage from './pages/HomePage'
 import Blogs from './pages/Blogs'
+import { FrontendApplicationRoutes } from './utils/constants/configuration'
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<RootLayout />}>
+      <Route path={FrontendApplicationRoutes.HOME} element={<RootLayout />}>
         <Route index element={<HomePage />} />
 
-        <Route path="/rater" element={<DevToPostAnalyzer />} />
-        <Route path="/blogs" element={<Blogs />} />
+        <Route
+          path={FrontendApplicationRoutes.RATER}
+          element={<DevToPostAnalyzer />}
+        />
+        <Route path={FrontendApplicationRoutes.BLOGS} element={<Blogs />} />
       </Route>
     </Routes>
   )

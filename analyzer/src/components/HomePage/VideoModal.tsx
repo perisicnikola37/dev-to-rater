@@ -28,7 +28,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ showVideo, setShowVideo }) => {
       {!showVideo ? (
         <button
           onClick={() => setShowVideo(true)}
-          className="bg-transparent border border-white text-white duration-300 cursor-pointer py-2 px-3 rounded-md hover:shadow-lg hover:shadow-blue-500/50 flex items-center space-x-2"
+          className="bg-transparent border w-full lg:w-[70%] border-white text-white duration-300 cursor-pointer py-2 px-3 rounded-md hover:shadow-lg hover:shadow-blue-500/50 flex items-center space-x-2 justify-center"
         >
           <IoPlayOutline /> <span>Dev.to Rater in 30 seconds</span>
         </button>

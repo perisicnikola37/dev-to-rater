@@ -22,11 +22,18 @@ export const [
   'SubHeader',
 ].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
 
-export const [OurSocials, TrustedBy, HeroSection, RaterDemoThumbnailPreview] = [
+export const [
+  OurSocials,
+  TrustedBy,
+  HeroSection,
+  RaterDemoThumbnailPreview,
+  TryNow,
+] = [
   'OurSocials',
   'TrustedBy',
   'HeroSection',
   'RaterDemoThumbnailPreview',
+  'TryNow',
 ].map((component) =>
   React.lazy(() => import(`@/components/HomePage/${component}.tsx`)),
 )

@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import CanvasCursor from '../CanvasCursor'
 
 const OurSocials = () => {
   const sectionRef = useRef(null)
@@ -15,28 +14,27 @@ const OurSocials = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black text-white w-full min-h-screen pt-20 flex flex-col justify-center items-center relative overflow-hidden mb-[-60px]"
+      className="bg-transparent text-white w-full flex flex-col justify-center items-center relative overflow-hidden mb-[-60px]"
     >
       <div
-        className={`absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-lg transition-all duration-500 ${
+        className={`relative bg-black w-full h-[85rem] lg:mb-0 lg:h-[40rem] bg-opacity-50 backdrop-blur-lg transition-all duration-500 ${
           isInView ? 'opacity-100' : 'opacity-100'
-        }`}
+        } flex justify-center items-center`}
       >
-        <CanvasCursor />
+        <motion.h1
+          key={isInView ? 'visible' : 'hidden'}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInView ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-semibold z-10 uppercase text-center"
+        >
+          Our socials
+        </motion.h1>
       </div>
 
-      <motion.h1
-        key={isInView ? 'visible' : 'hidden'}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-semibold mb-10 z-10 uppercase"
-      >
-        Our socials
-      </motion.h1>
       <div
         ref={cardsRef}
-        className="w-full flex justify-center gap-8 absolute top-1/2 transform -translate-y-1/2 z-20"
+        className="w-full flex flex-wrap justify-center gap-8 absolute top-1/2 transform -translate-y-1/2 z-20"
       >
         {[
           {
@@ -77,7 +75,7 @@ const OurSocials = () => {
                 duration: 0.5,
                 delay: index * 0.2,
               }}
-              className="border-1 hover:scale-105 duration-200 border-white bg-opacity-20 backdrop-blur-md p-6 rounded-lg shadow-lg w-80 h-70 cursor-pointer"
+              className="border-1 hover:scale-105 duration-200 border-white bg-opacity-20 backdrop-blur-md p-6 rounded-lg shadow-lg w-80 h-70 cursor-pointer sm:w-60 sm:h-60 xs:w-48 xs:h-72"
               onClick={() => handleCardClick(card.url)}
             >
               <div className="flex flex-col justify-between h-full">

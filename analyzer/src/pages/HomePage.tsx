@@ -4,15 +4,16 @@ import {
   HeroSection,
   Features,
   TrustedBy,
+  TryNow,
 } from '@/utils/lazyImports'
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
-      {/* <RaterDemoThumbnailPreview /> */}
       <Features />
       <OurSocials />
+      <TryNow />
       <TrustedBy />
       <Footer />
     </>
