@@ -1,56 +1,38 @@
-import React, { useState, useMemo, Suspense, useEffect } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import ReadingTime from '@/components/ReadingTime'
 import RepeatedWords from '@/components/RepeatedWords'
 import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
 import {
   calculateFullMark,
   getPostHistory,
+  getRadarData,
   isValidProvidedSourceURL,
   savePostToHistory,
 } from '@/utils/utilities'
 import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import ScannedPostsHistory from '@/components/ScannedPostsHistory'
-import { BASE_URLS, LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
+import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
 import { RadarData } from '@/interfaces/props/RadarComponent'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
 import Spinner from '@/components/Spinner'
 import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
-import { ENVIRONMENT } from '@/utils/constants/envExpose'
-import { Environments } from '@/utils/constants/globalWeb'
 import PromotedPosts from '@/components/PromotedPosts'
-
-const [
+import useChangeScannedPostsCount from '@/hooks/useChangeScannedPostsCount'
+import { OperationType } from '@/interfaces/props/ChangeScannedPostsCountProps'
+import useAddFeaturedPost from '@/hooks/useAddFeaturedPost'
+import SuspenseWrapper from '@/components/SuspenseWrapper'
+import {
   AnimatedScore,
+  ExceededSentences,
   FireworksCanvas,
+  Footer,
   Header,
-  URLForm,
   LoadingErrorMessages,
   RadarChartSection,
-  ExceededSentences,
-  Footer,
   SubHeader,
-] = [
-  'AnimatedScore',
-  'FireworksCanvas',
-  'Header',
-  'URLForm',
-  'LoadingErrorMessages',
-  'RadarChartSection',
-  'ExceededSentences',
-  'Footer',
-  'SubHeader',
-].map((component) => {
-  return React.lazy(() => import(`../components/${component}.tsx`))
-})
-
-const SuspenseWrapper = ({
-  children,
-  fallback,
-}: {
-  children: React.ReactNode
-  fallback: React.ReactNode
-}) => <Suspense fallback={fallback}>{children}</Suspense>
+  URLForm,
+} from '@/utils/lazyImports'
 
 const DevToPostAnalyzer: React.FC = () => {
   const [inputURL, setInputURL] = useState('')
@@ -58,8 +40,13 @@ const DevToPostAnalyzer: React.FC = () => {
   const { content, loading, error, fetchHTMLContent } = useFetchHTMLContent()
   const [history, setHistory] = useState<FinalResponse[]>(getPostHistory())
   const [triggerRefetch, setTriggerRefetch] = useState(false)
-
   const isValidURL = isValidProvidedSourceURL(inputURL, DEV_TO_SOURCE)
+
+  // Custom hooks
+  const { changeScannedPostsCount } = useChangeScannedPostsCount({
+    operation: OperationType.INCREMENT,
+  })
+  const { addFeaturedPost } = useAddFeaturedPost()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -68,79 +55,25 @@ const DevToPostAnalyzer: React.FC = () => {
       setSubmittedURL(inputURL)
       fetchHTMLContent(inputURL)
     }
-    incrementCount(inputURL)
+    changeScannedPostsCount(1)
   }
 
   useEffect(() => {
     if (content) {
-      addFeaturedPost()
+      addFeaturedPost({ content })
+      setTriggerRefetch((prev) => !prev)
     }
   }, [content])
-
-  const incrementCount = async (inputURL: string) => {
-    try {
-      const response = await fetch(
-        ENVIRONMENT == Environments.PRODUCTION
-          ? BASE_URLS.API_URL + '/increment'
-          : BASE_URLS.API_URL_LOCAL + '/increment',
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ url: inputURL }),
-        },
-      )
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-      }
-    } catch (error) {
-      console.error('Error:', error)
-    }
-  }
-
-  const addFeaturedPost = async () => {
-    try {
-      const response = await fetch(
-        ENVIRONMENT == Environments.PRODUCTION
-          ? BASE_URLS.API_URL + '/posts'
-          : BASE_URLS.API_URL_LOCAL + '/posts',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            post_title: content?.title,
-            post_thumbnail: content?.imageUrl,
-            post_url: content?.postUrl,
-          }),
-        },
-      )
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-      }
-      setTriggerRefetch((prev) => !prev)
-    } catch (error) {
-      console.error('Error:', error)
-    }
-  }
 
   const fullMark = useMemo(
     () => (content ? calculateFullMark(content) : 0),
     [content],
   )
 
-  const data: RadarData[] = useMemo(() => {
-    return [
-      { subject: 'Headings', A: content?.headings?.length ?? 0, fullMark },
-      { subject: 'Images', A: 10, fullMark },
-      { subject: 'Links', A: content?.links?.length ?? 0, fullMark },
-      { subject: 'Paragraphs', A: content?.sentences?.length ?? 0, fullMark },
-    ]
-  }, [content, fullMark])
+  const data: RadarData[] = useMemo(
+    () => getRadarData(content, fullMark),
+    [content, fullMark],
+  )
 
   const animatedScore = useMemo(() => {
     return content ? <AnimatedScore score={content.totalScore} /> : null
@@ -165,8 +98,8 @@ const DevToPostAnalyzer: React.FC = () => {
   }
 
   return (
-    <SuspenseWrapper fallback={<Spinner></Spinner>}>
-      <div className="min-h-screen flex flex-col">
+    <SuspenseWrapper fallback={<Spinner />}>
+      <div className="relative dark:text-white min-h-screen flex flex-col bg-white dark:bg-cover dark:bg-bottom dark:bg-[url('@/assets/background.png')]">
         {content?.totalScore === 10 && <FireworksCanvas />}
         <div className="flex items-start justify-center mt-16 mb-16">
           <div className="w-full max-w-3xl rounded-3xl flex flex-col items-center">

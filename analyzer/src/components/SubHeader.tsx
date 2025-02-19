@@ -1,6 +1,7 @@
 import { BASE_URLS } from '@/utils/constants/configuration'
 import { getDocumentationURL } from '@/utils/utilities'
 import ReactGA from 'react-ga4'
+import DarkModeToggle from './DarkModeToggle'
 
 const documentationURL = getDocumentationURL()
 
@@ -47,6 +48,7 @@ const SubHeader = () => {
           src="https://img.shields.io/github/stars/perisicnikola37/dev-to-rater"
         />
       </a>
+      <DarkModeToggle />
     </section>
   )
 }

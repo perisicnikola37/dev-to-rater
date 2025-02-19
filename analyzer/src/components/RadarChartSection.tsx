@@ -6,9 +6,7 @@ const RadarChartSection: React.FC<RadarChartSectionProps> = ({ data }) => {
   return (
     <section className="mt-8 w-full flex justify-center">
       <div className="max-w-screen-xl w-full text-center">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Content Breakdown
-        </h2>
+        <h2 className="text-2xl font-semibold mb-4">Content Breakdown</h2>
         {data && <RadarComponent data={data} />}
       </div>
     </section>

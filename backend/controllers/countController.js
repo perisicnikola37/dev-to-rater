@@ -11,11 +11,34 @@ exports.getCount = (req, res) => {
 };
 
 exports.incrementCount = (req, res) => {
-  db.query("UPDATE posts SET count = count + 1", (err, results) => {
+  const changeValue = req.body.changeValue;
+
+  if (changeValue === undefined || changeValue <= 0) {
+    return res.status(400).json({ error: "Invalid increment value" });
+  }
+
+  db.query("UPDATE posts SET count = count + ?", [changeValue], (err) => {
     if (err) {
-      console.error("Error occured:", err);
+      console.error("Error occurred:", err);
       return res.status(500).json({ error: "Server error" });
     }
-    res.json({ message: "Count increased by 1" });
+
+    db.query("SELECT count FROM posts LIMIT 1", (err, result) => {
+      if (err) {
+        console.error("Error occurred while fetching count:", err);
+        return res.status(500).json({ error: "Server error" });
+      }
+
+      const currentCount = result?.[0]?.count;
+
+      if (currentCount !== undefined) {
+        res.json({
+          message: `Count increased by ${changeValue}`,
+          count: currentCount,
+        });
+      } else {
+        res.status(500).json({ error: "Count not found" });
+      }
+    });
   });
 };

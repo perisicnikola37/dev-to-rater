@@ -34,11 +34,9 @@ const ReadingTime: React.FC<ReadingTimeProps> = ({ readingTime }) => {
 
   return (
     <section className="w-full">
-      <h2 className="text-3xl text-left mt-12 mb-8 font-bold text-gray-900">
-        Reading Time
-      </h2>
-      <div className="flex justify-between items-center w-full p-4 rounded-lg shadow-md my-4">
-        <div className="ml-4 text-gray-700">
+      <h2 className="text-3xl text-left mt-12 mb-8 font-bold">Reading Time</h2>
+      <div className="hover:scale-101 duration-300 flex justify-between items-center w-full p-4 rounded-lg shadow-lg my-4 backdrop-blur-lg ">
+        <div className="ml-4">
           <h3 className="font-bold text-xl">{readingHeading}</h3>
           <p>{readingMessage}</p>
         </div>

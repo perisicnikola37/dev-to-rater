@@ -1,5 +1,10 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { HttpMethods, HttpStatuses } from '../constants/globalWeb'
+import {
+  HeaderConstants,
+  HttpMethods,
+  HttpStatuses,
+  MimeTypes,
+} from '../constants/globalWeb'
 import { ErrorMessages } from '../constants/messages'
 
 const createFetchInstance = () => {
@@ -12,6 +17,9 @@ const createFetchInstance = () => {
       method: method,
       url: url,
       data: body ? JSON.stringify(body) : undefined,
+      headers: {
+        [HeaderConstants.CONTENT_TYPE]: MimeTypes.JSON,
+      },
     }
 
     try {
@@ -30,21 +38,16 @@ const createFetchInstance = () => {
 }
 
 const handleResponseErrors = (response: AxiosResponse) => {
-  if (response.status !== HttpStatuses.OK) {
-    // Error if the server is not available or other issues
-    if (response.status === HttpStatuses.INTERNAL_SERVER_ERROR) {
+  switch (response.status) {
+    case HttpStatuses.OK:
+      return response
+    case HttpStatuses.INTERNAL_SERVER_ERROR:
       throw new Error(ErrorMessages.FetchError)
-    }
-
-    // Example for 404 error
-    if (response.status === HttpStatuses.NOT_FOUND) {
+    case HttpStatuses.NOT_FOUND:
       throw new Error(ErrorMessages.PostNotFound)
-    }
-
-    throw new Error(ErrorMessages.RequestFailed + `${response.status}`)
+    default:
+      throw new Error(`${ErrorMessages.RequestFailed} ${response.status}`)
   }
-
-  return response
 }
 
 export default createFetchInstance
