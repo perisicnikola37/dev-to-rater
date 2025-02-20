@@ -59,7 +59,7 @@ const Features = () => {
               </div>
             </div>
             <div className="p-4 w-full lg:w-2/5 mb-5 lg:mb-0 flex flex-col justify-center items-left">
-              <motion.h1
+              <motion.h2
                 className="text-center lg:text-left text-3xl font-bold mb-1"
                 whileInView={{ x: 0, opacity: 1 }}
                 initial={{ x: 200, opacity: 0 }}
@@ -67,7 +67,7 @@ const Features = () => {
                 transition={{ duration: 0.7 }}
               >
                 Exceeded sentences.
-              </motion.h1>
+              </motion.h2>
               <motion.p
                 className="mb-4 text-center lg:text-left text-lg text-gray-400"
                 whileInView={{ x: 0, opacity: 1 }}

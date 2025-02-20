@@ -20,10 +20,10 @@ const TryNow: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
 
       <div className="relative w-full h-[30rem] lg:h-[30rem] flex flex-col justify-center items-center">
-        <h1 className="text-lg lg:text-2xl font-bold">Dev.to Rater</h1>
-        <h1 className="gradient-text text-3xl lg:text-5xl mt-2 mb-4 h-13">
+        <h2 className="text-lg lg:text-2xl font-bold">Dev.to Rater</h2>
+        <h2 className="gradient-text text-3xl lg:text-5xl mt-2 mb-4 h-13">
           Grow your audience.
-        </h1>
+        </h2>
         <Link
           to={FrontendApplicationRoutes.RATER}
           className="gradient-button rounded-md mt-3 text-center text-lg"
