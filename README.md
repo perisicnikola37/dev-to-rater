@@ -1,7 +1,7 @@
-# <img src="https://github.com/user-attachments/assets/1713e555-fcf3-43fe-acd7-36b52dd6d546" alt="Dev.to Rater" height="30"/> Dev.to Rater 
-<a href="https://www.producthunt.com/posts/dev-to-rater-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dev&#0045;to&#0045;rater&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=873037&theme=light&t=1739440944617" alt="Dev&#0046;to&#0032;Rater - Analyze&#0032;blog&#0032;posts&#0032;to&#0032;uncover&#0032;trends&#0032;and&#0032;metrics | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://dev-to-rater.xyz" target="_blank">
+<img src="https://github.com/user-attachments/assets/8c9b4433-1a9f-4a8d-a079-2d45fd4ccf01" />
+</a>
 
-<img src="https://i.postimg.cc/bJvBsD5Y/croppedz.png" />
 <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
 <img src="https://img.shields.io/github/stars/perisicnikola37/dev-to-post-rater" alt="GitHub Repo stars" />
 <img src="https://img.shields.io/github/license/perisicnikola37/dev-to-post-rater" alt="GitHub License" />
@@ -40,15 +40,17 @@ Detailed calculations logic can be found [here](https://docs.dev-to-rater.xyz/ve
 
 <hr/>
 
-### Examples
+![image](https://github.com/user-attachments/assets/345c5c60-2545-48b4-9714-26ced3c42050)
 
-<img width="550" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/a2e687ec-126b-4e22-94e6-a9d280c0343f" />
+### Recent Blog Posts
 
-<img width="550" alt="Dev.to Rater" src="https://github.com/user-attachments/assets/08a439b4-bd16-4c84-b3e7-59c702aa510b" />
-
+1. [The end: Create React App (2016-2025)](https://dev.to/dev-to-rater-org/the-end-create-react-app-2016-2025-3cdf)  
+2. [The biggest frontend mistakes you can do](https://dev.to/dev-to-rater-org/the-biggest-frontend-mistakes-you-can-do-bng)  
+3. [The biggest backend mistakes you can do](https://dev.to/dev-to-rater-org/the-biggest-backend-mistakes-you-can-do-ki0)  
 
 ### Contributors
-
 <a href="https://github.com/perisicnikola37/dev-to-rater/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=perisicnikola37/dev-to-rater" />
+   <img src="https://contrib.rocks/image?repo=perisicnikola37/dev-to-rater" />
 </a>
+
+
