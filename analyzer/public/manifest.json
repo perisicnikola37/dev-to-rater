@@ -1,0 +1,38 @@
+{
+  "short_name": "DevTo Rater",
+  "name": "DevTo Post Analyzer & Blogs",
+  "description": "Analyze DevTo posts, blogs, and track performance with advanced SEO and content insights.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "name": "Home",
+      "title": "DevTo Rater - Home"
+    },
+    {
+      "path": "/rater",
+      "name": "Post Analyzer",
+      "title": "DevTo Post Analyzer"
+    },
+    {
+      "path": "/blogs",
+      "name": "Blogs",
+      "title": "Latest Blogs on DevTo"
+    }
+  ]
+}

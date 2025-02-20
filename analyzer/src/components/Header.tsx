@@ -9,16 +9,16 @@ const Header: React.FC = () => (
         Dev.to Rater
       </h1>
       <Link to={'/'}>
-        <img className="ml-4 w-13 h-13" src={logo} alt="Dev.to Rater logo" />
+        <img className="ml-4 w-13 h-13" src={logo} alt="Dev.to Rater Logo" />
       </Link>
     </div>
     <div className="flex justify-start w-full mt-3 text-gray-800 dark:text-white">
-      <p>
+      <h2>
         Make your posts engaging.&nbsp;
         <span className="text-blue-600 dark:text-blue-400">
           Grow your audience.
         </span>
-      </p>
+      </h2>
     </div>
   </header>
 )

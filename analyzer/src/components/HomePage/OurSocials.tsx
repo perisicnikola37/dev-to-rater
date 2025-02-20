@@ -21,7 +21,7 @@ const OurSocials = () => {
           isInView ? 'opacity-100' : 'opacity-100'
         } flex justify-center items-center`}
       >
-        <motion.h1
+        <motion.h2
           key={isInView ? 'visible' : 'hidden'}
           initial={{ opacity: 0 }}
           animate={{ opacity: isInView ? 1 : 0 }}
@@ -29,7 +29,7 @@ const OurSocials = () => {
           className="text-4xl font-semibold z-10 uppercase text-center"
         >
           Our socials
-        </motion.h1>
+        </motion.h2>
       </div>
 
       <div
@@ -84,6 +84,7 @@ const OurSocials = () => {
                   width={'100px'}
                   src={card.imgSrc}
                   className="m-auto"
+                  alt={"Dev.to Rater's social media"}
                 />
               </div>
             </motion.div>
