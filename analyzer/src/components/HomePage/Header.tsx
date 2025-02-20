@@ -15,7 +15,7 @@ const Header = () => {
     <header className="sticky top-0 flex justify-between items-center w-full px-6 md:px-10 border-b border-gray-800 h-18 backdrop-blur-sm z-50 bg-opacity-60">
       <div className="flex items-center">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="logo" className="w-8 mr-2" />
+          <img src={logo} alt="Dev.to Rater Logo" className="w-8 mr-2" />
         </Link>
 
         <nav className="hidden md:flex items-center ml-8">
