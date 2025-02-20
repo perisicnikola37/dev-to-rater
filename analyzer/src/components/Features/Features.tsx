@@ -16,7 +16,7 @@ const Features = () => {
             <div className="p-10 w-full lg:w-3/5 rounded-lg">
               <div className="flex flex-col space-y-4">
                 <motion.div
-                  className="w-full h-56 lg:h-32 rounded-lg border border-transparent bg-gradient-to-r from-blue-500 to-purple-500"
+                  className="w-full  rounded-lg border border-transparent bg-gradient-to-r from-blue-500 to-purple-500"
                   whileInView={{ x: 0, opacity: 1 }}
                   initial={{ x: -200, opacity: 0 }}
                   viewport={{ once: true }}
@@ -37,7 +37,7 @@ const Features = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  className="w-full h-48 lg:h-32 rounded-lg border border-transparent bg-gradient-to-r from-blue-500 to-purple-500"
+                  className="w-full rounded-lg border border-transparent bg-gradient-to-r from-blue-500 to-purple-500"
                   whileInView={{ x: 0, opacity: 1 }}
                   initial={{ x: -200, opacity: 0 }}
                   viewport={{ once: true }}
@@ -79,7 +79,7 @@ const Features = () => {
               </motion.p>
               <Link
                 to="/rater"
-                className="bg-blue-700 hover:bg-blue-600 duration-300 cursor-pointer text-white font-bold rounded-sm text-center py-3 lg:w-[20%] w-[30%] m-auto lg:m-0"
+                className="bg-blue-700 hover:bg-blue-600 duration-300 cursor-pointer text-white font-bold rounded-sm text-center py-3 lg:w-[20%] w-[40%] m-auto lg:m-0"
               >
                 Scan now
               </Link>

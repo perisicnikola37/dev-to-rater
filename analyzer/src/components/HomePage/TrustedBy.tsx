@@ -9,7 +9,7 @@ const TrustedBy = () => {
   return (
     <section className="bg-black w-full h-64 flex justify-center items-center">
       <div className="text-center">
-        <p className="font-semibold text-white text-3xl mb-8">
+        <p className="font-semibold text-white lg:text-3xl text-2xl mb-8">
           Trusted by Dev.to Writers
         </p>
         <div className="flex justify-center items-center space-x-4 flex-wrap">
