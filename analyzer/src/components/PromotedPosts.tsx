@@ -2,6 +2,7 @@ import { BASE_URLS } from '@/utils/constants/configuration'
 import { ENVIRONMENT } from '@/utils/constants/envExpose'
 import { Environments } from '@/utils/constants/globalWeb'
 import { useEffect, useState } from 'react'
+import Spinner from './Spinner'
 
 const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
   const [featuredPosts, setFeaturedPosts] = useState<
@@ -44,7 +45,7 @@ const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
   }
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Spinner />
   }
 
   if (error) {

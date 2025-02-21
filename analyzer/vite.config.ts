@@ -1,15 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import tailwindcss from '@tailwindcss/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    visualizer({
+      template: 'sunburst',
+      filename: 'stats.html',
+    }),
+    tailwindcss(),
+  ],
   build: {
     rollupOptions: {
+      onwarn(warning) {
+        if (warning.message.includes('"use client"')) return
+      },
       output: {
         manualChunks(id) {
-          // Split vendor libraries into a separate chunk
           if (id.includes('node_modules')) {
             return 'vendor'
           }

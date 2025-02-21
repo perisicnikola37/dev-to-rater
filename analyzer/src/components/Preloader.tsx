@@ -1,6 +1,4 @@
-import React from 'react'
-
-const Preloader: React.FC = () => {
+const Preloader = () => {
   return (
     <section className="flex justify-center items-center min-h-screen">
       <div className="text-center">

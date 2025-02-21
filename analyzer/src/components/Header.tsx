@@ -1,8 +1,7 @@
-import React from 'react'
 import logo from '@/assets/logo.webp'
 import { Link } from 'react-router-dom'
 
-const Header: React.FC = () => (
+const Header = () => (
   <header className="w-full">
     <div className="flex justify-between items-center">
       <h1 className="text-3xl font-bold mt-4 text-gray-800 dark:text-white">

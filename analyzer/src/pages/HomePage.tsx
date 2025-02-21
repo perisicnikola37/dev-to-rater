@@ -1,20 +1,20 @@
 import Footer from '@/components/Footer/Footer'
 import {
-  OurSocials,
+  OurSocialsSection,
   HeroSection,
-  Features,
-  TrustedBy,
-  TryNow,
+  FeaturesSection,
+  TrustedBySection,
+  TryNowSection,
 } from '@/utils/lazyImports'
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <Features />
-      <OurSocials />
-      <TryNow />
-      <TrustedBy />
+      <FeaturesSection />
+      <OurSocialsSection />
+      <TryNowSection />
+      <TrustedBySection />
       <Footer />
     </>
   )

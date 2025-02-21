@@ -1,5 +1,6 @@
 import { API_URL } from './envExpose'
 import { Protocols } from './globalWeb'
+import { socialImages } from './images'
 
 export const BASE_URLS = {
   APPLICATION: `${Protocols.HTTPS}://dev-to-rater.xyz`,
@@ -33,3 +34,22 @@ export enum FrontendApplicationRoutes {
   RATER = '/rater',
   NOT_FOUND = '/not-found',
 }
+
+export const ourSocials = [
+  {
+    imgSrc: socialImages.devTo,
+    url: 'https://dev.to/dev-to-rater-org',
+  },
+  {
+    imgSrc: socialImages.gitHub,
+    url: 'https://github.com/perisicnikola37/dev-to-rater/',
+  },
+  {
+    imgSrc: socialImages.youTube,
+    url: 'https://www.youtube.com/@Dev.toRater',
+  },
+  {
+    imgSrc: socialImages.productHunt,
+    url: 'https://www.producthunt.com/posts/dev-to-rater-2?utm_source=other&utm_medium=social',
+  },
+]

@@ -64,3 +64,7 @@
   -webkit-text-fill-color: transparent;
   animation: gradientText 5s ease infinite;
 }
+
+.will-change {
+  will-change: transform, opacity;
+}
