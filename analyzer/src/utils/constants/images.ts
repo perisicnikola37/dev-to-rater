@@ -13,3 +13,15 @@ export const reactionEmojis = {
   fire: fire,
   readinglist: readinglist,
 }
+
+import devTo from '@/assets/dev-to.webp'
+import productHunt from '@/assets/product_hunt.webp'
+import youTube from '@/assets/youtube.webp'
+import gitHub from '@/assets/github.webp'
+
+export const socialImages = {
+  devTo: devTo,
+  productHunt: productHunt,
+  youTube: youTube,
+  gitHub: gitHub,
+}

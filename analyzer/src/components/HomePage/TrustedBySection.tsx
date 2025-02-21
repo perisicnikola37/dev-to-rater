@@ -1,7 +1,9 @@
-const TrustedBy = () => {
+import author1 from '@/assets/author1.webp'
+
+const TrustedBySection = () => {
   const images = [
     {
-      src: 'https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1109424%2F9c92b87f-9c68-4370-b554-2d7d4d823a9b.png',
+      src: author1,
       link: 'https://dev.to/perisicnikola37',
     },
   ]
@@ -31,4 +33,4 @@ const TrustedBy = () => {
   )
 }
 
-export default TrustedBy
+export default TrustedBySection

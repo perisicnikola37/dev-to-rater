@@ -26,3 +26,6 @@ dist-ssr
 .cspell
 
 .env
+
+# vite bundle visualizer
+stats.html

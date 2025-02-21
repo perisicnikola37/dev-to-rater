@@ -23,21 +23,29 @@ export const [
 ].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
 
 export const [
-  OurSocials,
-  TrustedBy,
+  OurSocialsSection,
+  TrustedBySection,
   HeroSection,
   RaterDemoThumbnailPreview,
-  TryNow,
+  TryNowSection,
 ] = [
-  'OurSocials',
-  'TrustedBy',
+  'OurSocialsSection',
+  'TrustedBySection',
   'HeroSection',
   'RaterDemoThumbnailPreview',
-  'TryNow',
+  'TryNowSection',
 ].map((component) =>
   React.lazy(() => import(`@/components/HomePage/${component}.tsx`)),
 )
 
-export const [Features] = ['Features'].map((component) =>
+export const [FeaturesSection] = ['FeaturesSection'].map((component) =>
+  React.lazy(() => import(`@/components/Features/${component}.tsx`)),
+)
+
+export const [ExceededSentencesBox, ReadingTimeBox, WordFrequencyBox] = [
+  'ExceededSentencesBox',
+  'ReadingTimeBox',
+  'WordFrequencyBox',
+].map((component) =>
   React.lazy(() => import(`@/components/Features/${component}.tsx`)),
 )

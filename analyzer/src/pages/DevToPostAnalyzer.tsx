@@ -34,7 +34,7 @@ import {
   URLForm,
 } from '@/utils/lazyImports'
 
-const DevToPostAnalyzer: React.FC = () => {
+const DevToPostAnalyzer = () => {
   const [inputURL, setInputURL] = useState('')
   const [, setSubmittedURL] = useState('')
   const { content, loading, error, fetchHTMLContent } = useFetchHTMLContent()

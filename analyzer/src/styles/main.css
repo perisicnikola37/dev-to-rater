@@ -61,4 +61,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 5s ease infinite;
+}
+
+.will-change {
+  will-change: transform, opacity;
 } /*# sourceMappingURL=main.css.map */
