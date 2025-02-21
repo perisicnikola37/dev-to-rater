@@ -73,6 +73,7 @@ const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
             className="hover:opacity-70 post-history-item flex items-center space-x-4 bg-white p-1 rounded-xl shadow-md hover:shadow-lg cursor-pointer transition duration-300"
           >
             <img
+              loading="lazy"
               src={
                 post.post_thumbnail ||
                 'https://static-00.iconduck.com/assets.00/dev-to-icon-2048x2048-4i261myk.png'

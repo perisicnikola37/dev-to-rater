@@ -19,6 +19,7 @@ const TrustedBySection = () => {
             <div key={index} className="relative mb-4">
               <a href={image.link} target="_blank" rel="noopener noreferrer">
                 <img
+                  loading="lazy"
                   src={image.src}
                   alt={`Dev.to Writer ${index + 1}`}
                   className={`rounded-full w-16 h-16 object-cover z-10 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:-rotate-3`}
