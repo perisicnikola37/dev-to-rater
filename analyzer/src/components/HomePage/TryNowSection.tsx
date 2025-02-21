@@ -1,8 +1,7 @@
 import { FrontendApplicationRoutes } from '@/utils/constants/configuration'
-import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TryNow: React.FC = () => {
+const TryNowSection = () => {
   return (
     <section className="relative bg-transparent text-white w-full flex flex-col justify-center items-center overflow-hidden mb-[-60px] transition-all duration-500">
       <div
@@ -35,4 +34,4 @@ const TryNow: React.FC = () => {
   )
 }
 
-export default TryNow
+export default TryNowSection

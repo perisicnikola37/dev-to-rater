@@ -4,7 +4,7 @@ import VideoModal from './VideoModal'
 import background from '@/assets/background.png'
 import ScrollArrow from '../ScrollArrow'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import MotionWrapper from '../Wrappers/MotionWrapper'
 
 const HeroSection = () => {
   const [showVideo, setShowVideo] = useState(false)
@@ -22,14 +22,14 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
       <section className="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto mt-52 md:mt-75 px-6 md:px-0">
         <div className="flex-1 text-center lg:text-right lg:pr-10">
-          <motion.h1
+          <MotionWrapper.h1
             initial={{ filter: 'blur(10px)', opacity: 0 }}
             whileInView={{ filter: 'blur(0px)', opacity: 1 }}
             className="text-5xl md:text-7xl font-semibold"
           >
             <span>Next Gen Blog</span> <br />
             Scanner Tool
-          </motion.h1>
+          </MotionWrapper.h1>
         </div>
         <div className="flex-1 text-center mr-0 lg:mr-0 mt-5 lg:text-left md:text-left text-lg md:text-xl md:mt-0">
           <div className="leading-relaxed">

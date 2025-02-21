@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
 import background from '@/assets/background.png'
 import Header from '../HomePage/Header'
 import { Link } from 'react-router-dom'
 import TypewriterEffect from '../TypewriterEffect'
 import { useEffect, useState } from 'react'
+import MotionWrapper from '../Wrappers/MotionWrapper'
 
 const BlogsSection = () => {
   const [selectedTag, setSelectedTag] = useState('')
@@ -84,7 +84,7 @@ const BlogsSection = () => {
         </div>
       </div>
 
-      <motion.div
+      <MotionWrapper.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto mt-60 mb-20 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -102,7 +102,7 @@ const BlogsSection = () => {
               className="hover:scale-102 duration-200 ease-in-out"
               key={index}
             >
-              <motion.div
+              <MotionWrapper.div
                 className="bg-white text-black rounded-lg shadow-lg"
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -128,11 +128,11 @@ const BlogsSection = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </MotionWrapper.div>
             </Link>
           ))
         )}
-      </motion.div>
+      </MotionWrapper.div>
 
       <div className="mb-8"></div>
     </div>

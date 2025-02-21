@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import MotionWrapper from './Wrappers/MotionWrapper'
 
 const ScrollArrow = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -22,7 +22,7 @@ const ScrollArrow = () => {
 
   return (
     !scrolled && (
-      <motion.div
+      <MotionWrapper.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
@@ -42,7 +42,7 @@ const ScrollArrow = () => {
             d="M19 9l-7 7-7-7"
           />
         </svg>
-      </motion.div>
+      </MotionWrapper.div>
     )
   )
 }

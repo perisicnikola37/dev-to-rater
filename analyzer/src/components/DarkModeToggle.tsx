@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
-const DarkModeToggle: React.FC = () => {
+const DarkModeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const savedMode = localStorage.getItem('darkMode')

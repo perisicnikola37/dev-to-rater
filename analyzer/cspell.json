@@ -11,7 +11,9 @@
     "**/*.jpeg",
     "**/*.png",
     "**/*.gif",
-    "**/*.svg"
+    "**/*.svg",
+    "stats.html",
+    "vite.config.ts"
   ],
   "words": [
     "Nikola",

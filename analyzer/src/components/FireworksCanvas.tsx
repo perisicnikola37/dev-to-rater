@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-const FireworksCanvas: React.FC = () => {
+const FireworksCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [active, setActive] = useState(true)
   const animationFrameRef = useRef<number | null>(null)
