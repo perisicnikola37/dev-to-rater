@@ -17,6 +17,7 @@ const ReadingTimeBox = () => {
         </div>
       </div>
       <img
+        loading="lazy"
         src={readingTime}
         alt="Dev.to Rater - Reading time of blog post"
         className="w-full mt-5 h-full overflow-auto object-cover select-none"

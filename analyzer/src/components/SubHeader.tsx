@@ -44,6 +44,7 @@ const SubHeader = () => {
         onClick={handleRepoClick}
       >
         <img
+          loading="lazy"
           alt="GitHub repository stars badge"
           src="https://img.shields.io/github/stars/perisicnikola37/dev-to-rater"
         />

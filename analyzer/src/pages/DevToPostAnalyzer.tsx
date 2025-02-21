@@ -54,8 +54,8 @@ const DevToPostAnalyzer = () => {
       trackSubmitEvent(inputURL)
       setSubmittedURL(inputURL)
       fetchHTMLContent(inputURL)
+      changeScannedPostsCount(1)
     }
-    changeScannedPostsCount(1)
   }
 
   useEffect(() => {

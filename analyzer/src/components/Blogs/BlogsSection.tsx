@@ -109,6 +109,7 @@ const BlogsSection = () => {
                 transition={{ delay: index * 0.2, duration: 0.5 }}
               >
                 <img
+                  loading="lazy"
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 sm:h-56 object-cover"
