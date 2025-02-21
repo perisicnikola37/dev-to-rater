@@ -110,7 +110,7 @@ const RepeatedWords = ({ content }: { content: FinalResponse | null }) => {
                   position="right"
                   textAnchor="middle"
                   dx={1}
-                  fill={'#fff'}
+                  fill={'#000'}
                 />
               </Bar>
             </BarChart>

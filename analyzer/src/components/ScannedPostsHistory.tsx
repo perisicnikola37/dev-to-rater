@@ -72,6 +72,7 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
             className="post-history-item flex items-center space-x-4 backdrop-blur-2xl hover:scale-101 p-5 rounded-xl shadow-md hover:shadow-lg cursor-pointer transition duration-300"
           >
             <img
+              loading="lazy"
               src={
                 post.imageUrl ||
                 'https://static-00.iconduck.com/assets.00/dev-to-icon-2048x2048-4i261myk.png'
@@ -92,6 +93,7 @@ const ScannedPostsHistory: React.FC<ScannedPostsHistoryProps> = ({
                   .map((reaction, index) => (
                     <p key={index} className="flex items-center">
                       <img
+                        loading="lazy"
                         src={
                           reactionEmojis[
                             reaction.category as keyof typeof reactionEmojis

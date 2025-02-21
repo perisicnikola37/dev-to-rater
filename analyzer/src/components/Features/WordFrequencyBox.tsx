@@ -20,6 +20,7 @@ const WordFrequencyBox = () => {
       </div>
       <div className="flex justify-center h-full p-8 w-full">
         <img
+          loading="lazy"
           className="select-none object-contain"
           src={wordFrequency}
           alt="Dev.to Rater - Word repetition frequency"
