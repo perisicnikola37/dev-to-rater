@@ -8,26 +8,21 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "https://i.postimg.cc/3NFg6y0Q/Analyze-your-Dev-to-posts-httpsdev-to-rater-xyz-2-photoaidcom-cropped.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "routes": [
     {
       "path": "/",
       "name": "Home",
-      "title": "DevTo Rater - Home"
+      "title": "DevTo Rater | Homepage"
     },
     {
       "path": "/rater",
       "name": "Post Analyzer",
-      "title": "DevTo Post Analyzer"
+      "title": "DevTo Post | Analyzer"
     },
     {
       "path": "/blogs",

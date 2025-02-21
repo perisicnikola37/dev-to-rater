@@ -8,7 +8,11 @@ const Header = () => (
         Dev.to Rater
       </h1>
       <Link to={'/'}>
-        <img className="ml-4 w-13 h-13" src={logo} alt="Dev.to Rater Logo" />
+        <img
+          className="w-13 h-13 transition-transform duration-300 hover:rotate-10 ease-in-out"
+          src={logo}
+          alt="Dev.to Rater Logo"
+        />
       </Link>
     </div>
     <div className="flex justify-start w-full mt-3 text-gray-800 dark:text-white">

@@ -31,10 +31,10 @@ const Card: React.FC<CardProps> = React.memo(
         <div className="flex flex-col justify-between h-full">
           <Suspense fallback={<Spinner />}>
             <img
+              loading="lazy"
               height={'100px'}
               width={'100px'}
               src={card.imgSrc}
-              loading="lazy"
               className="m-auto"
               alt="Dev.to Rater's social media"
             />

@@ -29,6 +29,7 @@ const ScrollToTopButton = () => {
           rel="noopener noreferrer"
         >
           <img
+            loading="lazy"
             src={productHunt}
             alt="Dev.to Rater - Analyze blog posts to uncover trends and metrics | Product Hunt"
             width="65"
