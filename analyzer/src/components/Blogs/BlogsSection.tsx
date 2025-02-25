@@ -1,4 +1,4 @@
-import background from '@/assets/background.png'
+import background from '@/assets/images/background.png'
 import Header from '../HomePage/Header'
 import { Link } from 'react-router-dom'
 import TypewriterEffect from '../TypewriterEffect'

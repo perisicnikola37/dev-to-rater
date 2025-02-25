@@ -1,9 +1,9 @@
+import HomePage from '@/pages/HomePage'
 import { Routes, Route } from 'react-router-dom'
-import RootLayout from './pages/layouts/RootLayout'
-import DevToPostAnalyzer from './pages/DevToPostAnalyzer'
-import HomePage from './pages/HomePage'
-import Blogs from './pages/Blogs'
-import { FrontendApplicationRoutes } from './utils/constants/configuration'
+import { FrontendApplicationRoutes } from './routes'
+import RootLayout from '@/pages/layouts/RootLayout'
+import DevToPostAnalyzer from '@/pages/DevToPostAnalyzer'
+import Blogs from '@/pages/Blogs'
 
 const Router = () => {
   return (

@@ -28,13 +28,6 @@ export const MAX_SCANNED_VISIBLE_POSTS = 3
 
 export const LOCAL_STORAGE_KEY = 'scannedPostsHistory'
 
-export enum FrontendApplicationRoutes {
-  HOME = '/',
-  BLOGS = '/blogs',
-  RATER = '/rater',
-  NOT_FOUND = '/not-found',
-}
-
 export const ourSocials = [
   {
     imgSrc: socialImages.devTo,
