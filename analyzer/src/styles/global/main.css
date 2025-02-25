@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00072b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2b7fff;
+  border-radius: 10px;
+  border: 3px solid #00072b;
+}
+
 #dev-to-rater {
   font-family: 'Playwrite IT Moderna', serif;
   font-optical-sizing: auto;

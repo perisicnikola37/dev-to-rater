@@ -1,4 +1,4 @@
-import { FrontendApplicationRoutes } from '@/utils/constants/configuration'
+import { FrontendApplicationRoutes } from '@/routes/routes'
 import { Link } from 'react-router-dom'
 
 const TryNowSection = () => {

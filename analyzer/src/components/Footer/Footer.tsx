@@ -1,5 +1,5 @@
-import logo from '@/assets/logo.webp'
-import { FrontendApplicationRoutes } from '@/utils/constants/configuration'
+import logo from '@/assets/images/logo.webp'
+import { FrontendApplicationRoutes } from '@/routes/routes'
 import { Link } from 'react-router-dom'
 
 const footerLinks = [
