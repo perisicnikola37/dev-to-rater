@@ -30,7 +30,7 @@ const Footer = () => {
     <footer
       className="relative text-white shadow-sm bg-gray-900 pt-15 bg-cover bg-top"
       style={{
-        backgroundImage: 'url(https://i.postimg.cc/3N4DqXnq/background.png)',
+        backgroundImage: 'url(/background.png)',
       }}
     >
       <div className="absolute top-0 left-0 w-full h-15 bg-gradient-to-b from-black to-transparent"></div>
@@ -45,8 +45,9 @@ const Footer = () => {
             <img
               loading="lazy"
               src={logo}
-              className="h-8"
               alt="Dev.to Rater Logo"
+              width={35}
+              height={35}
             />
           </Link>
 

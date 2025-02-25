@@ -7,7 +7,7 @@ const TryNowSection = () => {
       <div
         className="absolute inset-0 bg-black/50"
         style={{
-          backgroundImage: 'url(https://i.postimg.cc/3N4DqXnq/background.png)',
+          backgroundImage: 'url(/background.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'overlay',

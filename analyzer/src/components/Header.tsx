@@ -9,9 +9,11 @@ const Header = () => (
       </h1>
       <Link to={'/'}>
         <img
-          className="w-13 h-13 transition-transform duration-300 hover:rotate-10 ease-in-out"
+          className="transition-transform duration-300 hover:rotate-10 ease-in-out"
           src={logo}
           alt="Dev.to Rater Logo"
+          width={45}
+          height={20}
         />
       </Link>
     </div>
