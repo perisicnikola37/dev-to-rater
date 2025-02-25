@@ -3,10 +3,10 @@ import { getDocumentationURL } from '@/utils/utilities'
 import { CiStar } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
-import logo from '@/assets/logo.webp'
-import { FrontendApplicationRoutes } from '@/utils/constants/configuration'
+import logo from '@/assets/images/logo.webp'
 import clsx from 'clsx'
 import { NavLink } from '@/interfaces/props/NavLink'
+import { FrontendApplicationRoutes } from '@/routes/routes'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)

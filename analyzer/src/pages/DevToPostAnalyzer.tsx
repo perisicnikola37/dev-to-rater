@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import ReadingTime from '@/components/ReadingTime'
 import RepeatedWords from '@/components/RepeatedWords'
-import useFetchHTMLContent from '@/hooks/useFetchHTMLContent'
+import useFetchHTMLContent from '@/hooks/common/useFetchHTMLContent'
 import {
   calculateFullMark,
   getPostHistory,
@@ -18,9 +18,9 @@ import ScrollToTopButton from '@/components/ScrollToTopButton'
 import Spinner from '@/components/Spinner'
 import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
 import PromotedPosts from '@/components/PromotedPosts'
-import useChangeScannedPostsCount from '@/hooks/useChangeScannedPostsCount'
+import useChangeScannedPostsCount from '@/hooks/common/useChangeScannedPostsCount'
 import { OperationType } from '@/interfaces/props/ChangeScannedPostsCountProps'
-import useAddFeaturedPost from '@/hooks/useAddFeaturedPost'
+import useAddFeaturedPost from '@/hooks/common/useAddFeaturedPost'
 import SuspenseWrapper from '@/components/SuspenseWrapper'
 import {
   AnimatedScore,

@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
-import '@/styles/tailwind.css'
-import '@/styles/main.css'
+import '@/styles/tailwind/tailwind.css'
+import '@/styles/global/main.css'
 import ReactGA from 'react-ga4'
 import { Environments } from './utils/constants/globalWeb'
 import { ENVIRONMENT, GA_4_ID } from './utils/constants/envExpose'
 import { BrowserRouter } from 'react-router-dom'
-import Router from './Router'
+import Router from './routes/Router'
 
 if (ENVIRONMENT == Environments.PRODUCTION && GA_4_ID) {
   ReactGA.initialize(GA_4_ID)

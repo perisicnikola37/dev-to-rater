@@ -1,4 +1,4 @@
-import author1 from '@/assets/author1.webp'
+import author1 from '@/assets/images/author1.webp'
 
 const TrustedBySection = () => {
   const images = [

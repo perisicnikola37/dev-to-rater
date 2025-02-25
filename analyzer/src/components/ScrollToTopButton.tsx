@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import productHunt from '@/assets/productHunt.svg'
+import productHunt from '@/assets/icons/productHunt.svg'
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false)
