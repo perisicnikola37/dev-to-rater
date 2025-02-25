@@ -8,7 +8,7 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "https://i.postimg.cc/3NFg6y0Q/Analyze-your-Dev-to-posts-httpsdev-to-rater-xyz-2-photoaidcom-cropped.png",
+      "src": "./dev_to_logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }

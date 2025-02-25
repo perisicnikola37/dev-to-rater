@@ -24,6 +24,8 @@ const WordFrequencyBox = () => {
           className="select-none object-contain"
           src={wordFrequency}
           alt="Dev.to Rater - Word repetition frequency"
+          width={550}
+          height={550}
         />
       </div>
     </MotionWrapper.div>
