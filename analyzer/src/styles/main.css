@@ -1,22 +1,18 @@
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #00072b;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #2b7fff;
-  border-radius: 10px;
-  border: 3px solid #00072b;
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+#dev-to-rater {
+  font-family: 'Playwrite IT Moderna', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #0000ff, #00bfff, #0000ff);
-  background-size: 300% 300%;
-  color: transparent;
-  animation: blueGradient 3s ease infinite;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s ease infinite;
 }
 
 .gradient-button {
@@ -28,7 +24,6 @@
   padding: 0.5rem 2rem;
   cursor: pointer;
 }
-
 .gradient-button:hover {
   background-position: 100% 100%;
 }
@@ -55,14 +50,6 @@
     background-position: 0% 50%;
   }
 }
-.gradient-text {
-  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 5s ease infinite;
-}
-
 .will-change {
   will-change: transform, opacity;
 } /*# sourceMappingURL=main.css.map */

@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = React.memo(
           duration: 0.5,
           delay: index * 0.2,
         }}
-        className="will-change border-1 hover:scale-105 duration-200 border-white bg-opacity-20 backdrop-blur-md p-6 rounded-lg shadow-lg w-80 h-70 cursor-pointer sm:w-60 sm:h-60 xs:w-48 xs:h-72"
+        className="will-change border-1 hover:scale-105 duration-200 border-white bg-opacity-20 bg-black p-6 rounded-lg shadow-lg w-80 h-70 cursor-pointer sm:w-60 sm:h-60 xs:w-48 xs:h-72"
         onClick={() => window.open(card.url, '_blank')}
       >
         <div className="flex flex-col justify-between h-full">

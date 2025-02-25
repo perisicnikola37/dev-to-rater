@@ -1,0 +1,59 @@
+// Mixin for Playwrite IT Moderna font
+@mixin playwrite-it-moderna($weight) {
+  font-family: $playwrite-font-family;
+  font-optical-sizing: auto;
+  font-weight: #{$weight};
+  font-style: normal;
+}
+
+@mixin gradient-background(
+  $gradient-start,
+  $gradient-middle,
+  $gradient-end,
+  $direction: 90deg
+) {
+  background: linear-gradient(
+    $direction,
+    $gradient-start,
+    $gradient-middle,
+    $gradient-end
+  );
+  background-size: 300% 300%;
+  animation: blueGradient $blue-gradient-animation-duration ease infinite;
+}
+
+@mixin gradient-animation(
+  $direction: 270deg,
+  $animation-duration: $gradient-animation-duration
+) {
+  background: linear-gradient(
+    $direction,
+    $gradient-1,
+    $gradient-2,
+    $gradient-3
+  );
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText $animation-duration ease infinite;
+}
+
+@mixin gradient-button($padding: 0.5rem 2rem) {
+  background: linear-gradient(
+    90deg,
+    $button-gradient-start,
+    $button-gradient-middle,
+    $button-gradient-end
+  );
+  background-size: 300% 300%;
+  animation: blueGradient $blue-gradient-animation-duration ease infinite;
+  color: white;
+  font-weight: bold;
+  padding: $padding;
+  cursor: pointer;
+
+  &:hover {
+    background-position: 100% 100%;
+  }
+}
