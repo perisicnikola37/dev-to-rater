@@ -4,37 +4,15 @@ import { Link } from 'react-router-dom'
 import TypewriterEffect from '../TypewriterEffect'
 import { useEffect, useState } from 'react'
 import MotionWrapper from '../Wrappers/MotionWrapper'
+import blogPosts from '@/core/data/recent_blogs.json'
 
 const BlogsSection = () => {
   const [selectedTag, setSelectedTag] = useState('')
 
-  const blogPosts = [
-    {
-      title: 'The end: Create React App (2016-2025)',
-      image:
-        'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg4o4ue1iutqn3z4w27o7.png',
-      url: 'https://dev.to/dev-to-rater-org/the-end-create-react-app-2016-2025-3cdf',
-      tags: ['Frontend'],
-    },
-    {
-      title: 'The biggest backend mistakes you can do',
-      image:
-        'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcdthgrhlcqcvnnu0yg1g.png',
-      url: 'https://dev.to/dev-to-rater-org/the-biggest-backend-mistakes-you-can-do-ki0',
-      tags: ['Backend'],
-    },
-    {
-      title: 'The biggest frontend mistakes you can do',
-      image:
-        'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8cgvawrcesh04f8b8pyb.png',
-      url: 'https://dev.to/dev-to-rater-org/the-biggest-frontend-mistakes-you-can-do-bng',
-      tags: ['Frontend'],
-    },
-  ]
-
   const filteredPosts = selectedTag
     ? blogPosts.filter((post) => post.tags.includes(selectedTag))
     : blogPosts
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])

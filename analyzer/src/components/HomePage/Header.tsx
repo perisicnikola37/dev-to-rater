@@ -42,7 +42,9 @@ const Header = () => {
           <img
             src={logo}
             alt="Dev.to Rater Logo"
-            className="w-8 mr-2"
+            className="mr-2"
+            width={33}
+            height={33}
             loading="lazy"
           />
         </Link>
