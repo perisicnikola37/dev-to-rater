@@ -74,7 +74,7 @@ const ExceededSentencesBox = () => {
         </MotionWrapper.p>
         <Link
           to="/rater"
-          className="bg-blue-700 hover:bg-blue-600 duration-300 cursor-pointer text-white font-bold rounded-sm text-center py-3 lg:w-[20%] w-[40%] m-auto lg:m-0"
+          className="bg-blue-700 hover:bg-blue-600 duration-300 cursor-pointer text-white font-bold rounded-sm text-center py-3 lg:w-[25%] w-[40%] m-auto lg:m-0"
         >
           Scan now
         </Link>

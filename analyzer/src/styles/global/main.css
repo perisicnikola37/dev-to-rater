@@ -66,4 +66,8 @@
 }
 .will-change {
   will-change: transform, opacity;
+}
+
+#bg-dev-to-rater {
+  background-image: url('../../assets/images/background.png');
 } /*# sourceMappingURL=main.css.map */
