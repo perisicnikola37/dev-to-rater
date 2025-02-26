@@ -1,16 +1,17 @@
 import ReactGA from 'react-ga4'
 
-export const trackSubmitEvent = (inputURL: string) => {
+const trackEvent = (category: string, action: string, label?: string) => {
   ReactGA.event({
-    category: 'User',
-    action: 'Clicked submit',
-    label: inputURL,
+    category,
+    action,
+    label,
   })
 }
 
+export const trackSubmitEvent = (inputURL: string) => {
+  trackEvent('User', 'Clicked submit', inputURL)
+}
+
 export const trackClearHistory = () => {
-  ReactGA.event({
-    category: 'User',
-    action: 'Cleared history',
-  })
+  trackEvent('User', 'Cleared history')
 }

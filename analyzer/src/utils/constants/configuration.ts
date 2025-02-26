@@ -1,10 +1,10 @@
-import { API_URL } from './envExpose'
+import { API_URL, FRONTEND_APPLICATION_PORT } from './envExpose'
 import { Protocols } from './globalWeb'
 import { socialImages } from './images'
 
 export const BASE_URLS = {
   APPLICATION: `${Protocols.HTTPS}://dev-to-rater.xyz`,
-  APPLICATION_LOCAL: `${Protocols.HTTP}://localhost:5173`,
+  APPLICATION_LOCAL: `${Protocols.HTTP}://localhost:${FRONTEND_APPLICATION_PORT}`,
   DOCUMENTATION: `${Protocols.HTTPS}://docs.dev-to-rater.xyz`,
   DOCUMENTATION_LOCAL: `${Protocols.HTTP}://localhost:3000`,
   API_URL: API_URL,

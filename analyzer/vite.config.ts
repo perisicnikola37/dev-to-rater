@@ -10,11 +10,11 @@ const port = Number(process.env.VITE_PORT) || 5173
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     visualizer({
       template: 'sunburst',
       filename: 'stats.html',
     }),
-    tailwindcss(),
     compression(),
   ],
   build: {

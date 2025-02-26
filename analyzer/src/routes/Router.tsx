@@ -5,20 +5,17 @@ import RootLayout from '@/pages/layouts/RootLayout'
 import DevToPostAnalyzer from '@/pages/DevToPostAnalyzer'
 import Blogs from '@/pages/Blogs'
 
-const Router = () => {
-  return (
-    <Routes>
-      <Route path={FrontendApplicationRoutes.HOME} element={<RootLayout />}>
-        <Route index element={<HomePage />} />
-
-        <Route
-          path={FrontendApplicationRoutes.RATER}
-          element={<DevToPostAnalyzer />}
-        />
-        <Route path={FrontendApplicationRoutes.BLOGS} element={<Blogs />} />
-      </Route>
-    </Routes>
-  )
-}
+const Router = () => (
+  <Routes>
+    <Route path={FrontendApplicationRoutes.HOME} element={<RootLayout />}>
+      <Route index element={<HomePage />} />
+      <Route
+        path={FrontendApplicationRoutes.RATER}
+        element={<DevToPostAnalyzer />}
+      />
+      <Route path={FrontendApplicationRoutes.BLOGS} element={<Blogs />} />
+    </Route>
+  </Routes>
+)
 
 export default Router
