@@ -1,9 +1,11 @@
 name: Test, Build, Deploy React + Vite App
 
 on:
-  push:
+  pull_request:
     branches:
-      - action_workflows
+      - v2.x
+    types:
+      - closed
 
 jobs:
   test_build_deploy:
