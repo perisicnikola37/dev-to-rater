@@ -1,41 +1,97 @@
-# name: Deploy website
+name: Test, Build, Deploy React + Vite App
 
-# on:
-#   pull_request:
-#     branches:
-#       - v2.x
-#     types:
-#       - closed
+on:
+  pull_request:
+    branches:
+      - v2.x
+    types:
+      - closed
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
+jobs:
+  test_build_deploy:
+    name: Test, build, deploy
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: "19"
+      # Step 2: Cache npm dependencies
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-
 
-#       - name: Install dependencies
-#         run: |
-#           cd analyzer
-#           npm install
+      # Step 3: Set environment variables
+      - name: Set environment variables
+        run: |
+          cd analyzer 
+          echo "
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
+            VITE_APP_GA_ID=${{ secrets.VITE_APP_GA_ID }}
+            VITE_APP_ENVIRONMENT=${{ secrets.VITE_APP_ENVIRONMENT }}
+            VITE_PORT=${{ secrets.VITE_PORT }}
+          " > .env
 
-#       - name: Build the app
-#         run: |
-#           cd analyzer
-#           npm run build
-#         env:
-#           VITE_APP_ENVIRONMENT: ${{ secrets.VITE_APP_ENVIRONMENT}}
-#           VITE_APP_GA_ID: ${{ secrets.VITE_APP_GA_ID }}
-#           VITE_API_URL: ${{ secrets.VITE_API_URL }}
+      # Step 4: SSH into server, pull latest changes, install dependencies and restart project
+      - name: SSH into server, pull latest changes, install dependencies and restart project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Navigating to project directory"
+            cd ${{ secrets.FRONTEND_PROJECT_PATH }}
 
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           personal_token: ${{ secrets.TOKEN }}
-#           publish_dir: ./analyzer/dist
+            # Ensure proper permissions for project files
+            echo "Ensuring correct file permissions..."
+            sudo chown -R $USER:$USER ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
+            sudo chmod -R 755 ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
+
+            # Use nvm to install and use Node.js LTS on the server
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load nvm
+            nvm install --lts
+            nvm use --lts
+
+            # Verify Node.js version
+            echo "Node.js version on server:"
+            node -v
+
+            echo "Resetting any local changes"
+            git reset --hard HEAD
+
+            echo "Pulling the latest code"
+            git pull origin ${{ secrets.RELEASE_BRANCH }}
+
+            # Kill the process using port 5001 safely
+            echo "Ensuring port 5001 is free..."
+            npx kill-port 5001 || true
+
+            # Navigate to the frontend analyzer directory
+            echo "Navigating to analyzer directory"
+            cd analyzer
+
+            # Install dependencies if new ones were added
+            echo "Installing dependencies..."
+            npm install
+
+            # Build the project if needed
+            echo "Building the project..."
+            npm run build
+
+            # Start the application again in the background
+            echo "Starting the application..."
+            nohup npm run preview -- --port ${{ secrets.VITE_PORT }} > app_output.log 2>&1 &
+
+            echo "Deployment complete."
+
+      # Step 5: Clean up SSH key
+      - name: Clean up SSH key
+        run: rm -f private_key.pem
