@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-
 
-      # Step 3: Set environment variables (if needed)
+      # Step 2: Set environment variables
       - name: Set environment variables
         run: |
           echo "
@@ -34,12 +34,7 @@ jobs:
             VITE_APP_ENVIRONMENT=${{ secrets.VITE_APP_ENVIRONMENT }}
           " > .env
 
-      # Step 4: Install dependencies and build
-      - run: |
-          npm install
-          npm run build
-
-      # Step 5: SSH into server, pull latest changes, install dependencies and restart project
+      # Step 3: SSH into server, pull latest changes, install dependencies and restart project
       - name: SSH into server, pull latest changes, install dependencies and restart project
         uses: appleboy/ssh-action@master
         with:
@@ -98,6 +93,6 @@ jobs:
 
             echo "Deployment complete."
 
-      # Step 6: Clean up SSH key
+      # Step 4: Clean up SSH key
       - name: Clean up SSH key
         run: rm -f private_key.pem
