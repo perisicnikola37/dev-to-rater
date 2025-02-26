@@ -20,7 +20,7 @@ const HeroSection = () => {
     >
       <Header />
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
-      <section className="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto mt-52 md:mt-75 px-6 md:px-0">
+      <section className="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto mt-52 md:mt-75 lg:mt-[12%] px-6 md:px-0">
         <div className="flex-1 text-center lg:text-right lg:pr-10">
           <MotionWrapper.h1
             initial={{ filter: 'blur(10px)', opacity: 0 }}
