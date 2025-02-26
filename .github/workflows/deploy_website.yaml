@@ -33,6 +33,7 @@ jobs:
             VITE_API_URL=${{ secrets.VITE_API_URL }}
             VITE_APP_GA_ID=${{ secrets.VITE_APP_GA_ID }}
             VITE_APP_ENVIRONMENT=${{ secrets.VITE_APP_ENVIRONMENT }}
+            VITE_PORT=${{ secrets.VITE_PORT }}
           " > .env
 
       # Step 4: SSH into server, pull latest changes, install dependencies and restart project
