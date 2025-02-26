@@ -48,8 +48,8 @@ jobs:
 
             # Ensure proper permissions for project files
             echo "Ensuring correct file permissions..."
-            sudo chown -R $USER:$USER ${{ secrets.PROJECT_PATH }}
-            sudo chmod -R 755 ${{ secrets.PROJECT_PATH }}
+            sudo chown -R $USER:$USER ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
+            sudo chmod -R 755 ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
 
             # Use nvm to install and use Node.js LTS on the server
             export NVM_DIR="$HOME/.nvm"
@@ -67,14 +67,9 @@ jobs:
             echo "Pulling the latest code"
             git pull origin main
 
-            # Kill the process using port 5001 if any (default port for Vite)
-            PID=$(lsof -t -i:5001)
-            if [ ! -z "$PID" ]; then
-              echo "Stopping process on port 5001..."
-              kill -9 $PID
-            else
-              echo "No process is running on port 5001."
-            fi
+            # Kill the process using port 5001 safely
+            echo "Ensuring port 5001 is free..."
+            npx kill-port 5001 || true
 
             # Navigate to the frontend analyzer directory
             echo "Navigating to analyzer directory"
