@@ -25,16 +25,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-
 
-      # Step 2: Set environment variables
+      # Step 3: Set environment variables
       - name: Set environment variables
         run: |
+          cd analyzer 
           echo "
             VITE_API_URL=${{ secrets.VITE_API_URL }}
             VITE_APP_GA_ID=${{ secrets.VITE_APP_GA_ID }}
             VITE_APP_ENVIRONMENT=${{ secrets.VITE_APP_ENVIRONMENT }}
           " > .env
 
-      # Step 3: SSH into server, pull latest changes, install dependencies and restart project
+      # Step 4: SSH into server, pull latest changes, install dependencies and restart project
       - name: SSH into server, pull latest changes, install dependencies and restart project
         uses: appleboy/ssh-action@master
         with:
@@ -43,7 +44,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "Navigating to project directory"
-            cd ${{ secrets.PROJECT_PATH }}
+            cd ${{ secrets.FRONTEND_PROJECT_PATH }}
 
             # Ensure proper permissions for project files
             echo "Ensuring correct file permissions..."
@@ -93,6 +94,6 @@ jobs:
 
             echo "Deployment complete."
 
-      # Step 4: Clean up SSH key
+      # Step 5: Clean up SSH key
       - name: Clean up SSH key
         run: rm -f private_key.pem
