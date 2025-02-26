@@ -65,7 +65,7 @@ jobs:
             git reset --hard HEAD
 
             echo "Pulling the latest code"
-            git pull origin main
+            git pull origin ${{ secrets.RELEASE_BRANCH }}
 
             # Kill the process using port 5001 safely
             echo "Ensuring port 5001 is free..."
