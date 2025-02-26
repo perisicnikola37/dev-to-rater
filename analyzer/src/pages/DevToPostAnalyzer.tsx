@@ -99,7 +99,7 @@ const DevToPostAnalyzer = () => {
 
   return (
     <SuspenseWrapper fallback={<Spinner />}>
-      <div className="relative dark:text-white min-h-screen flex flex-col bg-white dark:bg-cover dark:bg-bottom dark:bg-[url('@/assets/background.png')]">
+      <div className="relative dark:text-white min-h-screen flex flex-col bg-white dark:bg-cover dark:bg-bottom dev-to-rater-bg">
         {content?.totalScore === 10 && <FireworksCanvas />}
         <div className="flex items-start justify-center mt-16 mb-16">
           <div className="w-full max-w-3xl rounded-3xl flex flex-col items-center">

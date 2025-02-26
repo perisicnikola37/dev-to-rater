@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  .dark .dev-to-rater-bg {
+    background-image: url('../../assets//images/background.png');
+  }
+}

@@ -6,6 +6,18 @@ const TrustedBySection = () => {
       src: author1,
       link: 'https://dev.to/perisicnikola37',
     },
+    {
+      src: 'https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1002302%2F5233b7df-6ee3-46b2-b8d7-1fafe103e8a3.jpg',
+      link: 'https://dev.to/lovestaco',
+    },
+    {
+      src: 'https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F921006%2Ff6e252ad-3614-4cc9-9cf2-e645df850973.jpg',
+      link: 'https://dev.to/webjose',
+    },
+    {
+      src: 'https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F336835%2F2b9b6604-fd87-44e0-96c8-d33c0a429b6f.png',
+      link: 'https://dev.to/jamesives',
+    },
   ]
 
   return (
