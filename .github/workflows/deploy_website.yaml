@@ -86,7 +86,7 @@ jobs:
 
             # Start the application again in the background
             echo "Starting the application..."
-            nohup npm run preview > app_output.log 2>&1 &
+            nohup npm run preview -- --port ${{ secrets.VITE_PORT }} > app_output.log 2>&1 &
 
             echo "Deployment complete."
 
