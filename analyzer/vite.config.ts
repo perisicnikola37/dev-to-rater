@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { compression } from 'vite-plugin-compression2'
 
+const port = Number(process.env.VITE_PORT) || 5000
+
 export default defineConfig({
   plugins: [
     react(),
@@ -46,5 +48,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
       '@core': path.resolve(__dirname, 'src/core'),
     },
+  },
+  server: {
+    host: '0.0.0.0',
+    port,
+  },
+  preview: {
+    allowedHosts: ['dev-to-rater.xyz', 'localhost', '127.0.0.1'],
   },
 })
