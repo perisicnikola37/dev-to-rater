@@ -1,11 +1,14 @@
 import logo from '@/assets/images/logo.webp'
 import { FrontendApplicationRoutes } from '@/routes/routes'
+import { getDocumentationURL } from '@/utils/utilities'
 import { Link } from 'react-router-dom'
+
+const documentationURL = getDocumentationURL()
 
 const footerLinks = [
   {
     label: 'About',
-    href: 'https://docs.dev-to-rater.xyz/versions/v2/global/our-team',
+    href: `${documentationURL}/versions/v2/global/our-team`,
     isExternal: true,
   },
   {
@@ -15,12 +18,12 @@ const footerLinks = [
   },
   {
     label: 'Contact Us',
-    href: 'https://docs.dev-to-rater.xyz/versions/v2/global/contact',
+    href: `${documentationURL}/versions/v2/global/contact`,
     isExternal: true,
   },
   {
     label: 'Docs',
-    href: 'https://docs.dev-to-rater.xyz/versions/v2/global/contact',
+    href: `${documentationURL}/versions/v2/global/contact`,
     isExternal: true,
   },
 ]
