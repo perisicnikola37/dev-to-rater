@@ -23,7 +23,8 @@ export enum SuccessMessages {
   CopiedToClipboard = 'Copied to clipboard.',
   FiltersCleaned = 'Filters have been cleared successfully.',
   FetchSuccess = 'Post fetched successfully.',
-  TextCopied = 'Text copied',
+  TextCopied = 'Text copied.',
+  MarkdownCopied = 'Markdown copied.',
 }
 
 export enum FormValidationErrorMessages {

@@ -46,10 +46,10 @@ export const calculateScore = (
     wordsResult.penalty +
     readingPenalty
 
-  max_score = Math.max(0, Math.min(max_score, 10))
+  const postScore = Math.max(0, Math.min(max_score, 10))
 
   return {
-    totalScore: max_score,
+    totalScore: postScore,
     headingsPenalty,
     sentencesPenalty: sentencesResult.penalty,
     charactersPenalty,
