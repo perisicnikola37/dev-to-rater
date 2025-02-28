@@ -10,6 +10,13 @@ export const [
   ExceededSentences,
   Footer,
   SubHeader,
+  ScannedPostsHistory,
+  ScrollToTopButton,
+  Spinner,
+  SuspenseWrapper,
+  ReadingTime,
+  RepeatedWords,
+  PromotedPosts,
 ] = [
   'AnimatedScore',
   'FireworksCanvas',
@@ -20,6 +27,13 @@ export const [
   'ExceededSentences',
   'Footer',
   'SubHeader',
+  'ScannedPostsHistory',
+  'ScrollToTopButton',
+  'Spinner',
+  'SuspenseWrapper',
+  'ReadingTime',
+  'RepeatedWords',
+  'PromotedPosts',
 ].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
 
 export const [

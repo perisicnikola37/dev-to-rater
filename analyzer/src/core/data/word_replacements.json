@@ -1,0 +1,551 @@
+{
+  "wordReplacements": [
+    {
+      "word": "ai",
+      "replacements": [
+        "artificial intelligence",
+        "machine intelligence",
+        "cognitive computing"
+      ]
+    },
+    {
+      "word": "algorithm",
+      "replacements": ["procedure", "method", "process", "formula"]
+    },
+    {
+      "word": "analytics",
+      "replacements": ["data analysis", "statistics", "metrics"]
+    },
+    {
+      "word": "radio",
+      "replacements": ["broadcast", "transmission"]
+    },
+    {
+      "word": "api",
+      "replacements": ["API", "application programming interface", "gateway"]
+    },
+    {
+      "word": "app",
+      "replacements": ["application", "app", "program", "software"]
+    },
+    {
+      "word": "architecture",
+      "replacements": ["structure", "design"]
+    },
+    {
+      "word": "automation",
+      "replacements": ["mechanization", "robotization", "computerization"]
+    },
+    {
+      "word": "backend",
+      "replacements": ["back-end", "server logic", "back-end development"]
+    },
+    {
+      "word": "bandwidth",
+      "replacements": [
+        "capacity",
+        "throughput",
+        "data rate",
+        "transmission capacity"
+      ]
+    },
+    {
+      "word": "blockchain",
+      "replacements": [
+        "distributed ledger",
+        "decentralized ledger",
+        "cryptographic ledger"
+      ]
+    },
+    {
+      "word": "bug",
+      "replacements": ["defect", "error", "fault"]
+    },
+    {
+      "word": "cache",
+      "replacements": ["buffer", "memory cache"]
+    },
+    {
+      "word": "cloud",
+      "replacements": ["remote server", "cloud computing", "cloud storage"]
+    },
+    {
+      "word": "code",
+      "replacements": ["source code", "script", "program code"]
+    },
+    {
+      "word": "compatibility",
+      "replacements": ["interoperability", "adaptability"]
+    },
+    {
+      "word": "component",
+      "replacements": ["module", "element", "part", "unit"]
+    },
+    {
+      "word": "cybersecurity",
+      "replacements": [
+        "digital protection",
+        "information security",
+        "cyber protection",
+        "network security"
+      ]
+    },
+    {
+      "word": "database",
+      "replacements": ["data repository", "data storage"]
+    },
+    {
+      "word": "debug",
+      "replacements": ["troubleshoot", "fix", "correct", "repair"]
+    },
+    {
+      "word": "deploy",
+      "replacements": ["implement", "launch", "roll out", "release"]
+    },
+    {
+      "word": "developer",
+      "replacements": [
+        "programmer",
+        "coder",
+        "software engineer",
+        "application developer"
+      ]
+    },
+    {
+      "word": "devops",
+      "replacements": [
+        "development operations",
+        "software development and operations",
+        "continuous delivery",
+        "agile operations"
+      ]
+    },
+    {
+      "word": "digital",
+      "replacements": ["electronic", "computerized", "online", "virtual"]
+    },
+    {
+      "word": "encryption",
+      "replacements": ["coding", "ciphering", "encoding", "scrambling"]
+    },
+    {
+      "word": "endpoint",
+      "replacements": ["terminal", "node", "connection point", "access point"]
+    },
+    {
+      "word": "enterprise",
+      "replacements": ["organization", "company", "business", "corporation"]
+    },
+    {
+      "word": "framework",
+      "replacements": ["structure", "skeleton", "foundation", "architecture"]
+    },
+    {
+      "word": "frontend",
+      "replacements": [
+        "client-side",
+        "user interface",
+        "front-end",
+        "presentation layer"
+      ]
+    },
+    {
+      "word": "functionality",
+      "replacements": ["capability", "feature", "operation", "utility"]
+    },
+    {
+      "word": "git",
+      "replacements": [
+        "version control",
+        "source control",
+        "revision control",
+        "code management"
+      ]
+    },
+    {
+      "word": "github",
+      "replacements": [
+        "GitHub",
+        "code repository",
+        "version control platform",
+        "developer hosting platform"
+      ]
+    },
+    {
+      "word": "hardware",
+      "replacements": [
+        "physical components",
+        "equipment",
+        "devices",
+        "machinery"
+      ]
+    },
+    {
+      "word": "implementation",
+      "replacements": ["execution", "deployment", "application", "realization"]
+    },
+    {
+      "word": "infrastructure",
+      "replacements": ["foundation", "framework", "structure", "base"]
+    },
+    {
+      "word": "integration",
+      "replacements": ["incorporation", "combination", "unification", "merging"]
+    },
+    {
+      "word": "interface",
+      "replacements": ["connection point", "link", "gateway", "bridge"]
+    },
+    {
+      "word": "iot",
+      "replacements": [
+        "connected devices",
+        "internet of things",
+        "smart devices",
+        "networked devices"
+      ]
+    },
+    {
+      "word": "iteration",
+      "replacements": ["version", "cycle", "repetition", "loop"]
+    },
+    {
+      "word": "javascript",
+      "replacements": [
+        "js",
+        "ecmascript",
+        "web scripting language",
+        "client-side scripting"
+      ]
+    },
+    {
+      "word": "kubernetes",
+      "replacements": [
+        "k8s",
+        "container orchestration",
+        "cluster management",
+        "container management"
+      ]
+    },
+    {
+      "word": "latency",
+      "replacements": ["delay", "lag", "response time", "wait time"]
+    },
+    {
+      "word": "launch",
+      "replacements": ["release", "deploy", "introduce", "roll out"]
+    },
+    {
+      "word": "library",
+      "replacements": ["collection", "repository", "archive", "catalog"]
+    },
+    {
+      "word": "machine learning",
+      "replacements": [
+        "ml",
+        "artificial intelligence",
+        "predictive analytics",
+        "data modeling"
+      ]
+    },
+    {
+      "word": "microservice",
+      "replacements": [
+        "modular service",
+        "independent service",
+        "service component",
+        "distributed service"
+      ]
+    },
+    {
+      "word": "middleware",
+      "replacements": [
+        "intermediary software",
+        "bridge software",
+        "integration layer",
+        "communication layer"
+      ]
+    },
+    {
+      "word": "migration",
+      "replacements": ["transfer", "movement", "relocation", "transition"]
+    },
+    {
+      "word": "mobile",
+      "replacements": ["portable", "handheld", "wireless", "cellular"]
+    },
+    {
+      "word": "monitoring",
+      "replacements": ["observation", "surveillance", "tracking", "supervision"]
+    },
+    {
+      "word": "network",
+      "replacements": ["system", "web", "grid", "infrastructure"]
+    },
+    {
+      "word": "node",
+      "replacements": ["endpoint", "connection point", "junction", "hub"]
+    },
+    {
+      "word": "optimization",
+      "replacements": ["improvement", "enhancement", "refinement", "tuning"]
+    },
+    {
+      "word": "platform",
+      "replacements": ["system", "framework", "base", "environment"]
+    },
+    {
+      "word": "plugin",
+      "replacements": ["add-on", "extension", "module", "component"]
+    },
+    {
+      "word": "privacy",
+      "replacements": [
+        "confidentiality",
+        "secrecy",
+        "data protection",
+        "security"
+      ]
+    },
+    {
+      "word": "process",
+      "replacements": ["procedure", "method", "operation", "workflow"]
+    },
+    {
+      "word": "product",
+      "replacements": ["item", "goods", "solution"]
+    },
+    {
+      "word": "programming",
+      "replacements": [
+        "coding",
+        "software development",
+        "scripting",
+        "application development"
+      ]
+    },
+    {
+      "word": "protocol",
+      "replacements": ["standard", "procedure", "convention", "guideline"]
+    },
+    {
+      "word": "prototype",
+      "replacements": ["model", "mockup", "sample", "template"]
+    },
+    {
+      "word": "python",
+      "replacements": [
+        "py",
+        "programming language",
+        "scripting language",
+        "high-level language"
+      ]
+    },
+    {
+      "word": "repository",
+      "replacements": ["storage", "archive", "database"]
+    },
+    {
+      "word": "responsive",
+      "replacements": ["adaptable", "flexible", "scalable", "dynamic"]
+    },
+    {
+      "word": "runtime",
+      "replacements": [
+        "execution time",
+        "processing time",
+        "operation time",
+        "run time"
+      ]
+    },
+    {
+      "word": "saas",
+      "replacements": [
+        "software service",
+        "cloud service",
+        "subscription service",
+        "online service"
+      ]
+    },
+    {
+      "word": "scale",
+      "replacements": ["grow", "expand", "increase", "enlarge"]
+    },
+    {
+      "word": "sdk",
+      "replacements": [
+        "development kit",
+        "software kit",
+        "toolkit",
+        "programming kit"
+      ]
+    },
+    {
+      "word": "security",
+      "replacements": ["protection", "safety", "defense", "safeguard"]
+    },
+    {
+      "word": "server",
+      "replacements": ["host", "node", "machine", "data center"]
+    },
+    {
+      "word": "service",
+      "replacements": ["utility", "function", "operation", "application"]
+    },
+    {
+      "word": "software",
+      "replacements": ["application", "program", "system", "platform"]
+    },
+    {
+      "word": "solution",
+      "replacements": ["answer", "resolution", "fix", "remedy"]
+    },
+    {
+      "word": "startup",
+      "replacements": [
+        "new venture",
+        "new business",
+        "emerging company",
+        "entrepreneurial venture"
+      ]
+    },
+    {
+      "word": "storage",
+      "replacements": ["memory", "data storage", "repository", "archive"]
+    },
+    {
+      "word": "syntax",
+      "replacements": ["structure", "format", "rules"]
+    },
+    {
+      "word": "system",
+      "replacements": ["arrangement", "network", "framework", "infrastructure"]
+    },
+    {
+      "word": "technology",
+      "replacements": ["tech", "innovation", "engineering", "applied science"]
+    },
+    {
+      "word": "template",
+      "replacements": ["pattern", "model", "blueprint", "framework"]
+    },
+    {
+      "word": "terminal",
+      "replacements": ["command line", "console", "shell", "command prompt"]
+    },
+    {
+      "word": "testing",
+      "replacements": [
+        "validation",
+        "verification",
+        "quality assurance",
+        "evaluation"
+      ]
+    },
+    {
+      "word": "tool",
+      "replacements": ["utility", "instrument", "application", "device"]
+    },
+    {
+      "word": "traffic",
+      "replacements": [
+        "data flow",
+        "network traffic",
+        "bandwidth usage",
+        "data transfer"
+      ]
+    },
+    {
+      "word": "update",
+      "replacements": ["upgrade", "refresh", "patch", "enhancement"]
+    },
+    {
+      "word": "user experience",
+      "replacements": [
+        "ux",
+        "usability",
+        "user interface design",
+        "customer experience"
+      ]
+    },
+    {
+      "word": "user interface",
+      "replacements": [
+        "ui",
+        "graphical interface",
+        "front-end",
+        "user interaction"
+      ]
+    },
+    {
+      "word": "virtual",
+      "replacements": ["simulated", "digital", "online", "computer-generated"]
+    },
+    {
+      "word": "virtualization",
+      "replacements": [
+        "abstraction",
+        "simulation",
+        "emulation",
+        "virtual environment"
+      ]
+    },
+    {
+      "word": "web",
+      "replacements": ["internet", "world wide web", "online", "cyberspace"]
+    },
+    {
+      "word": "workflow",
+      "replacements": ["process", "procedure", "operation", "task flow"]
+    },
+    {
+      "word": "api gateway",
+      "replacements": [
+        "service entry point",
+        "api management",
+        "gateway service",
+        "api endpoint"
+      ]
+    },
+    {
+      "word": "agile",
+      "replacements": ["flexible", "adaptive", "responsive", "dynamic"]
+    },
+    {
+      "word": "big data",
+      "replacements": [
+        "large datasets",
+        "massive data",
+        "data analytics",
+        "data mining"
+      ]
+    },
+    {
+      "word": "cli",
+      "replacements": [
+        "command interface",
+        "command line",
+        "terminal interface",
+        "shell"
+      ]
+    },
+    {
+      "word": "containerization",
+      "replacements": [
+        "isolation",
+        "encapsulation",
+        "virtualization",
+        "container management"
+      ]
+    },
+    {
+      "word": "docker",
+      "replacements": [
+        "container platform",
+        "containerization tool",
+        "container engine",
+        "container management system"
+      ]
+    }
+  ]
+}

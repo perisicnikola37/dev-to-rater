@@ -1,7 +1,7 @@
 import messages from '../core/data/messages.json'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import { MessageCategories } from '@/core/types/MessageCategories'
-import { ErrorMessages } from './constants/messages'
+import { ErrorMessages, SuccessMessages } from './constants/messages'
 import {
   BASE_URLS,
   LOCAL_STORAGE_KEY,
@@ -11,6 +11,9 @@ import { SourceType } from '@/core/types/SourceType'
 import { ENVIRONMENT } from './constants/envExpose'
 import { Environments } from './constants/globalWeb'
 import { RadarData } from '@/interfaces/props/RadarComponent'
+import { twMerge } from 'tailwind-merge'
+import clsx, { ClassValue } from 'clsx'
+import { toast } from 'sonner'
 
 export const isValidProvidedSourceURL = <T extends SourceType>(
   url: string,
@@ -102,3 +105,14 @@ export const API_URL =
   ENVIRONMENT === Environments.PRODUCTION
     ? BASE_URLS.API_URL
     : BASE_URLS.API_URL_LOCAL
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export const copyBlogMarkdownToClipboard = (content: {
+  markdown: string
+}): void => {
+  navigator.clipboard.writeText(content?.markdown || '')
+  toast.success(SuccessMessages.MarkdownCopied)
+}

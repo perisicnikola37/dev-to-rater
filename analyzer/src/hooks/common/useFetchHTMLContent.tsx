@@ -4,8 +4,8 @@ import { AxiosResponse } from 'axios'
 import { FinalResponse } from '@/core/types/FinalResponse'
 import createFetchInstance from '@/utils/instance/instance'
 import { HttpMethods } from '@/utils/constants/globalWeb'
-import { parseHTMLContent } from '@/core/helpers/parser'
 import { ErrorMessages } from '@/utils/constants/messages'
+import { parseHTMLContent } from '@/core/parsers/htmlParser'
 
 const useFetchHTMLContent = () => {
   const [content, setContent] = useState<FinalResponse | null>(null)
