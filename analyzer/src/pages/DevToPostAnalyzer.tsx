@@ -130,14 +130,16 @@ const DevToPostAnalyzer = () => {
               isDisabled={isDisabled}
             />
             <LoadingErrorMessages error={!!error} content={content} />
-            <AnalyzeContentLayout
-              content={content}
-              fullMark={fullMark}
-              data={data}
-              animatedScore={animatedScore}
-              isContentVisible={isContentVisible}
-              error={!!error}
-            />
+            {content && (
+              <AnalyzeContentLayout
+                content={content}
+                fullMark={fullMark}
+                data={data}
+                animatedScore={animatedScore}
+                isContentVisible={isContentVisible}
+                error={!!error}
+              />
+            )}
             <RefactoredInfo
               isContentVisible={isContentVisible}
               changedWords={content?.changedWords || []}

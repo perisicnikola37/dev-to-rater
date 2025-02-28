@@ -7,9 +7,10 @@ import {
   RadarChartSection,
 } from '@/utils/lazyImports'
 import { Spinner, SuspenseWrapper } from '@/utils/lazyImports'
+import { FinalResponse } from '@/core/types/FinalResponse'
 
 interface AnalyzeContentLayoutProps {
-  content: string
+  content: FinalResponse
   fullMark: number
   data: RadarData[]
   animatedScore: JSX.Element | null
