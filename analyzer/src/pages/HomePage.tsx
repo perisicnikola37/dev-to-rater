@@ -7,7 +7,7 @@ import {
   TryNowSection,
 } from '@/utils/lazyImports'
 
-const HomePage = () => {
+export default function HomePage() {
   return (
     <>
       <HeroSection />
@@ -19,5 +19,3 @@ const HomePage = () => {
     </>
   )
 }
-
-export default HomePage

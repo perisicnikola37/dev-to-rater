@@ -9,7 +9,7 @@ export default [
     ignores: [
       'dist/**',
       'node_modules/**',
-      'src/components/useCanvasCursor.ts',
+      'src/hooks/helpers/useCanvasCursor.ts',
     ],
   },
   { languageOptions: { globals: globals.browser } },

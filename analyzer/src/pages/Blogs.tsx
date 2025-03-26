@@ -1,7 +1,5 @@
 import BlogsSection from '@/components/Blogs/BlogsSection'
 
-const Blogs = () => {
+export default function Blogs() {
   return <BlogsSection />
 }
-
-export default Blogs

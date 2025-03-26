@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import MotionWrapper from './Wrappers/MotionWrapper'
+import MotionWrapper from '../Wrappers/MotionWrapper'
 
 const ScrollArrow = () => {
   const [scrolled, setScrolled] = useState(false)

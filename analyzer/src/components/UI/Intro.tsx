@@ -1,7 +1,7 @@
 import logo from '@/assets/images/logo.webp'
 import { Link } from 'react-router-dom'
 
-const Header = () => (
+const Intro = () => (
   <header className="w-full">
     <div className="flex justify-between items-center">
       <h1 className="text-3xl font-bold mt-4 text-gray-800 dark:text-white">
@@ -28,4 +28,4 @@ const Header = () => (
   </header>
 )
 
-export default Header
+export default Intro

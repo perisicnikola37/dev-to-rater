@@ -5,8 +5,9 @@ import {
   RepeatedWords,
   ReadingTime,
   RadarChartSection,
+  SuspenseWrapper,
 } from '@/utils/lazyImports'
-import { Spinner, SuspenseWrapper } from '@/utils/lazyImports'
+import { Spinner } from '@/utils/lazyImports'
 import { FinalResponse } from '@/core/types/FinalResponse'
 
 interface AnalyzeContentLayoutProps {
