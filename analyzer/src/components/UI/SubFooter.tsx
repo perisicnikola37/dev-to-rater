@@ -3,7 +3,7 @@ import { getDocumentationURL } from '@/utils/utilities'
 
 const documentationURL = getDocumentationURL()
 
-const Footer = () => {
+const SubFooter = () => {
   return (
     <footer className="w-full text-center p-4 mb-4 mt-auto">
       <p>
@@ -26,4 +26,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default SubFooter

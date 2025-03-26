@@ -1,8 +1,8 @@
 import { BASE_URLS } from '@/utils/constants/configuration'
 import { ENVIRONMENT } from '@/utils/constants/envExpose'
 import { Environments } from '@/utils/constants/globalWeb'
+import { Spinner } from '@/utils/lazyImports'
 import { useEffect, useState } from 'react'
-import Spinner from './Spinner'
 
 const PromotedPosts = ({ triggerRefetch }: { triggerRefetch: boolean }) => {
   const [featuredPosts, setFeaturedPosts] = useState<

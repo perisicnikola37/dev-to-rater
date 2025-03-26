@@ -79,7 +79,7 @@ const Footer = () => {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 w-3/5 lg:w-full" />
 
         <span className="block text-sm text-white sm:text-center dark:text-gray-400">
-          © {new Date().getFullYear()}. All Rights Reserved.
+          &copy; {new Date().getFullYear()}. All Rights Reserved.
         </span>
       </div>
     </footer>

@@ -19,20 +19,20 @@ import useAddFeaturedPost from '@/hooks/common/useAddFeaturedPost'
 import {
   AnimatedScore,
   FireworksCanvas,
-  Footer,
-  Header,
+  Intro,
   LoadingErrorMessages,
   PromotedPosts,
   ScannedPostsHistory,
   ScrollToTopButton,
   Spinner,
+  SubFooter,
   SubHeader,
   SuspenseWrapper,
-  URLForm,
 } from '@/utils/lazyImports'
 import AnalyzeContentLayout from './layouts/AnalyzeContentLayout'
 import RefactoredInfo from './RefactoredInfo'
 import { Toaster } from 'sonner'
+import URLForm from '@/components/Forms/URLForm'
 
 const DevToPostAnalyzer = () => {
   const [inputURL, setInputURL] = useState('')
@@ -111,7 +111,7 @@ const DevToPostAnalyzer = () => {
         {content?.totalScore == 10 && <FireworksCanvas />}
         <div className="flex items-start justify-center mt-16 mb-16">
           <div className="w-full max-w-3xl rounded-3xl flex flex-col items-center">
-            <Header />
+            <Intro />
             <SubHeader />
             <Toaster />
             <URLForm
@@ -151,7 +151,7 @@ const DevToPostAnalyzer = () => {
           clearHistory={clearHistory}
           url={inputURL}
         />
-        <Footer />
+        <SubFooter />
         <PromotedPosts triggerRefetch={triggerRefetch} />
       </div>
       <ScrollToTopButton />

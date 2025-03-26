@@ -2,64 +2,88 @@ import React from 'react'
 
 export const [
   AnimatedScore,
-  FireworksCanvas,
-  Header,
-  URLForm,
-  LoadingErrorMessages,
-  RadarChartSection,
   ExceededSentences,
-  Footer,
-  SubHeader,
-  ScannedPostsHistory,
-  ScrollToTopButton,
-  Spinner,
-  SuspenseWrapper,
+  PromotedPosts,
+  RadarChart,
+  RadarChartSection,
   ReadingTime,
   RepeatedWords,
-  PromotedPosts,
+  ScannedPostsHistory,
 ] = [
   'AnimatedScore',
-  'FireworksCanvas',
-  'Header',
-  'URLForm',
-  'LoadingErrorMessages',
-  'RadarChartSection',
   'ExceededSentences',
-  'Footer',
-  'SubHeader',
-  'ScannedPostsHistory',
-  'ScrollToTopButton',
-  'Spinner',
-  'SuspenseWrapper',
+  'PromotedPosts',
+  'RadarChart',
+  'RadarChartSection',
   'ReadingTime',
   'RepeatedWords',
-  'PromotedPosts',
-].map((component) => React.lazy(() => import(`../components/${component}.tsx`)))
+  'ScannedPostsHistory',
+].map((component) =>
+  React.lazy(() => import(`../components/DataDisplay/${component}.tsx`)),
+)
 
 export const [
-  OurSocialsSection,
-  TrustedBySection,
-  HeroSection,
-  RaterDemoThumbnailPreview,
-  TryNowSection,
+  ExceededSentencesBox,
+  FeaturesSection,
+  ReadingTimeBox,
+  WordFrequencyBox,
 ] = [
-  'OurSocialsSection',
-  'TrustedBySection',
-  'HeroSection',
-  'RaterDemoThumbnailPreview',
-  'TryNowSection',
-].map((component) =>
-  React.lazy(() => import(`@/components/HomePage/${component}.tsx`)),
-)
-
-export const [FeaturesSection] = ['FeaturesSection'].map((component) =>
-  React.lazy(() => import(`@/components/Features/${component}.tsx`)),
-)
-
-export const [ExceededSentencesBox, ReadingTimeBox, WordFrequencyBox] = [
   'ExceededSentencesBox',
+  'FeaturesSection',
   'ReadingTimeBox',
   'WordFrequencyBox',
 ].map((component) =>
-  React.lazy(() => import(`@/components/Features/${component}.tsx`)),
+  React.lazy(() => import(`../components/Features/${component}.tsx`)),
+)
+
+export const [
+  Card,
+  Header,
+  HeroSection,
+  OurSocialsSection,
+  TrustedBySection,
+  TryNowSection,
+  VideoModal,
+] = [
+  'Card',
+  'Header',
+  'HeroSection',
+  'OurSocialsSection',
+  'TryNowSection',
+  'TryNowSection',
+  'VideoModal',
+].map((component) =>
+  React.lazy(() => import(`../components/HomePage/${component}.tsx`)),
+)
+
+export const [
+  CanvasCursor,
+  DarkModeToggle,
+  FireworksCanvas,
+  Intro,
+  LoadingErrorMessages,
+  ScrollArrow,
+  ScrollToTopButton,
+  Spinner,
+  SubFooter,
+  SubHeader,
+  TypewriterEffect,
+] = [
+  'CanvasCursor',
+  'DarkModeToggle',
+  'FireworksCanvas',
+  'Intro',
+  'LoadingErrorMessages',
+  'ScrollArrow',
+  'ScrollToTopButton',
+  'Spinner',
+  'SubFooter',
+  'SubHeader',
+  'TypewriterEffect',
+].map((component) =>
+  React.lazy(() => import(`../components/UI/${component}.tsx`)),
+)
+
+export const [SuspenseWrapper] = ['SuspenseWrapper'].map((component) =>
+  React.lazy(() => import(`../components/Wrappers/${component}.tsx`)),
 )
