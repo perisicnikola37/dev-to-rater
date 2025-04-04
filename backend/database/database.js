@@ -1,13 +1,14 @@
 const mysql = require("mysql2");
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  connectionLimit: 10,
 });
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
   if (err) {
     console.error("Error occurred while connecting to the database:", err);
     return;
@@ -15,14 +16,14 @@ db.connect((err) => {
 
   console.log("Connected to MySQL server.");
 
-  db.query("CREATE DATABASE IF NOT EXISTS devtorater", (err) => {
+  connection.query("CREATE DATABASE IF NOT EXISTS devtorater", (err) => {
     if (err) {
       console.error("Error creating database:", err);
       return;
     }
     console.log("Database 'devtorater' created or already exists.");
 
-    db.query(
+    connection.query(
       `CREATE TABLE IF NOT EXISTS posts (
         id INT AUTO_INCREMENT PRIMARY KEY,
         count INT DEFAULT 0
@@ -34,14 +35,14 @@ db.connect((err) => {
         }
         console.log("Table 'posts' created or already exists.");
 
-        db.query("SELECT * FROM posts WHERE id = 1", (err, results) => {
+        connection.query("SELECT * FROM posts WHERE id = 1", (err, results) => {
           if (err) {
             console.error("Error checking for initial row:", err);
             return;
           }
 
           if (results.length === 0) {
-            db.query("INSERT INTO posts (count) VALUES (0)", (err) => {
+            connection.query("INSERT INTO posts (count) VALUES (0)", (err) => {
               if (err) {
                 console.error("Error inserting initial row into posts:", err);
                 return;
@@ -55,7 +56,7 @@ db.connect((err) => {
       }
     );
 
-    db.query(
+    connection.query(
       `CREATE TABLE IF NOT EXISTS featured_posts (
         id INT AUTO_INCREMENT PRIMARY KEY,
         post_title VARCHAR(255) NOT NULL,
