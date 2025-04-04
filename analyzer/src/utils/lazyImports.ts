@@ -49,7 +49,7 @@ export const [
   'Header',
   'HeroSection',
   'OurSocialsSection',
-  'TryNowSection',
+  'TrustedBySection',
   'TryNowSection',
   'VideoModal',
 ].map((component) =>
