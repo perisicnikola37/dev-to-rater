@@ -1,8 +1,8 @@
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/footer/footer'
 import {
-  OurSocialsSection,
-  HeroSection,
   FeaturesSection,
+  HeroSection,
+  OurSocialsSection,
   TrustedBySection,
   TryNowSection,
 } from '@/utils/lazyImports'

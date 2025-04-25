@@ -1,8 +1,7 @@
-import React, { useMemo } from 'react'
-import { Suspense } from 'react'
-import MotionWrapper from '../Wrappers/MotionWrapper'
 import { CardProps } from '@/interfaces/props/CardProps'
 import { Spinner } from '@/utils/lazyImports'
+import React, { Suspense, useMemo } from 'react'
+import MotionWrapper from '../wrappers/motion-wrapper'
 
 const Card: React.FC<CardProps> = React.memo(
   ({ card, index, areCardsInView }) => {

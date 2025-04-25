@@ -1,7 +1,7 @@
 import { BASE_URLS } from '@/utils/constants/configuration'
 import { getDocumentationURL } from '@/utils/utilities'
 import ReactGA from 'react-ga4'
-import DarkModeToggle from './DarkModeToggle'
+import DarkModeToggle from './dark-mode-toggle'
 
 const documentationURL = getDocumentationURL()
 

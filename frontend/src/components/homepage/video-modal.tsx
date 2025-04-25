@@ -1,6 +1,6 @@
 import React from 'react'
-import YouTube, { YouTubeProps } from 'react-youtube'
 import { IoPlayOutline } from 'react-icons/io5'
+import YouTube, { YouTubeProps } from 'react-youtube'
 
 interface VideoModalProps {
   showVideo: boolean

@@ -4,7 +4,7 @@ import {
   ReplacementMap,
   ReplaceRepeatedWordsResult,
   WordReplacement,
-} from '../types/RepeatedWords'
+} from '../types/RepeatedWord'
 
 export const replaceRepeatedWords = (
   markdown: string,

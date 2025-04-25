@@ -5,14 +5,14 @@ import { getRandomMessage } from '@/utils/utilities'
 import {
   Bar,
   BarChart,
+  CartesianGrid,
+  Cell,
+  LabelList,
   ResponsiveContainer,
+  Tooltip,
+  TooltipProps,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  LabelList,
-  Cell,
-  TooltipProps,
 } from 'recharts'
 import {
   NameType,

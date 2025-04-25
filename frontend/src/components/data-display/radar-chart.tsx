@@ -4,8 +4,8 @@ import {
   PolarGrid,
   PolarRadiusAxis,
   Radar,
-  ResponsiveContainer,
   RadarChart,
+  ResponsiveContainer,
   Tooltip,
 } from 'recharts'
 

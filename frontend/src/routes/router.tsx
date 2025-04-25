@@ -1,9 +1,9 @@
-import HomePage from '@/pages/HomePage'
-import { Routes, Route } from 'react-router-dom'
-import { FrontendApplicationRoutes } from './routes'
+import Blogs from '@/pages/blogs'
+import DevToPostAnalyzer from '@/pages/dev-to-post-analyzer'
+import HomePage from '@/pages/homepage'
 import RootLayout from '@/pages/layouts/RootLayout'
-import DevToPostAnalyzer from '@/pages/DevToPostAnalyzer'
-import Blogs from '@/pages/Blogs'
+import { Route, Routes } from 'react-router-dom'
+import { FrontendApplicationRoutes } from './routes'
 
 const Router = () => (
   <Routes>

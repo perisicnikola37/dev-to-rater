@@ -1,6 +1,6 @@
-import { useRef, useEffect, useState } from 'react'
-import Card from './Card'
 import { ourSocials } from '@/utils/constants/configuration'
+import { useEffect, useRef, useState } from 'react'
+import Card from './card'
 
 const OurSocialsSection = () => {
   const sectionRef = useRef(null)

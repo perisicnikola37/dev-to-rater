@@ -1,21 +1,13 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import useFetchHTMLContent from '@/hooks/common/useFetchHTMLContent'
-import {
-  calculateFullMark,
-  copyBlogMarkdownToClipboard,
-  getPostHistory,
-  getRadarData,
-  isValidProvidedSourceURL,
-  savePostToHistory,
-} from '@/utils/utilities'
-import { DEV_TO_SOURCE } from '@/utils/constants/sources'
-import { FinalResponse } from '@/core/types/FinalResponse'
-import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
-import { RadarData } from '@/interfaces/props/RadarComponent'
+import URLForm from '@/components/forms/url-form'
 import { trackClearHistory, trackSubmitEvent } from '@/core/helpers/ga4Events'
-import useChangeScannedPostsCount from '@/hooks/common/useChangeScannedPostsCount'
-import { OperationType } from '@/interfaces/props/ChangeScannedPostsCountProps'
+import { FinalResponse } from '@/core/types/FinalResponse'
 import useAddFeaturedPost from '@/hooks/common/useAddFeaturedPost'
+import useChangeScannedPostsCount from '@/hooks/common/useChangeScannedPostsCount'
+import useFetchHTMLContent from '@/hooks/common/useFetchHTMLContent'
+import { OperationType } from '@/interfaces/props/ChangeScannedPostsCountProps'
+import { RadarData } from '@/interfaces/props/RadarComponent'
+import { LOCAL_STORAGE_KEY } from '@/utils/constants/configuration'
+import { DEV_TO_SOURCE } from '@/utils/constants/sources'
 import {
   AnimatedScore,
   FireworksCanvas,
@@ -29,10 +21,18 @@ import {
   SubHeader,
   SuspenseWrapper,
 } from '@/utils/lazyImports'
-import AnalyzeContentLayout from './layouts/AnalyzeContentLayout'
-import RefactoredInfo from './RefactoredInfo'
+import {
+  calculateFullMark,
+  copyBlogMarkdownToClipboard,
+  getPostHistory,
+  getRadarData,
+  isValidProvidedSourceURL,
+  savePostToHistory,
+} from '@/utils/utilities'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Toaster } from 'sonner'
-import URLForm from '@/components/Forms/URLForm'
+import AnalyzeContentLayout from './layouts/AnalyzeContentLayout'
+import RefactoredInfo from './refactored-info'
 
 const DevToPostAnalyzer = () => {
   const [inputURL, setInputURL] = useState('')

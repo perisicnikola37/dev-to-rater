@@ -1,10 +1,10 @@
-import Header from './Header'
-import { Link } from 'react-router-dom'
-import VideoModal from './VideoModal'
 import background from '@/assets/images/background.png'
-import { useState } from 'react'
-import MotionWrapper from '../Wrappers/MotionWrapper'
 import { ScrollArrow } from '@/utils/lazyImports'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import MotionWrapper from '../wrappers/motion-wrapper'
+import Header from './header'
+import VideoModal from './video-modal'
 
 const HeroSection = () => {
   const [showVideo, setShowVideo] = useState(false)

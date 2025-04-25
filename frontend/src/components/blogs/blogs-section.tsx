@@ -1,10 +1,10 @@
 import background from '@/assets/images/background.png'
-import Header from '../HomePage/Header'
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import MotionWrapper from '../Wrappers/MotionWrapper'
 import blogPosts from '@/core/data/recent_blogs.json'
-import TypewriterEffect from '../UI/TypewriterEffect'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Header from '../homepage/header'
+import TypewriterEffect from '../ui/typewriter-effect'
+import MotionWrapper from '../wrappers/motion-wrapper'
 
 const BlogsSection = () => {
   const [selectedTag, setSelectedTag] = useState('')

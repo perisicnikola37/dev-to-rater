@@ -1,5 +1,5 @@
-import MotionWrapper from '../Wrappers/MotionWrapper'
 import readingTime from '@/assets/images/reading_time.webp'
+import MotionWrapper from '../wrappers/motion-wrapper'
 
 const ReadingTimeBox = () => {
   return (

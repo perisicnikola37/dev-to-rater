@@ -1,5 +1,5 @@
-import MotionWrapper from '../Wrappers/MotionWrapper'
 import wordFrequency from '@/assets/images/word_frequency.webp'
+import MotionWrapper from '../wrappers/motion-wrapper'
 
 const WordFrequencyBox = () => {
   return (

@@ -1,7 +1,7 @@
 import { URLFormProps } from '@/interfaces/props/URLForm'
-import { CiSearch } from 'react-icons/ci'
-import { BsStars } from 'react-icons/bs'
 import React from 'react'
+import { BsStars } from 'react-icons/bs'
+import { CiSearch } from 'react-icons/ci'
 
 const URLForm: React.FC<URLFormProps> = ({
   inputURL,

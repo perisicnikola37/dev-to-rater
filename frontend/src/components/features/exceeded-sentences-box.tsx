@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import MotionWrapper from '../Wrappers/MotionWrapper'
+import MotionWrapper from '../wrappers/motion-wrapper'
 
 const ExceededSentencesBox = () => {
   return (
