@@ -1,8 +1,8 @@
 ---
-title: "Heading Length"
-icon: "heading"
-description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateHeadingsScore.ts' target='_blank'>Code in repository</a>"
-version: "v2"
+title: 'Heading Length'
+icon: 'heading'
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/frontend/src/core/implementations/calculateHeadingsScore.ts' target='_blank'>Code in repository</a>"
+version: 'v2'
 ---
 
 ### Code we use - Preview
@@ -12,25 +12,25 @@ const rules = [
   {
     condition: sentences.length === 0,
     apply: () => {
-      penalty += 1;
+      penalty += 1
     },
   },
   {
     condition: true,
     apply: () => {
       sentences.forEach((sentence) => {
-        const wordCount = sentence.split(/\s+/).filter(Boolean).length;
+        const wordCount = sentence.split(/\s+/).filter(Boolean).length
 
         if (wordCount > WORDS_LIMIT_PER_SENTENCE) {
-          const excessWords = wordCount - WORDS_LIMIT_PER_SENTENCE;
-          penalty += Math.round(excessWords * 0.025 * 100) / 100;
+          const excessWords = wordCount - WORDS_LIMIT_PER_SENTENCE
+          penalty += Math.round(excessWords * 0.025 * 100) / 100
 
-          exceededSentences.push(sentence);
+          exceededSentences.push(sentence)
         }
-      });
+      })
     },
   },
-];
+]
 ```
 
 <Tip>

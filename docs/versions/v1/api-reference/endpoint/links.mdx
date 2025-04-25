@@ -1,8 +1,8 @@
 ---
-title: "Links Frequency"
-icon: "link"
-description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateLinksScore.ts' target='_blank'>Code in repository</a>"
-version: "v1"
+title: 'Links Frequency'
+icon: 'link'
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/frontend/src/core/implementations/calculateLinksScore.ts' target='_blank'>Code in repository</a>"
+version: 'v1'
 ---
 
 ### Code we use - Preview
@@ -12,16 +12,16 @@ const rules = [
   {
     condition: links.length === 0,
     apply: () => {
-      penalty += 0.2;
+      penalty += 0.2
     },
   },
   {
     condition: links.length > 20,
     apply: () => {
-      penalty += 0.15;
+      penalty += 0.15
     },
   },
-];
+]
 ```
 
 <Tip>

@@ -1,8 +1,8 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/analyzer"
+  - package-ecosystem: 'npm'
+    directory: '/frontend'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     commit-message:
-      prefix: "update(deps)"
+      prefix: 'update(deps)'

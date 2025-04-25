@@ -30,7 +30,7 @@ jobs:
       # Step 3: Set environment variables
       - name: Set environment variables
         run: |
-          cd analyzer 
+          cd frontend 
           echo "
             VITE_API_URL=${{ secrets.VITE_API_URL }}
             VITE_APP_GA_ID=${{ secrets.VITE_APP_GA_ID }}
@@ -51,8 +51,8 @@ jobs:
 
             # Ensure proper permissions for project files
             echo "Ensuring correct file permissions..."
-            sudo chown -R $USER:$USER ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
-            sudo chmod -R 755 ${{ secrets.FRONTEND_PROJECT_PATH }}/analyzer
+            sudo chown -R $USER:$USER ${{ secrets.FRONTEND_PROJECT_PATH }}/frontend
+            sudo chmod -R 755 ${{ secrets.FRONTEND_PROJECT_PATH }}/frontend
 
             # Use nvm to install and use Node.js LTS on the server
             export NVM_DIR="$HOME/.nvm"
@@ -74,9 +74,9 @@ jobs:
             echo "Ensuring port 5001 is free..."
             npx kill-port 5001 || true
 
-            # Navigate to the frontend analyzer directory
-            echo "Navigating to analyzer directory"
-            cd analyzer
+            # Navigate to the frontend frontend directory
+            echo "Navigating to frontend directory"
+            cd frontend
 
             # Install dependencies if new ones were added
             echo "Installing dependencies..."
