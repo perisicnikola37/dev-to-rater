@@ -13,7 +13,8 @@
     "**/*.gif",
     "**/*.svg",
     "stats.html",
-    "vite.config.ts"
+    "vite.config.ts",
+    "coverage/"
   ],
   "words": [
     "Nikola",
@@ -38,7 +39,8 @@
     "Playwright",
     "playwrite",
     "Moderna",
-    "moderna"
+    "moderna",
+    "subfooter"
   ],
   "cache": {
     "useCache": true,

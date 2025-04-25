@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import tailwindcss from '@tailwindcss/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 
 const port = Number(process.env.VITE_PORT) || 5173
@@ -17,6 +17,11 @@ export default defineConfig({
     }),
     compression(),
   ],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/setupTests.ts',
+  },
   build: {
     terserOptions: {
       compress: {
