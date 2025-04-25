@@ -1,8 +1,8 @@
 ---
-title: "Repeating Words"
-icon: "repeat"
-description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateRepeatingWordsScore.ts' target='_blank'>Code in repository</a>"
-version: "v1"
+title: 'Repeating Words'
+icon: 'repeat'
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/frontend/src/core/implementations/calculateRepeatingWordsScore.ts' target='_blank'>Code in repository</a>"
+version: 'v1'
 ---
 
 ### Code we use - Preview
@@ -10,22 +10,22 @@ version: "v1"
 ```typescript typescript
 words.forEach((word) => {
   if (ignoredWords.includes(word.toLowerCase())) {
-    return;
+    return
   }
-  wordCount[word] = (wordCount[word] || 0) + 1;
+  wordCount[word] = (wordCount[word] || 0) + 1
   if (wordCount[word] > WORDS_REPEAT_LIMIT) {
-    penalty += 0.01; // Subtract 0.01 points for each repetition beyond the allowed limit
+    penalty += 0.01 // Subtract 0.01 points for each repetition beyond the allowed limit
     if (!repeatedWords.find((rw) => rw.word === word)) {
-      repeatedWords.push({ word, count: wordCount[word] });
+      repeatedWords.push({ word, count: wordCount[word] })
     } else {
       repeatedWords.forEach((rw) => {
         if (rw.word === word) {
-          rw.count = wordCount[word];
+          rw.count = wordCount[word]
         }
-      });
+      })
     }
   }
-});
+})
 ```
 
 <Tip>

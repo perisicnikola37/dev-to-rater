@@ -1,32 +1,32 @@
 ---
-title: "Image Alt Text"
-icon: "image"
-description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/analyzer/src/core/implementations/calculateSentencesScore.ts' target='_blank'>Code in repository</a>"
-version: "v1"
+title: 'Image Alt Text'
+icon: 'image'
+description: "To understand how this logic is handled, follow the code here: <a href='https://github.com/perisicnikola37/dev-to-rater/blob/v2.x/frontend/src/core/implementations/calculateSentencesScore.ts' target='_blank'>Code in repository</a>"
+version: 'v1'
 ---
 
 ### Code we use - Preview
 
 ```typescript typescript
 export const calculateParagraphScore = (paragraphs: string[]): number => {
-  let scoreChange = 0;
+  let scoreChange = 0
 
   paragraphs.forEach((paragraph) => {
-    const wordCount = paragraph.split(/\s+/).filter(Boolean).length;
+    const wordCount = paragraph.split(/\s+/).filter(Boolean).length
 
     // If the paragraph has less than 5 words, add points
     if (wordCount < 5) {
-      scoreChange += 0.5;
+      scoreChange += 0.5
     }
     // If the paragraph has more than 15 words, subtract points
     else if (wordCount > 15) {
-      const excessWords = wordCount - 15;
-      scoreChange -= excessWords * 0.05;
+      const excessWords = wordCount - 15
+      scoreChange -= excessWords * 0.05
     }
-  });
+  })
 
-  return scoreChange;
-};
+  return scoreChange
+}
 ```
 
 <Tip>
