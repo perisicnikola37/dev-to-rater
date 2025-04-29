@@ -19,6 +19,8 @@ export default defineConfig({
         '**/schema/**',
         '**/setupTests.ts',
         '**/vitest.config.ts',
+        'src/main.tsx',
+        'src/components/ui/fireworks-canvas.tsx',
       ],
       include: [
         '**/src/**/*.{js,ts,jsx,tsx}',

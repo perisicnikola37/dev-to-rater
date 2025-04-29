@@ -11,6 +11,14 @@ vi.mock('@/utils/instance/instance', () => ({
   default: vi.fn(),
 }))
 
+vi.mock('@/utils/utilities', async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...(actual as object),
+    clampPenalty: vi.fn((val) => val),
+  }
+})
+
 const createMockAxiosResponse = (mockHtmlResponse: string): AxiosResponse => ({
   data: mockHtmlResponse,
   status: 200,

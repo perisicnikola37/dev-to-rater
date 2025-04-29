@@ -1,18 +1,18 @@
-import { AxiosResponse } from 'axios'
 import {
   AVERAGE_READING_SPEED,
   BASE_URLS,
   DEV_TO_ARTICLE_BODY_CLASS,
 } from '@/utils/constants/configuration'
-import { ErrorMessages } from '@/utils/constants/messages'
 import { HttpMethods } from '@/utils/constants/globalWeb'
+import { ErrorMessages } from '@/utils/constants/messages'
 import createFetchInstance from '@/utils/instance/instance'
+import { AxiosResponse } from 'axios'
+import { wordReplacements } from '../data/word_replacements.json'
+import { calculateScore } from '../helpers/calculator'
+import { replaceRepeatedWords } from '../helpers/transformer'
+import { RepeatingWordsPenaltyCalculator } from '../implementations/calculateRepeatingWordsScore'
 import { FinalResponse } from '../types/FinalResponse'
 import { ReactionMap } from '../types/ReactionMap'
-import { RepeatingWordsPenaltyCalculator } from '../implementations/calculateRepeatingWordsScore'
-import { wordReplacements } from '../data/word_replacements.json'
-import { replaceRepeatedWords } from '../helpers/transformer'
-import { calculateScore } from '../helpers/calculator'
 
 const convertToMarkdown = (articleBody: Element) => {
   let markdown = ''

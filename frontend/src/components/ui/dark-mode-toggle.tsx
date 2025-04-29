@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const DarkModeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -35,7 +35,11 @@ const DarkModeToggle = () => {
   }
 
   return (
-    <button onClick={toggleDarkMode} className="rounded-lg cursor-pointer">
+    <button
+      data-testid="mode-toggle"
+      onClick={toggleDarkMode}
+      className="rounded-lg cursor-pointer"
+    >
       {!isDarkMode ? '🌙' : '☀️'}
     </button>
   )

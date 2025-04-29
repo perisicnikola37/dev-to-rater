@@ -10,6 +10,7 @@ const Card: React.FC<CardProps> = React.memo(
 
     return (
       <MotionWrapper.div
+        role="article"
         key={index}
         initial={{ opacity: 0, y: 500, rotate: 0, x: 0 }}
         animate={{

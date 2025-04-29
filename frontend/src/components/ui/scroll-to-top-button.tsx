@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import productHunt from '@/assets/icons/productHunt.svg'
+import { useEffect, useState } from 'react'
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -21,7 +21,10 @@ const ScrollToTopButton = () => {
 
   return (
     isVisible && (
-      <div className="fixed bottom-5 right-5 flex items-center gap-3 z-100">
+      <div
+        className="fixed bottom-5 right-5 flex items-center gap-3 z-100"
+        role="scroll-to-top"
+      >
         <a
           className="hover:scale-103 duration-300"
           href="https://www.producthunt.com/posts/dev-to-rater-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dev&#0045;to&#0045;rater&#0045;2"

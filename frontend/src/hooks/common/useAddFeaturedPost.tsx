@@ -1,8 +1,8 @@
-import createFetchInstance from '@/utils/instance/instance'
-import { HttpMethods } from '@/utils/constants/globalWeb'
 import { AddPostProps } from '@/interfaces/props/AddPostProps'
-import { API_URL } from '@/utils/utilities'
 import { PostRoutes } from '@/interfaces/routes/apiRoutes'
+import { HttpMethods } from '@/utils/constants/globalWeb'
+import createFetchInstance from '@/utils/instance/instance'
+import { API_URL } from '@/utils/utilities'
 
 const useAddFeaturedPost = () => {
   const { instance } = createFetchInstance()

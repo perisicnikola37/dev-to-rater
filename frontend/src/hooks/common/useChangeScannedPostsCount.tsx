@@ -1,9 +1,9 @@
-import createFetchInstance from '@/utils/instance/instance'
-import { HttpMethods } from '@/utils/constants/globalWeb'
 import {
   ChangeScannedPostsCountProps,
   OperationType,
 } from '@/interfaces/props/ChangeScannedPostsCountProps'
+import { HttpMethods } from '@/utils/constants/globalWeb'
+import createFetchInstance from '@/utils/instance/instance'
 import { API_URL } from '@/utils/utilities'
 
 const useChangeScannedPostsCount = ({

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import { AxiosResponse } from 'axios'
+import { parseHTMLContent } from '@/core/parsers/htmlParser'
 import { FinalResponse } from '@/core/types/FinalResponse'
-import createFetchInstance from '@/utils/instance/instance'
 import { HttpMethods } from '@/utils/constants/globalWeb'
 import { ErrorMessages } from '@/utils/constants/messages'
-import { parseHTMLContent } from '@/core/parsers/htmlParser'
+import createFetchInstance from '@/utils/instance/instance'
+import { AxiosResponse } from 'axios'
 
 const useFetchHTMLContent = () => {
   const [content, setContent] = useState<FinalResponse | null>(null)
