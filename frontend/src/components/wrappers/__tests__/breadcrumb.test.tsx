@@ -1,14 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import Breadcrumb from '../breadcrumb'
 
 vi.mock('react-router-dom', async () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const actual = await vi.importActual<any>('react-router-dom')
   return {
     ...actual,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Link: ({ to, children, className }: any) => (
       <a href={to} className={className}>
         {children}

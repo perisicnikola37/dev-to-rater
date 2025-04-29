@@ -4,7 +4,6 @@ import { describe, expect, it, vi } from 'vitest'
 import Router from '../router'
 import { FrontendApplicationRoutes } from '../routes'
 
-// Mock react-router-dom to provide our own Outlet component
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom')
   return {
@@ -13,7 +12,6 @@ vi.mock('react-router-dom', async () => {
   }
 })
 
-// Mock pages
 vi.mock('@/pages/homepage', () => ({
   default: () => <div>Mock HomePage</div>,
 }))

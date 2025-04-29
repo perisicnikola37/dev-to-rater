@@ -1,17 +1,17 @@
-import React from 'react'
+import { FinalResponse } from '@/core/types/FinalResponse'
 import { RadarData } from '@/interfaces/props/RadarComponent'
 import {
   ExceededSentences,
-  RepeatedWords,
-  ReadingTime,
   RadarChartSection,
+  ReadingTime,
+  RepeatedWords,
+  Spinner,
   SuspenseWrapper,
 } from '@/utils/lazyImports'
-import { Spinner } from '@/utils/lazyImports'
-import { FinalResponse } from '@/core/types/FinalResponse'
+import React from 'react'
 
 interface AnalyzeContentLayoutProps {
-  content: FinalResponse
+  content: FinalResponse | null
   fullMark: number
   data: RadarData[]
   animatedScore: JSX.Element | null
