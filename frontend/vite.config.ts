@@ -17,11 +17,6 @@ export default defineConfig({
     }),
     compression(),
   ],
-  test: {
-    environment: 'jsdom',
-    globals: true,
-    setupFiles: './src/setupTests.ts',
-  },
   build: {
     terserOptions: {
       compress: {
